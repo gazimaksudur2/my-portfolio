@@ -1,9 +1,9 @@
-import React from 'react';
+import UnderConstruction from './UnderConstruction';
 
 const Home = () => {
     return (
         <div>
-            This is home page.
+            <UnderConstruction/>
         </div>
     );
 };
