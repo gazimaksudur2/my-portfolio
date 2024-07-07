@@ -1,0 +1,18 @@
+[
+    {
+      "company_name": "React",
+      "logo_url": "../src/assets/react.svg"
+    },
+    {
+      "company_name": "MongoDB",
+      "logo_url": "https://cdn-icons-png.flaticon.com/128/732/732221.png"
+    },
+    {
+      "company_name": "Express.js",
+      "logo_url": "https://cdn-icons-png.flaticon.com/128/1348/1348039.png"
+    },
+    {
+      "company_name": "Node.js",
+      "logo_url": "https://cdn-icons-png.flaticon.com/128/16021/16021158.png"
+    }
+  ]
