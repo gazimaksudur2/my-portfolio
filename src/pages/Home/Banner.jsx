@@ -15,7 +15,7 @@ const Banner = () => {
                             {"Welcome to my portfolio, where innovation meets excellence. Explore my comprehensive services, cutting-edge solutions, and exceptional expertise. Let's embark on a journey of success together."}
                         </p>
                         <div className="flex items-center justify-start gap-4">
-                            <button className="btn btn-primary rounded-full text-white">Download Resume</button>
+                            <button className="btn btn-primary bg-purple-600 hover:bg-purple-400 border-purple-700 rounded-full text-white">Download Resume</button>
                             <button className="btn btn-outline rounded-full">Hire Me</button>
                         </div>
                     </div>

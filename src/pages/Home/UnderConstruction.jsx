@@ -10,7 +10,7 @@ const UnderConstruction = () => {
     return (
         info && <div className='pt-20 w-[70%] mx-auto text-center flex flex-col justify-center items-center gap-2'>
             <h1 className="mb-2 text-5xl font-bold font-roboto">
-                {"Here"}  <span className='text-red-500'><Typewriter
+                {"Here"}  <span className='bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to bg-gray-700'><Typewriter
                     words={[info?.title]}
                     loop={5}
                     cursor
