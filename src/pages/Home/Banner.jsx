@@ -9,7 +9,7 @@ const Banner = () => {
                         className="max-w-sm rounded-lg" />
                     <div className="space-y-2">
                         <h1 className="text-3xl font-semibold text-[#151515db]">👋Hi there!</h1>
-                        <h1 className="text-4xl font-bold text-[#151515db]">{"I'm "} <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-green-500">Gazi Maksudur Rahman</span> </h1>
+                        <h1 className="text-4xl font-bold text-[#151515db]">{"I'm "} <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 to-black">Gazi Maksudur Rahman</span> </h1>
                         <h3 className="text-lg font-semibold text-[#151515ab]">jr. MERN Stack Developer</h3>
                         <p className="py-6 w-[65%] text-[#151515a0]">
                             {"Welcome to my portfolio, where innovation meets excellence. Explore my comprehensive services, cutting-edge solutions, and exceptional expertise. Let's embark on a journey of success together."}

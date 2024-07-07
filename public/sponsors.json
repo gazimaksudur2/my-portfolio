@@ -1,18 +1,30 @@
 [
     {
-      "company_name": "React",
-      "logo_url": "../src/assets/react.svg"
+      "technology": "React",
+      "logo_url": "https://www.svgrepo.com/show/303157/react-logo.svg"
     },
     {
-      "company_name": "MongoDB",
-      "logo_url": "https://cdn-icons-png.flaticon.com/128/732/732221.png"
+      "technology": "JavaScript",
+      "logo_url": "https://www.svgrepo.com/show/353925/javascript.svg"
     },
     {
-      "company_name": "Express.js",
-      "logo_url": "https://cdn-icons-png.flaticon.com/128/1348/1348039.png"
+      "technology": "MongoDB",
+      "logo_url": "https://www.svgrepo.com/show/373845/mongo.svg"
     },
     {
-      "company_name": "Node.js",
-      "logo_url": "https://cdn-icons-png.flaticon.com/128/16021/16021158.png"
+      "technology": "Express.js",
+      "logo_url": "https://www.svgrepo.com/show/376367/express.svg"
+    },
+    {
+      "technology": "Node.js",
+      "logo_url": "https://www.svgrepo.com/show/452075/node-js.svg"
+    },
+    {
+      "technology": "Tailwind CSS",
+      "logo_url": "https://www.svgrepo.com/show/333609/tailwind-css.svg"
+    },
+    {
+      "technology": "Github",
+      "logo_url": "https://www.svgrepo.com/show/512317/github-142.svg"
     }
   ]
