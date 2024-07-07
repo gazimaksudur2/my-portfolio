@@ -1,0 +1,59 @@
+[
+    {
+      "projectType": "EdTech Platform",
+      "projectTitle": "EduHive",
+      "projectDescription": "EduHive is a dynamic educational platform designed to connect students with experienced educators through interactive courses and resources.",
+      "skills": ["React", "MongoDB", "Node", "Express", "Tailwind CSS"],
+      "liveSiteLink": "https://eduhive.example.com",
+      "githubRepoLink": "https://github.com/username/eduhive",
+      "bannerImgUrl": "https://themejunction.net/html/gerold/demo/assets/img/project/project-2.png",
+      "features": [
+        "Live video classes with chat support",
+        "Interactive quizzes and assessments",
+        "Personalized learning paths"
+      ]
+    },
+    {
+      "projectType": "E-Commerce Platform",
+      "projectTitle": "ShopEase",
+      "projectDescription": "ShopEase is an e-commerce platform that offers a seamless shopping experience with a wide range of products and secure payment options.",
+      "skills": ["React", "Node", "Express", "MongoDB", "Bootstrap"],
+      "liveSiteLink": "https://shopease.example.com",
+      "githubRepoLink": "https://github.com/username/shopease",
+      "bannerImgUrl": "https://themejunction.net/html/gerold/demo/assets/img/project/project-3.png",
+      "features": [
+        "Advanced search and filtering",
+        "Secure payment gateway",
+        "User reviews and ratings"
+      ]
+    },
+    {
+      "projectType": "Social Networking Site",
+      "projectTitle": "Connectify",
+      "projectDescription": "Connectify is a social networking site that helps people connect with friends, share updates, and discover new interests in a safe online environment.",
+      "skills": ["React", "Node", "Express", "MongoDB", "Sass"],
+      "liveSiteLink": "https://connectify.example.com",
+      "githubRepoLink": "https://github.com/username/connectify",
+      "bannerImgUrl": "https://themejunction.net/html/gerold/demo/assets/img/project/project-4.png",
+      "features": [
+        "Real-time messaging and notifications",
+        "Profile customization",
+        "Interest-based groups and communities"
+      ]
+    },
+    {
+      "projectType": "Project Management Tool",
+      "projectTitle": "TaskMaster",
+      "projectDescription": "TaskMaster is a project management tool that enables teams to collaborate effectively, manage tasks, and track project progress in real-time.",
+      "skills": ["React", "Node", "Express", "MongoDB", "Material-UI"],
+      "liveSiteLink": "https://taskmaster.example.com",
+      "githubRepoLink": "https://github.com/username/taskmaster",
+      "bannerImgUrl": "https://themejunction.net/html/gerold/demo/assets/img/project/project-1.png",
+      "features": [
+        "Task assignment and tracking",
+        "Gantt charts and timelines",
+        "Team collaboration and communication"
+      ]
+    }
+  ]
+  

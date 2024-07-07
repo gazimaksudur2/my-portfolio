@@ -2,7 +2,7 @@
 const Banner = () => {
     return (
         <div>
-            <div className="hero min-h-screen">
+            <div className="hero min-h-[80vh]">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <img
                         src="https://i.ibb.co/nk2X4F0/selfie-png.png"
