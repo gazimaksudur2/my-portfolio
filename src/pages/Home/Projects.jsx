@@ -19,7 +19,7 @@ const Projects = () => {
             <h1 className='px-2 text-start bg-clip-text text-transparent bg-gradient-to-r from-purple-800 to-gray-400 text-3xl font-bold'>Recent projects</h1>
             {
                 projects && <>
-                    <div className="mt-4 p-5 rounded-2xl bg-base-200 border-2 border-gray-400 flex items-center justify-between">
+                    <div className="mt-4 p-5 rounded-2xl bg-base-200 border-2 border-purple-400 flex items-center justify-between">
                         <div className='w-[50%]'>
                             <h3 className='text-purple-500'>{projects[0]?.projectType}</h3>
                             <h1 className='text-[#151515bb] text-2xl font-bold'>{projects[0]?.projectTitle}</h1>

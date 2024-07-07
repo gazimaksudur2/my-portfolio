@@ -2,7 +2,7 @@
 const Project = ({ project }) => {
     // console.log(project);
     return (
-        <div className="mt-4 p-5 rounded-2xl bg-base-200 border-2 border-gray-400 flex flex-col-reverse items-center justify-center gap-5">
+        <div className="mt-4 p-5 rounded-2xl bg-base-200 border-2 border-purple-400 flex flex-col-reverse items-center justify-center gap-5">
             <div className=''>
                 <h3 className='text-purple-500'>{project?.projectType}</h3>
                 <h1 className='text-[#151515bb] text-2xl font-bold'>{project?.projectTitle}</h1>
