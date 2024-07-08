@@ -5,7 +5,7 @@ const Connect = () => {
         <div>
             <section className="bg-white">
                 <div className="container px-6 py-12 mx-auto">
-                    <div className="lg:flex lg:items-center lg:-mx-6">
+                    <div className="lg:flex lg:items-center">
                         <div className="lg:w-1/2 lg:mx-6">
                             <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl">
                                 {"Let's Contact for"} <br/> more info
