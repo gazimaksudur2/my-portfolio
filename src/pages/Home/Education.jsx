@@ -10,7 +10,7 @@ const Education = () => {
                 <ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
                     <li>
                         <div className="timeline-middle">
-                            <HiMiniFire className="h-5 w-5 text-purple-500 p-[1px] border-[2px] border-purple-500 rounded-full"/>
+                            <HiMiniFire className="h-5 w-5 text-purple-500 p-[1px] border-[2px] border-purple-500 rounded-full" />
                             {/* <img className="h-5 w-5 " src="https://www.svgrepo.com/show/500378/fire.svg" alt="running state" /> */}
                             {/* <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -27,11 +27,6 @@ const Education = () => {
                             <time className="font-mono italic">2022 - present</time>
                             <h2 className="text-lg font-black">Computer Science and Engineering</h2>
                             <h4 className="text-[#151515bd]">BSc. in Engineering</h4>
-                            {/* The Apple Macintosh—later rebranded as the Macintosh 128K—is the original Apple Macintosh
-                            personal computer. It played a pivotal role in establishing desktop publishing as a general
-                            office function. The motherboard, a 9 in (23 cm) CRT monitor, and a floppy drive were housed
-                            in a beige case with integrated carrying handle; it came with a keyboard and single-button
-                            mouse. */}
                             <div className="mt-2 flex justify-center items-center gap-3">
                                 <img className="w-8 h-8" src="https://www.sust.edu/images/logo.png" alt="sust logo" />
                                 <h2 className="font-medium text-[#151515db]">Shahjalal University of Science and Technology</h2>
@@ -54,17 +49,12 @@ const Education = () => {
                             </svg>
                         </div>
                         <div className="timeline-end mb-10">
-                        <time className="font-mono italic">2022 - present</time>
-                            <h2 className="text-lg font-black">Computer Science and Engineering</h2>
-                            <h4 className="text-[#151515bd]">BSc. in Engineering</h4>
-                            {/* The Apple Macintosh—later rebranded as the Macintosh 128K—is the original Apple Macintosh
-                            personal computer. It played a pivotal role in establishing desktop publishing as a general
-                            office function. The motherboard, a 9 in (23 cm) CRT monitor, and a floppy drive were housed
-                            in a beige case with integrated carrying handle; it came with a keyboard and single-button
-                            mouse. */}
+                            <time className="font-mono italic">2018 - 2020</time>
+                            <h2 className="text-lg font-black">Science Department</h2>
+                            <h4 className="text-[#151515bd]">Higher Secondary School Certificate</h4>
                             <div className="mt-2 flex justify-center items-center gap-3">
-                                <img className="w-8 h-8" src="https://www.sust.edu/images/logo.png" alt="sust logo" />
-                                <h2 className="font-medium text-[#151515db]">Shahjalal University of Science and Technology</h2>
+                                <img className="w-8 h-8" src="https://scontent.fdac24-5.fna.fbcdn.net/v/t39.30808-6/347778677_1265633041011051_2411880285562199077_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHEdNpNSKN9OxT2-Cah_JPufD-3YsgoaNN8P7diyCho09zqdElaeZFfbW60hOtn8kCYWxIcEWJJsNHtOuW_ia8p&_nc_ohc=7ICBSoJsPnUQ7kNvgHzfRQ3&_nc_ht=scontent.fdac24-5.fna&oh=00_AYAJxPxC9iGrkv0N7v8Ufhy1UJ7_0aQTjjq2Kf8LkUSXqw&oe=6691B62C" alt="hasan logo" />
+                                <h2 className="font-medium text-[#151515db]">Major General Mahmudul Hasan Adarsha College, Tangail</h2>
                             </div>
                         </div>
                         <hr />
@@ -84,22 +74,17 @@ const Education = () => {
                             </svg>
                         </div>
                         <div className="timeline-start mb-10 md:text-end">
-                        <time className="font-mono italic">2022 - present</time>
-                            <h2 className="text-lg font-black">Computer Science and Engineering</h2>
-                            <h4 className="text-[#151515bd]">BSc. in Engineering</h4>
-                            {/* The Apple Macintosh—later rebranded as the Macintosh 128K—is the original Apple Macintosh
-                            personal computer. It played a pivotal role in establishing desktop publishing as a general
-                            office function. The motherboard, a 9 in (23 cm) CRT monitor, and a floppy drive were housed
-                            in a beige case with integrated carrying handle; it came with a keyboard and single-button
-                            mouse. */}
+                            <time className="font-mono italic">2016 - 2018</time>
+                            <h2 className="text-lg font-black">Science Department</h2>
+                            <h4 className="text-[#151515bd]">Secondary School Certificate</h4>
                             <div className="mt-2 flex justify-center items-center gap-3">
-                                <img className="w-8 h-8" src="https://www.sust.edu/images/logo.png" alt="sust logo" />
-                                <h2 className="font-medium text-[#151515db]">Shahjalal University of Science and Technology</h2>
+                                <img className="w-8 h-8" src="https://i.ibb.co/bXJ5kmH/jamuky-Logo.png" alt="jamurky logo" />
+                                <h2 className="font-medium text-[#151515db]">Jamurky N.S.A.G High School, Tangail</h2>
                             </div>
                         </div>
-                        <hr />
+                        {/* <hr /> */}
                     </li>
-                    <li>
+                    {/* <li>
                         <hr />
                         <div className="timeline-middle">
                             <svg
@@ -117,17 +102,12 @@ const Education = () => {
                         <time className="font-mono italic">2022 - present</time>
                             <h2 className="text-lg font-black">Computer Science and Engineering</h2>
                             <h4 className="text-[#151515bd]">BSc. in Engineering</h4>
-                            {/* The Apple Macintosh—later rebranded as the Macintosh 128K—is the original Apple Macintosh
-                            personal computer. It played a pivotal role in establishing desktop publishing as a general
-                            office function. The motherboard, a 9 in (23 cm) CRT monitor, and a floppy drive were housed
-                            in a beige case with integrated carrying handle; it came with a keyboard and single-button
-                            mouse. */}
                             <div className="mt-2 flex justify-center items-center gap-3">
                                 <img className="w-8 h-8" src="https://www.sust.edu/images/logo.png" alt="sust logo" />
                                 <h2 className="font-medium text-[#151515db]">Shahjalal University of Science and Technology</h2>
                             </div>
                         </div>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
         </div>

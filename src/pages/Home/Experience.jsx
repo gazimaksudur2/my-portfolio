@@ -1,10 +1,25 @@
 const Experience = () => {
     return (
-        <div className='py-10 w-[70%] mx-auto'>
+        <div className='py-10 w-[80%] mx-auto'>
             <div className='space-y-2 flex flex-col justify-center items-center text-center'>
                 <h1 className='bg-clip-text text-transparent bg-gradient-to-r from-purple-800 to-gray-400 text-2xl font-bold'>Experience</h1>
+                <p className="text-sm text-[#151515ab]">{"While I have not yet had the opportunity to gain professional experience, I have dedicated a significant amount of time to learning new technologies and mastering fundamental concepts. As a result, my experience primarily consists of extensive self-driven learning and practical projects. "}</p>
             </div>
-            <div className="mt-8">
+            <div className="grid grid-cols-2 mt-8 gap-10">
+                <div className="p-4 bg-purple-200 border-2 border-purple-700 rounded-2xl">
+                    <h2 className="text-xl font-semibold text-[#151515bd]">2022 - Present</h2>
+                    <h1 className="text-2xl font-black text-[#151515db]">Learning CSE Fundamentals</h1>
+                    <h4 className="font-medium text-[#151515ab]">Shahjalal University of Science and Technology</h4>
+                    <p className="mt-3 text-sm text-[#151515a0]">{"As a third-year Computer Science student at university, I'm focused on mastering data structures, algorithms, and foundational CSE concepts, deeply immersing myself in the core principles of the field."}</p>
+                </div>
+                <div className="p-4 bg-purple-200 border-2 border-purple-700 rounded-2xl">
+                    <h2 className="text-xl font-semibold text-[#151515bd]">2023 - 2024</h2>
+                    <h1 className="text-2xl font-black text-[#151515db]">Learning MERN Stack Development</h1>
+                    <h4 className="font-medium text-[#151515ab]">Programming Hero</h4>
+                    <p className="mt-3 text-sm text-[#151515a0]">{"Over the past year, I've delved into web development, exploring various technologies and frameworks, and continuously enhancing my skills to build dynamic, responsive, and user-friendly web applications."}</p>
+                </div>
+            </div>
+            {/* <div className="mt-8">
                 <ol className="relative border-s border-gray-500">
                     <li className="mb-10 ms-4">
                         <div className="absolute w-3 h-3 bg-gray-500 rounded-full mt-1.5 -start-1.5 border border-white"></div>
@@ -30,7 +45,7 @@ const Experience = () => {
                 </ol>
 
 
-            </div>
+            </div> */}
         </div>
     );
 };
