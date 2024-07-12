@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import Project from './Project';
+import { Link, ScrollRestoration } from 'react-router-dom';
+import { FaArrowUp } from 'react-icons/fa6';
 
 const Projects = () => {
     const [projects, setProjects] = useState([]);
@@ -15,7 +17,8 @@ const Projects = () => {
             })
     }, [])
     return (
-        <div className='w-[80%] mx-auto py-10 flex flex-col justify-center items-start'>
+        <div id='projects' className='relative w-[80%] mx-auto py-10 flex flex-col justify-center items-start'>
+            <ScrollRestoration />
             <h1 className='px-2 text-start bg-clip-text text-transparent bg-gradient-to-r from-purple-800 to-gray-400 text-3xl font-bold'>Recent projects</h1>
             {
                 projects && <>
@@ -63,6 +66,9 @@ const Projects = () => {
             </div>
             <div className='w-full flex justify-center items-center pt-7'>
                 <button className='btn btn-outline'>View All Projects</button>
+                <Link to={'#skills'} className="absolute bottom-10 -right-16 border-2 p-2 rounded-full text-purple-600 border-purple-600 cursor-pointer active:scale-95">
+                    <FaArrowUp className="" size={22} />
+                </Link>
             </div>
         </div>
     );

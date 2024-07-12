@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { FaArrowUp } from 'react-icons/fa6';
+import { Link, ScrollRestoration } from 'react-router-dom';
 
 const MySkills = () => {
     const [skills, setSkills] = useState([]);
@@ -14,7 +16,8 @@ const MySkills = () => {
             })
     }, [])
     return (
-        <div id='skills' className='py-10 flex flex-col justify-center items-center'>
+        <div id='skills' className='relative py-10 flex flex-col justify-center items-center'>
+            <ScrollRestoration/>
             <div className='space-y-2 flex flex-col justify-center items-center'>
                 <h1 className='bg-clip-text text-transparent bg-gradient-to-r from-purple-800 to-gray-500 text-3xl font-bold'>My Skills</h1>
                 <h3 className='w-[60%] text-sm text-center text-[#151515ab]'>My continuous learning mindset keeps me updated with the latest trends and technologies in web development, enabling me to deliver cutting-edge solutions.</h3>
@@ -31,6 +34,9 @@ const MySkills = () => {
                     </>)
                 }
             </div>
+            <Link to={'#top'} className="absolute bottom-0 right-24 border-2 p-2 rounded-full text-purple-600 border-purple-600 cursor-pointer active:scale-95">
+                <FaArrowUp className="" size={22} />
+            </Link>
         </div>
     );
 };

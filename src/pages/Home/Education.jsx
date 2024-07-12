@@ -1,8 +1,11 @@
+import { FaArrowUp } from "react-icons/fa6";
 import { HiMiniFire } from "react-icons/hi2";
+import { Link, ScrollRestoration } from "react-router-dom";
 
 const Education = () => {
     return (
-        <div className='py-10 w-[70%] mx-auto'>
+        <div id="education" className='relative py-10 w-[70%] mx-auto'>
+            <ScrollRestoration />
             <div className='space-y-2 flex flex-col justify-center items-center text-center'>
                 <h1 className='bg-clip-text text-transparent bg-gradient-to-r from-purple-800 to-gray-400 text-2xl font-bold'>Education</h1>
             </div>
@@ -109,6 +112,9 @@ const Education = () => {
                         </div>
                     </li> */}
                 </ul>
+                <Link to={'#projects'} className="absolute bottom-10 -right-32 border-2 p-2 rounded-full text-purple-600 border-purple-600 cursor-pointer active:scale-95">
+                    <FaArrowUp className="" size={22} />
+                </Link>
             </div>
         </div>
     );

@@ -14,3 +14,8 @@ https://www.svgrepo.com/show/354112/nextjs.svg
 
 profile image
 https://i.ibb.co/nk2X4F0/selfie-png.png
+
+
+Resources
+https://themejunction.net/html/gerold/demo/index.html
+https://themejunction.net/html/gerold/demo/index-2-light.html

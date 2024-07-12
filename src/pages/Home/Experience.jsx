@@ -1,6 +1,10 @@
+import { FaArrowUp } from "react-icons/fa6";
+import { Link, ScrollRestoration } from "react-router-dom";
+
 const Experience = () => {
     return (
-        <div className='py-10 w-[80%] mx-auto'>
+        <div id="experience" className='py-10 w-[80%] mx-auto'>
+            <ScrollRestoration />
             <div className='space-y-2 flex flex-col justify-center items-center text-center'>
                 <h1 className='bg-clip-text text-transparent bg-gradient-to-r from-purple-800 to-gray-400 text-2xl font-bold'>Experience</h1>
                 <p className="text-sm text-[#151515ab]">{"While I have not yet had the opportunity to gain professional experience, I have dedicated a significant amount of time to learning new technologies and mastering fundamental concepts. As a result, my experience primarily consists of extensive self-driven learning and practical projects. "}</p>
@@ -46,6 +50,9 @@ const Experience = () => {
 
 
             </div> */}
+            <Link to={'#education'} className="absolute right-20 border-2 p-2 rounded-full text-purple-600 border-purple-600 cursor-pointer active:scale-95">
+                <FaArrowUp className="" size={22} />
+            </Link>
         </div>
     );
 };

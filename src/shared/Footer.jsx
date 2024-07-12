@@ -1,4 +1,5 @@
 import { FaArrowUp } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -60,9 +61,9 @@ const Footer = () => {
                         </a>
                     </div>
                 </nav> */}
-                <div className="absolute right-10 border-2 p-2 rounded-full text-purple-600 border-purple-600 cursor-pointer active:scale-95">
-                    <FaArrowUp className="" size={22}/>
-                </div>
+                <Link to={'#experience'} className="absolute right-10 border-2 p-2 rounded-full text-purple-600 border-purple-600 cursor-pointer active:scale-95">
+                    <FaArrowUp className="" size={22} />
+                </Link>
             </footer>
         </div>
     );
