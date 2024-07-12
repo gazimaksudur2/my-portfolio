@@ -17,8 +17,10 @@ const Project = ({ project }) => {
                 </ul>
                 <div className='mt-4 text-sm flex justify-start items-center gap-4'>
                     <a className='text-purple-500 hover:underline cursor-pointer' href={project?.liveSiteLink}>Live site</a>
-                    <a className='text-purple-500 hover:underline cursor-pointer' href={project?.liveSiteLink}>Github Client Repo</a>
-                    <a className='text-purple-500 hover:underline cursor-pointer' href={project?.liveSiteLink}>Github Server Repo</a>
+                    <a className='text-purple-500 hover:underline cursor-pointer' href={project?.githubClientRepoLink}>Github Client Repo</a>
+                    {
+                        project?.githubServerRepoLink && <a className='text-purple-500 hover:underline cursor-pointer' href={project?.githubServerRepoLink}>Github Server Repo</a>
+                    }
                 </div>
                 <div className='mt-4'>
                     <h4 className='text-[#151515ab] font-semibold'>Exciting Features</h4>

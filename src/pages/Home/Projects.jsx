@@ -37,8 +37,10 @@ const Projects = () => {
                             </ul>
                             <div className='mt-4 text-sm flex justify-start items-center gap-4'>
                                 <a className='text-purple-500 hover:underline cursor-pointer' href={projects[0]?.liveSiteLink}>Live site</a>
-                                <a className='text-purple-500 hover:underline cursor-pointer' href={projects[0]?.liveSiteLink}>Github Client Repo</a>
-                                <a className='text-purple-500 hover:underline cursor-pointer' href={projects[0]?.liveSiteLink}>Github Server Repo</a>
+                                <a className='text-purple-500 hover:underline cursor-pointer' href={projects[0]?.githubClientRepoLink}>Github Client Repo</a>
+                                {
+                                    projects[0]?.githubServerRepoLink && <a className='text-purple-500 hover:underline cursor-pointer' href={projects[0]?.githubServerRepoLink}>Github Server Repo</a>
+                                }
                             </div>
                             <div className='mt-4'>
                                 <h4 className='text-[#151515ab] font-semibold'>Exciting Features</h4>

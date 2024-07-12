@@ -5,7 +5,8 @@
       "projectDescription": "ElevateEx connects students, instructors, and admins. Students enroll in courses and track progress. Instructors create and submit courses. Admins manage users and content. ElevateEx enhances learning with a user-friendly interface.",
       "skills": ["React", "MongoDB", "Node", "Express", "Tailwind CSS"],
       "liveSiteLink": "https://elevateex-ac4de.web.app/",
-      "githubRepoLink": "https://github.com/gazimaksudur2/elevateex-client",
+      "githubServerRepoLink": "https://github.com/gazimaksudur2/elevateex-server",
+      "githubClientRepoLink": "https://github.com/gazimaksudur2/elevateex-client",
       "bannerImgUrl": "https://i.ibb.co/K6ZSFhf/screencapture-elevateex-ac4de-web-app-allclass-2024-07-10-11-49-30.png",
       "features": [
         "There are 3 types of user facility. Like, admin, instructor, student or general user. For each type there will be a functional dashboard.",
@@ -19,7 +20,8 @@
       "projectDescription": "Trip_Flip is a hotel management web application designed to provide travelers with a seamless experience in exploring and booking hotel services worldwide. Users can sign up, book rooms, manage their bookings, and share their experiences, all through a user-friendly interface.",
       "skills": ["React", "Node", "Express", "MongoDB", "DaisyUI"],
       "liveSiteLink": "https://trip-flip.web.app",
-      "githubRepoLink": "https://github.com/gazimaksudur2/trip-flip-client",
+      "githubServerRepoLink": "https://github.com/gazimaksudur2/trip-flip-server",
+      "githubClientRepoLink": "https://github.com/gazimaksudur2/trip-flip-client",
       "bannerImgUrl": "https://i.ibb.co/2gwd1Sb/screencapture-trip-flip-web-app-rooms-2024-07-12-23-19-42.png",
       "features": [
         "One can create an account with his credentials or using an existing google or github account.",
@@ -33,7 +35,7 @@
       "projectDescription": "Artisan Haven is designed to showcase textile art and craft in an engaging and user-friendly platform. Whether you're an artist wanting to display your work or an enthusiast exploring new crafts, Artisan Haven offers a vibrant community and a seamless experience.",
       "skills": ["React", "Node", "Express", "MongoDB", "Material-UI"],
       "liveSiteLink": "https://artisan-haven.web.app",
-      "githubRepoLink": "https://github.com/gazimaksudur2/artisan-client",
+      "githubClientRepoLink": "https://github.com/gazimaksudur2/artisan-client",
       "bannerImgUrl": "https://i.ibb.co/HxZ9DTN/screencapture-artisan-haven-web-app-2024-07-12-23-20-59.png",
       "features": [
         "This is a Textile art and craft gallery so here people can view various types of arts and crafts.",
