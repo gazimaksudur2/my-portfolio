@@ -52,7 +52,7 @@ const Projects = () => {
                             </div>
                         </div>
                         <div className='lg:w-[45%] bg-gray-800 p-4 rounded-xl'>
-                            <img className="" src={projects[0]?.bannerImgUrl} alt="banner image" />
+                            <img className="w-[500px] max-h-[500px] object-cover" src={projects[0]?.bannerImgUrl} alt="banner image" />
                         </div>
                     </div>
                 </>

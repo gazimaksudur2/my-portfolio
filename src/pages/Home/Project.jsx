@@ -32,7 +32,7 @@ const Project = ({ project }) => {
                 </div>
             </div>
             <div className='bg-gray-800 p-4 rounded-xl'>
-                <img className="" src={project?.bannerImgUrl} alt="banner image" />
+                <img className="w-[500px] max-h-[500px] object-cover" src={project?.bannerImgUrl} alt="banner image" />
             </div>
         </div>
     );

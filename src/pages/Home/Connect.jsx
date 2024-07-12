@@ -1,6 +1,19 @@
 import { SiGithub } from "react-icons/si";
+import Swal from "sweetalert2";
 
 const Connect = () => {
+
+    const alert = e =>{
+        e.preventDefault();
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your Mail Sent Successfully!!",
+            showConfirmButton: false,
+            timer: 1500
+          });
+    }
+
     return (
         <div className="lg:w-[85%] mx-auto">
             <section className="bg-white">
@@ -107,20 +120,20 @@ const Connect = () => {
                                 className="w-full px-8 py-10 mx-auto overflow-hidden bg-white rounded-lg lg:max-w-xl border-2 border-purple-400">
                                 <h1 className="text-lg font-semibold text-[#151515ab] ">Ask me What do you want</h1>
 
-                                <form className="mt-6">
+                                <form onSubmit={alert} className="mt-6">
                                     <div className="flex-1">
                                         <label className="block mb-2 text-sm text-gray-600">Full Name</label>
-                                        <input type="text" placeholder="John Doe" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-purple-400 focus:ring-purple-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                        <input type="text" placeholder="John Doe" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-purple-400 focus:ring-purple-400 focus:outline-none focus:ring focus:ring-opacity-40" required/>
                                     </div>
 
                                     <div className="flex-1 mt-6">
                                         <label className="block mb-2 text-sm text-gray-600">Email address</label>
-                                        <input type="email" placeholder="johndoe@example.com" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-purple-400 focus:ring-purple-400 focus:outline-none focus:ring focus:ring-opacity-40" />
+                                        <input type="email" placeholder="johndoe@example.com" className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-purple-400 focus:ring-purple-400 focus:outline-none focus:ring focus:ring-opacity-40" required/>
                                     </div>
 
                                     <div className="w-full mt-6">
                                         <label className="block mb-2 text-sm text-gray-600">Message</label>
-                                        <textarea className="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48 focus:border-purple-400 focus:ring-purple-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Message"></textarea>
+                                        <textarea className="block w-full h-32 px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-md md:h-48 focus:border-purple-400 focus:ring-purple-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Message" required></textarea>
                                     </div>
 
                                     <button className="w-full px-6 py-3 mt-6 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-purple-500 rounded-md hover:bg-purple-400 focus:outline-none focus:ring focus:ring-purple-300 focus:ring-opacity-50">
