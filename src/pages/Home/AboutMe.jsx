@@ -2,7 +2,7 @@ import { ScrollRestoration } from "react-router-dom";
 
 const AboutMe = () => {
     return (
-        <div id="aboutme" className='pt-10 pb-20 w-[70%] mx-auto'>
+        <div id="aboutme" className='lg:pt-10 py-6 lg:pb-20 w-[90%] lg:w-[70%] mx-auto'>
             <ScrollRestoration/>
             <div className='space-y-2 flex flex-col justify-center items-center text-center'>
                 <h1 className='bg-clip-text text-transparent bg-gradient-to-r from-purple-800 to-gray-400 text-2xl font-bold'>About Me</h1>

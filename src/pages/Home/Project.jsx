@@ -8,7 +8,7 @@ const Project = ({ project }) => {
                 <h1 className='text-[#151515bb] text-2xl font-bold'>{project?.projectTitle}</h1>
                 <p className='text-[#151515bb] py-4 text-sm'>{project?.projectDescription}</p>
                 {/* <h2 className='mt-2 text-xl font-semibold text-[#151515cb]'>Project Overview</h2> */}
-                <ul className='flex items-center justify-start gap-3'>
+                <ul className='flex items-center justify-start gap-3 flex-wrap'>
                     {
                         project?.skills.map((skill, idx) => <>
                             <li key={idx} className='bg-gradient-to-r from-[#151515db] to-[#15151580] px-3 py-1 rounded-full text-white font-semibold'>{skill}</li>

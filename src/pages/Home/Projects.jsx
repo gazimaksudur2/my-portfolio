@@ -17,18 +17,18 @@ const Projects = () => {
             })
     }, [])
     return (
-        <div id='projects' className='relative w-[80%] mx-auto py-10 flex flex-col justify-center items-start'>
+        <div id='projects' className='relative w-[90%] lg:w-[80%] mx-auto py-4 lg:py-10 flex flex-col justify-center items-start'>
             <ScrollRestoration />
-            <h1 className='px-2 text-start bg-clip-text text-transparent bg-gradient-to-r from-purple-800 to-gray-400 text-3xl font-bold'>Recent projects</h1>
+            <h1 className='px-2 text-start bg-clip-text text-transparent bg-gradient-to-r from-purple-800 to-gray-400 text-2xl lg:text-3xl font-bold'>Recent projects</h1>
             {
                 projects && <>
-                    <div className="mt-4 p-5 rounded-2xl bg-base-200 border-2 border-purple-400 flex items-center justify-between">
-                        <div className='w-[50%]'>
+                    <div className="mt-4 p-5 rounded-2xl bg-base-200 border-2 border-purple-400 flex flex-col-reverse lg:flex-row items-center justify-between">
+                        <div className='lg:w-[50%]'>
                             <h3 className='text-purple-500'>{projects[0]?.projectType}</h3>
                             <h1 className='text-[#151515bb] text-2xl font-bold'>{projects[0]?.projectTitle}</h1>
                             <p className='text-[#151515bb] py-4 text-sm'>{projects[0]?.projectDescription}</p>
                             {/* <h2 className='mt-2 text-xl font-semibold text-[#151515cb]'>Project Overview</h2> */}
-                            <ul className='flex items-center justify-start gap-3'>
+                            <ul className='flex items-center justify-start gap-3 flex-wrap'>
                                 {
                                     projects[0]?.skills.map((skill, idx) => <>
                                         <li key={idx} className='bg-gradient-to-r from-[#151515db] to-[#15151580] px-3 py-1 rounded-full text-white font-semibold'>{skill}</li>
@@ -51,13 +51,13 @@ const Projects = () => {
                                 </ul>
                             </div>
                         </div>
-                        <div className='w-[45%] bg-gray-800 p-4 rounded-xl'>
+                        <div className='lg:w-[45%] bg-gray-800 p-4 rounded-xl'>
                             <img className="" src={projects[0]?.bannerImgUrl} alt="banner image" />
                         </div>
                     </div>
                 </>
             }
-            <div className='mx-auto mt-3 grid grid-cols-2 gap-7'>
+            <div className='mx-auto mt-3 grid grid-cols-1 lg:grid-cols-2 gap-7'>
                 {
                     projects && projects.slice(1, 3).map((each, idx) => <>
                         <Project project={each} key={idx} />
@@ -65,8 +65,8 @@ const Projects = () => {
                 }
             </div>
             <div className='w-full flex justify-center items-center pt-7'>
-                <button className='btn btn-outline'>View All Projects</button>
-                <Link to={'#skills'} className="absolute bottom-10 -right-16 border-2 p-2 rounded-full text-purple-600 border-purple-600 cursor-pointer active:scale-95">
+                {/* <button className='btn btn-outline'>View All Projects</button> */}
+                <Link to={'#skills'} className="absolute bottom-10 -right-16 border-2 p-2 hidden lg:flex rounded-full text-purple-600 border-purple-600 cursor-pointer active:scale-95">
                     <FaArrowUp className="" size={22} />
                 </Link>
             </div>

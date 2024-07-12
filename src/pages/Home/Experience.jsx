@@ -9,7 +9,7 @@ const Experience = () => {
                 <h1 className='bg-clip-text text-transparent bg-gradient-to-r from-purple-800 to-gray-400 text-2xl font-bold'>Experience</h1>
                 <p className="text-sm text-[#151515ab]">{"While I have not yet had the opportunity to gain professional experience, I have dedicated a significant amount of time to learning new technologies and mastering fundamental concepts. As a result, my experience primarily consists of extensive self-driven learning and practical projects. "}</p>
             </div>
-            <div className="grid grid-cols-2 mt-8 gap-10">
+            <div className="grid lg:grid-cols-2 mt-8 gap-10">
                 <div className="p-4 bg-purple-200 border-2 border-purple-700 rounded-2xl">
                     <h2 className="text-xl font-semibold text-[#151515bd]">2022 - Present</h2>
                     <h1 className="text-2xl font-black text-[#151515db]">Learning CSE Fundamentals</h1>
@@ -50,7 +50,7 @@ const Experience = () => {
 
 
             </div> */}
-            <Link to={'#education'} className="absolute right-20 border-2 p-2 rounded-full text-purple-600 border-purple-600 cursor-pointer active:scale-95">
+            <Link to={'#education'} className="absolute right-20 border-2 p-2 hidden lg:flex rounded-full text-purple-600 border-purple-600 cursor-pointer active:scale-95">
                 <FaArrowUp className="" size={22} />
             </Link>
         </div>
