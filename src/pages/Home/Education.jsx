@@ -26,7 +26,7 @@ const Education = () => {
                                     clipRule="evenodd" />
                             </svg> */}
                         </div>
-                        <div className="timeline-start mr-2 mb-10 md:text-end">
+                        <div className="timeline-start mr-2 md:text-end pb-5 lg:pb-0">
                             <time className="font-mono italic">2022 - present</time>
                             <h2 className="text-lg font-black">Computer Science and Engineering</h2>
                             <h4 className="text-[#151515bd]">BSc. in Engineering</h4>
@@ -37,7 +37,7 @@ const Education = () => {
                         </div>
                         <hr />
                     </li>
-                    <li>
+                    <li className="">
                         <hr />
                         <div className="timeline-middle">
                             <svg
@@ -51,7 +51,7 @@ const Education = () => {
                                     clipRule="evenodd" />
                             </svg>
                         </div>
-                        <div className="timeline-end mb-10">
+                        <div className="timeline-end pb-5 lg:pb-0">
                             <time className="font-mono italic">2018 - 2020</time>
                             <h2 className="text-lg font-black">Science Department</h2>
                             <h4 className="text-[#151515bd]">Higher Secondary School Certificate</h4>
@@ -76,7 +76,7 @@ const Education = () => {
                                     clipRule="evenodd" />
                             </svg>
                         </div>
-                        <div className="timeline-start mb-10 md:text-end">
+                        <div className="timeline-start md:text-end">
                             <time className="font-mono italic">2016 - 2018</time>
                             <h2 className="text-lg font-black">Science Department</h2>
                             <h4 className="text-[#151515bd]">Secondary School Certificate</h4>

@@ -1,6 +1,17 @@
 // import { GoDownload } from "react-icons/go";
 
 const Banner = () => {
+    // const downloadPdf = () => {
+    //     const pdfUrl = 'https://drive.google.com/file/d/1-AoHayQihlWRG17EFwtaeCt7q30zsTQt/view?usp=sharing';
+            
+    //         // Creating an anchor element and simulating a click
+    //         const link = document.createElement('a');
+    //         link.href = pdfUrl;
+    //         link.download = "Gazi's Resume.pdf"; // Optional: Specify a default name for the downloaded file
+    //         document.body.appendChild(link);
+    //         link.click();
+    //         document.body.removeChild(link);
+    // }
     return (
         <div>
             <div className="hero min-h-[80vh]">
@@ -17,7 +28,8 @@ const Banner = () => {
                             {"Welcome to my portfolio, where innovation meets excellence. Explore my comprehensive services, cutting-edge solutions, and exceptional expertise. Let's embark on a journey of success together."}
                         </p>
                         <div className="flex items-center justify-start gap-4">
-                        <a href="../../assets/Gazi Maksudur Rahman Developer Resume (1).pdf" download={"gazi's_resume.pdf"} className="btn btn-primary btn-sm lg:btn-md bg-purple-600 hover:bg-purple-400 border-purple-700 rounded-full text-white">Download Resume</a>
+                        {/* <a href="../../assets/Gazi Maksudur Rahman Developer Resume (1).pdf" download={"gazi's_resume.pdf"} className="btn btn-primary btn-sm lg:btn-md bg-purple-600 hover:bg-purple-400 border-purple-700 rounded-full text-white">Download Resume</a> */}
+                        <a href="https://drive.google.com/file/d/1-AoHayQihlWRG17EFwtaeCt7q30zsTQt/view?usp=sharing" target="_blank" className="btn btn-primary btn-sm lg:btn-md bg-purple-600 hover:bg-purple-400 border-purple-700 rounded-full text-white">Download Resume</a>
                             <button className="btn btn-outline btn-sm lg:btn-md rounded-full">Hire Me</button>
                         </div>
                     </div>
