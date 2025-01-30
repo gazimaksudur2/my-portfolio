@@ -11,3 +11,4 @@ Currently, two official plugins are available:
 Testing my git setup on ubuntu os
 
 Final testing on insiders
+another changes made
