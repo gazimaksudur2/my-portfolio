@@ -13,3 +13,4 @@ Testing my git setup on ubuntu os
 Final testing on insiders
 another changes made
 another change
+status changed
