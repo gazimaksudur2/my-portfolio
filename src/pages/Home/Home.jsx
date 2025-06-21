@@ -1,45 +1,71 @@
-import Navbar from '../../components/Navbar';
-import Footer from '../../shared/Footer';
-import AboutMe from './AboutMe';
-import Banner from './Banner';
-import Connect from './Connect';
-import Education from './Education';
-import Experience from './Experience';
-import MySkills from './MySkills';
-import Projects from './Projects';
-import Testimonials from './Testimonials';
-import Services from './Services';
+import { useState, useEffect } from "react";
+import { FiArrowUp } from "react-icons/fi";
+import Navbar from "../../components/Navbar";
+import Footer from "../../shared/Footer";
+import AboutMe from "./AboutMe";
+import Banner from "./Banner";
+import Connect from "./Connect";
+import Education from "./Education";
+import Experience from "./Experience";
+import MySkills from "./MySkills";
+import Projects from "./Projects";
+import Testimonials from "./Testimonials";
+import Services from "./Services";
 // import UnderConstruction from './UnderConstruction';
 
 const Home = () => {
-    return (
-        <div>
-            <Navbar />
-            {/* <UnderConstruction /> */}
-            <main className="pt-16 lg:pt-20"> {/* Account for fixed navbar */}
-                <Banner />
-                <AboutMe />
-                <MySkills />
-                <Services />
-                <Projects />
-                <Experience />
-                <Education />
-                <Testimonials />
-                <Connect />
-            </main>
-            <Footer />
-            {/* Scroll to top button */}
-            <button
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                className="fixed bottom-8 right-8 z-40 p-3 bg-primary-500 hover:bg-primary-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110"
-                aria-label="Scroll to top"
-            >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-                </svg>
-            </button>
-        </div>
-    );
+	const [showBackToTop, setShowBackToTop] = useState(false);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			// Show button when user has scrolled more than 400px
+			setShowBackToTop(window.scrollY > 400);
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+
+	const scrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
+	};
+
+	return (
+		<div>
+			<Navbar />
+			{/* <UnderConstruction /> */}
+			<main className="pt-16 lg:pt-20">
+				{" "}
+				{/* Account for fixed navbar */}
+				<Banner />
+				<AboutMe />
+				<MySkills />
+				<Services />
+				<Projects />
+				<Experience />
+				<Education />
+				<Testimonials />
+				<Connect />
+			</main>
+			<Footer />
+
+			{/* Floating Back to Top Button */}
+			<button
+				onClick={scrollToTop}
+				className={`fixed bottom-8 right-8 z-50 p-3 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 ${
+					showBackToTop
+						? "translate-y-0 opacity-100"
+						: "translate-y-16 opacity-0 pointer-events-none"
+				}`}
+				aria-label="Back to top"
+			>
+				<FiArrowUp className="w-5 h-5" />
+			</button>
+		</div>
+	);
 };
 
 export default Home;
