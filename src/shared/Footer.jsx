@@ -1,71 +1,212 @@
-import { FaArrowUp } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { FiGithub, FiLinkedin, FiFacebook, FiInstagram, FiMail, FiPhone, FiMapPin, FiHeart, FiArrowUp } from "react-icons/fi";
 
 const Footer = () => {
-    return (
-        <div>
-            <footer className="relative footer footer-center bg-gradient-to-r from-purple-500 to-gray-900 text-primary-content p-10">
-                <aside>
-                    {/* <svg
-                        width="50"
-                        height="50"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        className="inline-block fill-current">
-                        <path
-                            d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path>
-                    </svg> */}
-                    <img className="w-8 h-10" src="https://cdn-icons-png.flaticon.com/128/351/351456.png" alt="web logo" />
-                    <p className="font-bold">
-                        {"Gazi's PortFolio"}
-                    </p>
-                    <p>Copyright © ${new Date().getFullYear()} - All right reserved</p>
-                </aside>
-                {/* <nav>
-                    <div className="grid grid-flow-col gap-4">
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
-                        <a>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                className="fill-current">
-                                <path
-                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path>
-                            </svg>
-                        </a>
-                        <a>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                className="fill-current">
-                                <path
-                                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-                            </svg>
-                        </a>
-                        <a>
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                className="fill-current">
-                                <path
-                                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path>
-                            </svg>
-                        </a>
+    const scrollToSection = (sectionId) => {
+        const element = document.querySelector(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    const quickLinks = [
+        { name: 'Home', href: '#home' },
+        { name: 'About', href: '#about' },
+        { name: 'Skills', href: '#skills' },
+        { name: 'Services', href: '#services' },
+        { name: 'Projects', href: '#projects' },
+        { name: 'Experience', href: '#experience' }
+    ];
+
+    const services = [
+        'Frontend Development',
+        'Backend Development',
+        'Full Stack Solutions',
+        'API Development',
+        'Database Design',
+        'Code Review & Optimization'
+    ];
+
+    const socialLinks = [
+        {
+            icon: FiGithub,
+            href: "https://github.com/gazimaksudur2",
+            label: "GitHub",
+            color: "hover:text-gray-300"
+        },
+        {
+            icon: FiLinkedin,
+            href: "https://www.linkedin.com/in/gazimaksudur/",
+            label: "LinkedIn",
+            color: "hover:text-blue-400"
+        },
+        {
+            icon: FiFacebook,
+            href: "https://www.facebook.com/gazi.maksudur",
+            label: "Facebook",
+            color: "hover:text-blue-300"
+        },
+        {
+            icon: FiInstagram,
+            href: "#",
+            label: "Instagram",
+            color: "hover:text-pink-400"
+        }
+    ];
+
+    return (
+        <footer className="bg-gradient-to-br from-neutral-900 to-neutral-800 text-white relative">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+                    {/* Brand Section */}
+                    <div className="lg:col-span-1">
+                        <div className="flex items-center space-x-3 mb-6">
+                            <div className="p-2 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl">
+                                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m-4 4l4 4-4 4" />
+                                </svg>
+                            </div>
+                            <h3 className="text-xl font-bold bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
+                                Gazi's Portfolio
+                            </h3>
+                        </div>
+                        <p className="text-neutral-300 leading-relaxed mb-6">
+                            Passionate Full Stack Developer creating exceptional digital experiences 
+                            with modern technologies and clean, efficient code.
+                        </p>
+                        <div className="flex space-x-4">
+                            {socialLinks.map((social, index) => {
+                                const IconComponent = social.icon;
+                                return (
+                                    <a
+                                        key={index}
+                                        href={social.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`p-2 bg-white/10 rounded-lg text-neutral-400 transition-all duration-300 transform hover:scale-110 hover:bg-white/20 ${social.color}`}
+                                        aria-label={social.label}
+                                    >
+                                        <IconComponent className="w-5 h-5" />
+                                    </a>
+                                );
+                            })}
+                        </div>
                     </div>
-                </nav> */}
-                <Link to={'#experience'} className="absolute right-10 border-2 p-2 hidden lg:flex rounded-full text-purple-600 border-purple-600 cursor-pointer active:scale-95">
-                    <FaArrowUp className="" size={22} />
-                </Link>
-            </footer>
-        </div>
+
+                    {/* Quick Links */}
+                    <div>
+                        <h4 className="text-lg font-semibold mb-6">Quick Links</h4>
+                        <ul className="space-y-3">
+                            {quickLinks.map((link, index) => (
+                                <li key={index}>
+                                    <button
+                                        onClick={() => scrollToSection(link.href)}
+                                        className="text-neutral-300 hover:text-primary-400 transition-colors duration-300 text-left"
+                                    >
+                                        {link.name}
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Services */}
+                    <div>
+                        <h4 className="text-lg font-semibold mb-6">Services</h4>
+                        <ul className="space-y-3">
+                            {services.map((service, index) => (
+                                <li key={index} className="text-neutral-300 text-sm">
+                                    {service}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Contact Info */}
+                    <div>
+                        <h4 className="text-lg font-semibold mb-6">Get in Touch</h4>
+                        <div className="space-y-4">
+                            <div className="flex items-center space-x-3 text-neutral-300">
+                                <FiMail className="w-4 h-4 text-primary-400" />
+                                <span className="text-sm">gazimaksudur2@gmail.com</span>
+                            </div>
+                            <div className="flex items-center space-x-3 text-neutral-300">
+                                <FiPhone className="w-4 h-4 text-primary-400" />
+                                <span className="text-sm">+880 1903-219313</span>
+                            </div>
+                            <div className="flex items-center space-x-3 text-neutral-300">
+                                <FiMapPin className="w-4 h-4 text-primary-400" />
+                                <span className="text-sm">Akhalia, Sylhet, Bangladesh</span>
+                            </div>
+                        </div>
+
+                        {/* Newsletter Signup */}
+                        <div className="mt-6">
+                            <h5 className="font-medium mb-3">Stay Updated</h5>
+                            <div className="flex">
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    className="flex-1 px-3 py-2 bg-white/10 border border-white/20 rounded-l-lg text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm"
+                                />
+                                <button className="px-4 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-r-lg hover:from-primary-600 hover:to-secondary-600 transition-all duration-300">
+                                    <FiMail className="w-4 h-4" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Bottom Section */}
+                <div className="border-t border-white/10 pt-8 mt-12">
+                    <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                        <div className="flex items-center space-x-2 text-neutral-300 text-sm">
+                            <span>© {new Date().getFullYear()} Gazi Maksudur Rahman. Made with</span>
+                            <FiHeart className="w-4 h-4 text-red-400" />
+                            <span>in Bangladesh</span>
+                        </div>
+                        <div className="flex items-center space-x-6 text-neutral-300 text-sm">
+                            <button 
+                                onClick={() => scrollToSection('#about')}
+                                className="hover:text-primary-400 transition-colors duration-300"
+                            >
+                                Privacy Policy
+                            </button>
+                            <button 
+                                onClick={() => scrollToSection('#contact')}
+                                className="hover:text-primary-400 transition-colors duration-300"
+                            >
+                                Terms of Service
+                            </button>
+                            <button 
+                                onClick={() => scrollToSection('#contact')}
+                                className="hover:text-primary-400 transition-colors duration-300"
+                            >
+                                Contact
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Scroll to Top Button */}
+            <button
+                onClick={scrollToTop}
+                className="absolute bottom-8 right-8 p-3 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
+                aria-label="Scroll to top"
+            >
+                <FiArrowUp className="w-5 h-5" />
+            </button>
+
+            {/* Background decoration */}
+            <div className="absolute inset-0 opacity-5">
+                <div className="absolute top-0 left-0 w-96 h-96 bg-primary-500 rounded-full filter blur-3xl"></div>
+                <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-500 rounded-full filter blur-3xl"></div>
+            </div>
+        </footer>
     );
 };
 
