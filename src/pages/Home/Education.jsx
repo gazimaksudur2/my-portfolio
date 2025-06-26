@@ -3,7 +3,7 @@ import { ScrollRestoration } from "react-router-dom";
 
 const Education = () => {
 	return (
-		<div id="education" className="py-10 w-[80%] lg:w-[70%] mx-auto">
+		<div id="education" className="py-10 w-[80%] lg:w-[70%] mx-auto my-20">
 			<ScrollRestoration />
 			<div className="space-y-2 flex flex-col justify-center items-center text-center">
 				<h1 className="bg-clip-text text-transparent bg-gradient-to-r from-purple-800 to-gray-400 text-2xl font-bold">

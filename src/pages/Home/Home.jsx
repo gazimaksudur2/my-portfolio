@@ -9,7 +9,7 @@ import Education from "./Education";
 import Experience from "./Experience";
 import MySkills from "./MySkills";
 import Projects from "./Projects";
-import Testimonials from "./Testimonials";
+// import Testimonials from "./Testimonials";
 import Services from "./Services";
 // import UnderConstruction from './UnderConstruction';
 
@@ -47,7 +47,7 @@ const Home = () => {
 				<Projects />
 				<Experience />
 				<Education />
-				<Testimonials />
+				{/* <Testimonials /> */}
 				<Connect />
 			</main>
 			<Footer />
