@@ -8,6 +8,8 @@ const router = createBrowserRouter([
         element: <MainLayout/>,
         errorElement: <ErrorPage/>
     },
-]);
+], {
+    basename: '/gazi/'
+});
 
 export default router;
