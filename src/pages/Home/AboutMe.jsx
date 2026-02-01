@@ -1,36 +1,7 @@
-import { FiCode, FiUsers, FiTrendingUp, FiAward } from "react-icons/fi";
+import Icon from "../../components/Icon";
+import { highlights, quickFacts } from "../../constants";
 
 const AboutMe = () => {
-    const highlights = [
-        {
-            icon: FiCode,
-            title: "Clean Code",
-            description: "Writing maintainable, scalable, and efficient code following best practices"
-        },
-        {
-            icon: FiUsers,
-            title: "Team Player", 
-            description: "Collaborative approach with excellent communication and project management skills"
-        },
-        {
-            icon: FiTrendingUp,
-            title: "Continuous Learning",
-            description: "Always staying updated with latest technologies and industry trends"
-        },
-        {
-            icon: FiAward,
-            title: "Quality Focused",
-            description: "Committed to delivering high-quality solutions that exceed expectations"
-        }
-    ];
-
-    const personalInfo = [
-        { label: "Location", value: "Dhaka, Bangladesh" },
-        { label: "Experience", value: "2+ Years" },
-        { label: "Availability", value: "Open to opportunities" },
-        { label: "Languages", value: "English, Bengali" }
-    ];
-
     return (
         <section id="about" className="section-padding bg-neutral-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -83,13 +54,13 @@ const AboutMe = () => {
                         <div className="bg-white p-6 rounded-2xl shadow-lg">
                             <h4 className="text-lg font-semibold text-neutral-900 mb-4">Quick Facts</h4>
                             <div className="grid grid-cols-2 gap-4">
-                                {personalInfo.map((info, index) => (
-                                    <div key={index} className="space-y-1">
+                                {Object.entries(quickFacts).map(([key, value]) => (
+                                    <div key={key} className="space-y-1">
                                         <div className="text-sm text-neutral-500 font-medium">
-                                            {info.label}
+                                            {key.charAt(0).toUpperCase() + key.slice(1)}
                                         </div>
                                         <div className="text-neutral-900 font-semibold">
-                                            {info.value}
+                                            {value}
                                         </div>
                                     </div>
                                 ))}
@@ -104,14 +75,14 @@ const AboutMe = () => {
                         </h3>
                         <div className="grid gap-6">
                             {highlights.map((highlight, index) => {
-                                const IconComponent = highlight.icon;
+
                                 return (
                                     <div 
                                         key={index}
                                         className="flex items-start space-x-4 p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                                     >
                                         <div className="p-3 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl">
-                                            <IconComponent className="w-6 h-6 text-white" />
+                                            <Icon name={highlight.icon} className="w-6 h-6 text-white" />
                                         </div>
                                         <div className="flex-1">
                                             <h4 className="text-lg font-semibold text-neutral-900 mb-2">

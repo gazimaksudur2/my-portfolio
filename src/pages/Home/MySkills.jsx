@@ -38,7 +38,7 @@ const MySkills = () => {
 								<img
 									className="w-10 group-hover:scale-[130%] duration-[.4s]"
 									src={each?.logo_url}
-									alt="Shoes"
+									alt="skills"
 								/>
 								<h2 className="card-title text-lg lg:text-xl">
 									{each?.technology}

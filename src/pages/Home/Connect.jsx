@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin, FiFacebook, FiInstagram, FiSend, FiCheckCircle } from "react-icons/fi";
 import Swal from "sweetalert2";
 
@@ -21,28 +22,78 @@ const Connect = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setIsSubmitting(true);
+        if (isSubmitting) return;
 
-        // Simulate form submission
-        setTimeout(() => {
+        const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+        const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+        const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+        if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+            Swal.fire({
+                icon: "error",
+                title: "Email service not configured",
+                text: "Missing EmailJS environment variables. Please add them to your .env and restart the dev server.",
+            });
+            return;
+        }
+
+        // lightweight validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email)) {
+            Swal.fire({
+                icon: "warning",
+                title: "Invalid email",
+                text: "Please enter a valid email address.",
+            });
+            return;
+        }
+        if (!formData.name || !formData.subject || !formData.message) {
+            Swal.fire({
+                icon: "warning",
+                title: "Missing fields",
+                text: "Please fill in all required fields.",
+            });
+            return;
+        }
+
+        setIsSubmitting(true);
+        try {
+            const templateParams = {
+                from_name: formData.name,
+                from_email: formData.email,
+                subject: formData.subject,
+                message: formData.message,
+                reply_to: formData.email,
+                website_url: window.location.origin,
+                sent_at: new Date().toISOString(),
+            };
+
+            await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY);
+
             Swal.fire({
                 position: "center",
                 icon: "success",
-                title: "Message Sent Successfully!",
-                text: "Thank you for reaching out. I'll get back to you soon.",
+                title: "Message sent successfully",
+                text: "Thanks for reaching out. I’ll get back to you shortly.",
                 showConfirmButton: false,
-                timer: 3000
+                timer: 2500,
             });
-            
-            // Reset form
+
             setFormData({
                 name: '',
                 email: '',
                 subject: '',
                 message: ''
             });
+        } catch (err) {
+            Swal.fire({
+                icon: "error",
+                title: "Failed to send message",
+                text: "Please try again in a moment or contact me directly at gazimaksudur2@gmail.com.",
+            });
+        } finally {
             setIsSubmitting(false);
-        }, 1000);
+        }
     };
 
     const contactInfo = [

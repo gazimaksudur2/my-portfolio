@@ -2,23 +2,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { FiCode } from "react-icons/fi";
+import { navLinks, personalInfo } from "../constants";
 // import { HashLink } from "react-router-hash-link/dist/react-router-hash-link.cjs.production";
 
 const Navbar = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 	const [activeSection, setActiveSection] = useState("");
-
-	const navLinks = [
-		{ to: "#about", label: "About" },
-		{ to: "#skills", label: "Skills" },
-		{ to: "#services", label: "Services" },
-		{ to: "#projects", label: "Projects" },
-		{ to: "#experience", label: "Experience" },
-		{ to: "#education", label: "Education" },
-		{ to: "#testimonials", label: "Testimonials" },
-		{ to: "#contact", label: "Contact" },
-	];
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -83,10 +73,10 @@ const Navbar = () => {
 						</div>
 						<div className="hidden sm:block">
 							<h1 className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-								Gazi Maksudur Rahman
+								{personalInfo.name}
 							</h1>
 							<p className="text-sm text-neutral-600 font-medium">
-								Full Stack Developer
+								{personalInfo.title}
 							</p>
 						</div>
 					</Link>
@@ -119,7 +109,7 @@ const Navbar = () => {
 						})}
                         </div>
 						<a
-							href="https://drive.google.com/file/d/1-AoHayQihlWRG17EFwtaeCt7q30zsTQt/view?usp=sharing"
+							href={personalInfo.resumeLink}
 							target="_blank"
 							rel="noopener noreferrer"
 							className="ml-4 px-6 py-2.5 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-medium rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
@@ -171,7 +161,7 @@ const Navbar = () => {
 						})}
 						<div className="pt-2 border-t border-neutral-200">
 							<a
-								href="https://drive.google.com/file/d/1-AoHayQihlWRG17EFwtaeCt7q30zsTQt/view?usp=sharing"
+								href={personalInfo.resumeLink}
 								target="_blank"
 								rel="noopener noreferrer"
 								className="block w-full text-center px-4 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-medium rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all duration-200"

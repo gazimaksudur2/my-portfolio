@@ -1,6 +1,4 @@
 {
-  "homepage": "https://uniquepointbd.com/gazi/",
-  "name": "frontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,9 +6,12 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && npx firebase-tools deploy",
+    "firebase": "npx firebase-tools"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "firebase": "^10.12.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
@@ -23,6 +24,7 @@
     "sweetalert2": "^11.12.2"
   },
   "devDependencies": {
+    "firebase-tools": "^13.0.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
