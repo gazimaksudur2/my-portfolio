@@ -64,7 +64,7 @@ const MySkills = () => {
                         return (
                             <div
                                 key={category.id}
-                                className="group bg-white rounded-2xl shadow-lg border border-neutral-100 overflow-hidden"
+                                className="group bg-white rounded-2xl shadow-lg border border-neutral-100 overflow-hidden flex flex-col justify-between"
                             >
                                 <div className="p-6">
                                     <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${category.color}`}>

@@ -1,32 +1,35 @@
 [
   {
-    "projectType": "Agricultural E-Commerce",
-    "projectTitle": "SmartAgroConnect",
-    "projectDescription": "Built a multi-role agricultural marketplace connecting farmers, buyers, and agents. Features product listing, order management, and role-based dashboards. I contributed to requirement analysis, UI/UX, and authentication flows while participating in team meetings and planning.",
-    "skills": ["React", "Node", "Express", "MongoDB", "Tailwind CSS", "JWT"],
-    "liveSiteLink": "#",
+    "projectType": "Agricultural Marketplace (B2B)",
+    "projectTitle": "SmartAgro Connect",
+    "projectDescription": "SmartAgro Connect is a comprehensive B2B agricultural marketplace platform that revolutionizes how farmers, agents, and wholesale buyers interact in the agricultural supply chain. By eliminating intermediaries and ensuring transparency, it creates a more efficient and profitable ecosystem. The platform features multi-role dashboards, real-time product catalogs, AI-powered crop recommendations, plant disease detection, smart irrigation planning, and secure payment processing with Stripe.",
+    "skills": ["React 18", "Redux Toolkit", "Firebase Auth & Storage", "Tailwind CSS", "DaisyUI", "React Query", "Stripe", "Vite", "REST API", "JWT"],
+    "liveSiteLink": "https://smartagroconnect-79578.web.app",
     "githubServerRepoLink": "#",
-    "githubClientRepoLink": "#",
+    "githubClientRepoLink": "https://github.com/gazimaksudur2/smart-agro-market-client",
     "bannerImgUrl": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80",
     "features": [
-      "Multi-role platform: farmers, buyers, and agents with dedicated dashboards.",
-      "Product listing, order management, and role-based access control.",
-      "Team collaboration: requirement analysis, meetings, and planning."
+      "Multi-role dashboard system (Admin, Regional Agent, Seller/Farmer, Consumer/Wholesale Buyer) with role-based access control.",
+      "Real-time product catalog with advanced filtering, search, and bulk ordering; order management with tracking and delivery coordination.",
+      "AI-powered crop recommendations, plant disease detection, and smart irrigation planning with 5-day weather-based recommendations.",
+      "Secure payment integration with Stripe; application and verification system for sellers and agents with admin approval workflow.",
+      "Firebase Authentication with JWT; responsive design, dashboard analytics with Recharts, and real-time notifications (React Hot Toast)."
     ]
   },
   {
     "projectType": "Fintech",
-    "projectTitle": "Bank Website Project",
-    "projectDescription": "A fintech web platform simulating real banking features including money transfers, payment handling, and user transaction management. Built to demonstrate secure flows and a production-like banking UI.",
-    "skills": ["React", "Node", "Express", "MongoDB", "JWT", "REST API"],
-    "liveSiteLink": "#",
+    "projectTitle": "Easy Bank",
+    "projectDescription": "Easy Bank is a comprehensive, full-stack banking application built with React, Vite, and Firebase. It features secure user authentication (email/password, Google, GitHub), dashboard management with profile and transaction history, credit request application and tracking, and administrative controls for user management, credit processing, and platform oversight.",
+    "skills": ["React 18", "Vite 6", "React Router 7", "Tailwind CSS", "DaisyUI", "Ant Design", "React Query", "Firebase Auth", "Firebase Hosting", "Axios"],
+    "liveSiteLink": "https://easybank-b9b62.web.app/",
     "githubServerRepoLink": "#",
-    "githubClientRepoLink": "#",
+    "githubClientRepoLink": "https://github.com/gazimaksudur2/bank-client",
     "bannerImgUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
     "features": [
-      "Send money, request money, withdraw, and payments.",
-      "Credit requests and cash-in requests.",
-      "User transaction management and secure authentication."
+      "Secure authentication via Firebase (email/password, Google, GitHub); dashboard with profile, account status, and transaction history.",
+      "Credit management: apply for and track credit requests; detailed transaction tracking and account activity.",
+      "Admin: user management, credit request approval/denial, transaction oversight, and bank status dashboard with real-time metrics.",
+      "Responsive, mobile-first design with Tailwind CSS and DaisyUI; protected routes and JWT for API communication."
     ]
   },
   {
