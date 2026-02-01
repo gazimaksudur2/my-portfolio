@@ -62,23 +62,19 @@ const Navbar = () => {
 		>
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className="flex items-center justify-between h-16 lg:h-20">
-					{/* Logo */}
+					{/* Logo + Name */}
 					<Link
 						to={"/"}
 						className="flex items-center space-x-3 group cursor-pointer"
 						onClick={scrollToTop}
+						aria-label="Home"
 					>
-						<div className="p-2 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105">
+						<div className="p-2.5 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
 							<FiCode className="w-6 h-6 text-white" />
 						</div>
-						<div className="hidden sm:block">
-							<h1 className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-								{personalInfo.name}
-							</h1>
-							<p className="text-sm text-neutral-600 font-medium">
-								{personalInfo.title}
-							</p>
-						</div>
+						<span className="text-lg lg:text-xl font-bold text-neutral-800 group-hover:text-primary-600 transition-colors duration-200">
+							{personalInfo.name}
+						</span>
 					</Link>
 
 					{/* Desktop Navigation */}

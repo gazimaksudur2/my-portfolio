@@ -10,15 +10,16 @@ const AboutMe = () => {
                         About Me
                     </div>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6">
-                        Passionate Developer &
+                        My Story &
                         <span className="block bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-                            Problem Solver
+                            Direction
                         </span>
                     </h2>
                     <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-                        I'm a dedicated Full Stack Developer with a passion for creating innovative 
-                        digital solutions. My journey in web development has been driven by curiosity, 
-                        continuous learning, and a commitment to excellence.
+                        I'm a Computer Science student at SUST and a MERN Stack Developer with hands-on experience 
+                        building real-world web applications. I've worked on fintech systems, agricultural e-commerce 
+                        platforms, and authentication-driven apps. I enjoy solving practical problems and continuously 
+                        learning modern tools like AWS, Next.js, and Redux to improve performance and scalability.
                     </p>
                 </div>
 
@@ -27,25 +28,20 @@ const AboutMe = () => {
                     <div className="space-y-8">
                         <div className="space-y-6">
                             <h3 className="text-2xl font-bold text-neutral-900">
-                                Building Digital Experiences
+                                Journey, Motivation & Focus
                             </h3>
                             <div className="space-y-4 text-neutral-600 leading-relaxed">
                                 <p>
-                                    With over 2 years of experience in web development, I specialize in the 
-                                    MERN stack and have a strong foundation in both frontend and backend 
-                                    technologies. My approach combines technical expertise with creative 
-                                    problem-solving to deliver exceptional user experiences.
+                                    My journey into tech is driven by curiosity and a desire to build things that 
+                                    matter. I focus on the MERN stack, Next.js, Redux, and AWS, with experience 
+                                    on real production projects. I'm interested in fintech, agri-tech, and scalable 
+                                    systems, and I'm passionate about improving my English and communication.
                                 </p>
                                 <p>
-                                    I believe in writing clean, maintainable code and following industry 
-                                    best practices. Whether it's building responsive user interfaces, 
-                                    developing robust APIs, or optimizing application performance, 
-                                    I'm committed to delivering quality solutions.
-                                </p>
-                                <p>
-                                    When I'm not coding, you'll find me exploring new technologies, 
-                                    contributing to open-source projects, or sharing knowledge with 
-                                    the developer community.
+                                    I bring strong problem-solving, a fast-learning mindset, and real-world project 
+                                    experience. I work well in teams, have participated in requirement analysis and 
+                                    system architecture discussions, and I'm motivated to grow as a professional 
+                                    while staying humble and practical.
                                 </p>
                             </div>
                         </div>
@@ -71,7 +67,7 @@ const AboutMe = () => {
                     {/* Highlights */}
                     <div className="space-y-6">
                         <h3 className="text-2xl font-bold text-neutral-900 text-center lg:text-left">
-                            What Sets Me Apart
+                            What I Bring
                         </h3>
                         <div className="grid gap-6">
                             {highlights.map((highlight, index) => {

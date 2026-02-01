@@ -135,12 +135,6 @@ const Connect = () => {
             href: "https://www.facebook.com/gazi.maksudur",
             label: "Facebook",
             color: "hover:bg-blue-500"
-        },
-        {
-            icon: FiInstagram,
-            href: "#",
-            label: "Instagram",
-            color: "hover:bg-pink-500"
         }
     ];
 

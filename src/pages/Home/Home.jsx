@@ -3,13 +3,13 @@ import { FiArrowUp } from "react-icons/fi";
 import Navbar from "../../components/Navbar";
 import Footer from "../../shared/Footer";
 import AboutMe from "./AboutMe";
+import Achievements from "./Achievements";
 import Banner from "./Banner";
+import Certifications from "./Certifications";
 import Connect from "./Connect";
 import Education from "./Education";
-import Experience from "./Experience";
 import MySkills from "./MySkills";
 import Projects from "./Projects";
-// import Testimonials from "./Testimonials";
 import Services from "./Services";
 // import UnderConstruction from './UnderConstruction';
 
@@ -45,9 +45,9 @@ const Home = () => {
 				<MySkills />
 				<Services />
 				<Projects />
-				<Experience />
+				<Certifications />
 				<Education />
-				{/* <Testimonials /> */}
+				<Achievements />
 				<Connect />
 			</main>
 			<Footer />

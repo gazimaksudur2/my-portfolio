@@ -1,4 +1,4 @@
-import { FiCode, FiSmartphone, FiDatabase, FiTool, FiCloud, FiUsers } from "react-icons/fi";
+import { FiCode, FiSmartphone, FiDatabase } from "react-icons/fi";
 
 const Services = () => {
     const services = [
@@ -11,7 +11,7 @@ const Services = () => {
         },
         {
             icon: FiDatabase,
-            title: "Backend Development", 
+            title: "Backend Development",
             description: "Building robust APIs and server-side applications with Node.js, Express, and database integration.",
             features: ["Node.js/Express", "RESTful APIs", "MongoDB/MySQL", "Authentication"],
             color: "from-green-500 to-green-600"
@@ -22,27 +22,6 @@ const Services = () => {
             description: "End-to-end web application development from concept to deployment with modern tech stacks.",
             features: ["MERN Stack", "MEAN Stack", "Database Design", "API Integration"],
             color: "from-purple-500 to-purple-600"
-        },
-        {
-            icon: FiCloud,
-            title: "Deployment & DevOps",
-            description: "Deploying applications to cloud platforms with CI/CD pipelines and performance optimization.",
-            features: ["Firebase", "Vercel", "Netlify", "Docker"],
-            color: "from-orange-500 to-orange-600"
-        },
-        {
-            icon: FiTool,
-            title: "Code Review & Optimization",
-            description: "Analyzing existing codebases for performance improvements, security, and best practices.",
-            features: ["Performance Audit", "Code Refactoring", "Security Review", "Documentation"],
-            color: "from-red-500 to-red-600"
-        },
-        {
-            icon: FiUsers,
-            title: "Consultation & Mentoring",
-            description: "Providing technical guidance, code reviews, and mentoring for development teams and individuals.",
-            features: ["Technical Consulting", "Code Mentoring", "Architecture Planning", "Best Practices"],
-            color: "from-indigo-500 to-indigo-600"
         }
     ];
 

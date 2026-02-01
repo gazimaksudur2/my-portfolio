@@ -1,56 +1,95 @@
-import { useEffect, useState } from "react";
-import { ScrollRestoration } from "react-router-dom";
+import { FiCode, FiServer, FiDatabase, FiCloud, FiTool } from "react-icons/fi";
+
+const skillCategories = [
+    {
+        id: "frontend",
+        title: "Frontend",
+        icon: FiCode,
+        color: "from-primary-500 to-primary-600",
+        skills: ["React.js", "Next.js", "JavaScript (ES6+)", "Tailwind / CSS", "Responsive UI"],
+    },
+    {
+        id: "backend",
+        title: "Backend",
+        icon: FiServer,
+        color: "from-secondary-500 to-secondary-600",
+        skills: ["Node.js", "Express.js", "REST APIs", "JWT Authentication"],
+    },
+    {
+        id: "database",
+        title: "Database",
+        icon: FiDatabase,
+        color: "from-green-500 to-green-600",
+        skills: ["MongoDB", "Firebase"],
+    },
+    {
+        id: "cloud",
+        title: "Cloud & DevOps",
+        icon: FiCloud,
+        color: "from-orange-500 to-orange-600",
+        skills: ["AWS (Academy Graduate)", "Docker", "Deployment (Vercel, Netlify, etc.)"],
+    },
+    {
+        id: "tools",
+        title: "Tools",
+        icon: FiTool,
+        color: "from-neutral-600 to-neutral-700",
+        skills: ["Git & GitHub", "Postman", "Figma"],
+    },
+];
 
 const MySkills = () => {
-	const [skills, setSkills] = useState([]);
-	// const heading = "Our Valued skillss";
-	// const subHeading = "Meet our valued skillss whose generous support across various levels—Platinum, Gold, Silver, Bronze, and Community—drives our mission and success, enabling us to achieve our goals and initiatives";
+    return (
+        <section id="skills" className="section-padding bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16">
+                    <div className="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+                        Technical Skills
+                    </div>
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6">
+                        What I Work With
+                        <span className="block bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+                            By Category
+                        </span>
+                    </h2>
+                    <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+                        My continuous learning mindset keeps me updated with the latest trends and technologies 
+                        in web development, enabling me to deliver cutting-edge solutions.
+                    </p>
+                </div>
 
-	useEffect(() => {
-		fetch("sponsors.json")
-			.then((res) => res.json())
-			.then((data) => {
-				// console.log(data);
-				setSkills(data);
-			});
-	}, []);
-	return (
-		<div
-			id="skills"
-			className="py-4 lg:py-10 flex flex-col justify-center items-center"
-		>
-			<ScrollRestoration />
-			<div className="space-y-2 flex flex-col justify-center items-center">
-				<h1 className="bg-clip-text text-transparent bg-gradient-to-r from-purple-800 to-gray-500 text-3xl font-bold">
-					My Skills
-				</h1>
-				<h3 className="w-[90%] lg:w-[60%] text-sm text-center text-[#151515ab]">
-					My continuous learning mindset keeps me updated with the latest trends
-					and technologies in web development, enabling me to deliver
-					cutting-edge solutions.
-				</h3>
-			</div>
-			<div className="lg:w-[70%] mx-auto mt-5 flex flex-wrap justify-center items-center gap-4 lg:gap-10">
-				{skills.map((each, idx) => (
-					<>
-						<div className="w-44 lg:w-52 group text-center" key={idx}>
-							<div className="card-body bg-base-200 border-2 border-base-300 flex flex-col justify-center items-center rounded-md duration-100 hover:bg-purple-500 hover:border-purple-800 hover:text-white gap-3">
-								<img
-									className="w-10 group-hover:scale-[130%] duration-[.4s]"
-									src={each?.logo_url}
-									alt="skills"
-								/>
-								<h2 className="card-title text-lg lg:text-xl">
-									{each?.technology}
-								</h2>
-							</div>
-						</div>
-					</>
-				))}
-			</div>
-		</div>
-	);
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+                    {skillCategories.map((category) => {
+                        const IconComponent = category.icon;
+                        return (
+                            <div
+                                key={category.id}
+                                className="group bg-white rounded-2xl shadow-lg border border-neutral-100 overflow-hidden"
+                            >
+                                <div className="p-6">
+                                    <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${category.color}`}>
+                                        <IconComponent className="w-6 h-6 text-white" />
+                                    </div>
+                                    <h3 className="text-lg font-bold text-neutral-900 mb-4 mt-4">
+                                        {category.title}
+                                    </h3>
+                                    <ul className="space-y-2">
+                                        {category.skills.map((skill, idx) => (
+                                            <li key={idx} className="flex items-center text-sm text-neutral-600">
+                                                <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-2 flex-shrink-0" />
+                                                {skill}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                                <div className={`h-1 w-full bg-gradient-to-r ${category.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+        </section>
+    );
 };
 
 export default MySkills;
-// grid grid-cols-4 justify-items-center place-content-center

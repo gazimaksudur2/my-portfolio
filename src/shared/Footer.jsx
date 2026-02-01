@@ -56,18 +56,12 @@ const Footer = () => {
 			href: "https://www.facebook.com/gazi.maksudur",
 			label: "Facebook",
 			color: "hover:text-blue-300",
-		},
-		{
-			icon: FiInstagram,
-			href: "#",
-			label: "Instagram",
-			color: "hover:text-pink-400",
-		},
+		}
 	];
 
 	return (
 		<footer className="bg-gradient-to-br from-neutral-900 to-neutral-800 text-white relative overflow-hidden">
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+			<div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 				<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
 					{/* Brand Section */}
 					<div className="lg:col-span-1">
@@ -104,8 +98,8 @@ const Footer = () => {
 										href={social.href}
 										target="_blank"
 										rel="noopener noreferrer"
-										className={`p-2 bg-white/10 rounded-lg text-neutral-400 transition-all duration-300 transform hover:scale-110 hover:bg-white/20 ${social.color}`}
-										aria-label={social.label}
+										className={`inline-flex p-2 bg-white/10 rounded-lg text-neutral-400 transition-all duration-300 transform hover:scale-110 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-neutral-900 ${social.color}`}
+										aria-label={`${social.label} (opens in new tab)`}
 									>
 										<IconComponent className="w-5 h-5" />
 									</a>

@@ -1,48 +1,74 @@
 [
-    {
-      "projectType": "EdTech Platform",
-      "projectTitle": "ElevateEx",
-      "projectDescription": "ElevateEx connects students, instructors, and admins. Students enroll in courses and track progress. Instructors create and submit courses. Admins manage users and content. ElevateEx enhances learning with a user-friendly interface.",
-      "skills": ["React", "MongoDB", "Node", "Express", "Tailwind CSS"],
-      "liveSiteLink": "https://elevateex-ac4de.web.app/",
-      "githubServerRepoLink": "https://github.com/gazimaksudur2/elevateex-server",
-      "githubClientRepoLink": "https://github.com/gazimaksudur2/elevateex-client",
-      "bannerImgUrl": "https://i.ibb.co/K6ZSFhf/screencapture-elevateex-ac4de-web-app-allclass-2024-07-10-11-49-30.png",
-      "features": [
-        "There are 3 types of user facility. Like, admin, instructor, student or general user. For each type there will be a functional dashboard.",
-        "Students will be able to access the courses that are approved by the admin and able to enroll in it.In Student Dashboard, he will have access to his profile and his enrolled courses.",
-        "Any general user or instructor will have the opportunity to be an admin on that platform. For that, He will have to apply to be an admin. There will be an available route on the right sidebar which will open when you click over your profile image on the home page."
-      ]
-    },
-    {
-      "projectType": "Hotel Booking Management System",
-      "projectTitle": "TripFlip",
-      "projectDescription": "Trip_Flip is a hotel management web application designed to provide travelers with a seamless experience in exploring and booking hotel services worldwide. Users can sign up, book rooms, manage their bookings, and share their experiences, all through a user-friendly interface.",
-      "skills": ["React", "Node", "Express", "MongoDB", "DaisyUI"],
-      "liveSiteLink": "https://trip-flip.web.app",
-      "githubServerRepoLink": "https://github.com/gazimaksudur2/trip-flip-server",
-      "githubClientRepoLink": "https://github.com/gazimaksudur2/trip-flip-client",
-      "bannerImgUrl": "https://i.ibb.co/2gwd1Sb/screencapture-trip-flip-web-app-rooms-2024-07-12-23-19-42.png",
-      "features": [
-        "One can create an account with his credentials or using an existing google or github account.",
-        "After signing in he will be able to book a room at the hotel of his choice and have the ability to edit the booking info.", 
-        "After checking Out of the hotel he will be able to review his experience of the service in a post which will show in the home page alongside the rooms page."
-      ]
-    },
-    {
-      "projectType": "Art and Crafts Gallery",
-      "projectTitle": "Artisan Haven",
-      "projectDescription": "Artisan Haven is designed to showcase textile art and craft in an engaging and user-friendly platform. Whether you're an artist wanting to display your work or an enthusiast exploring new crafts, Artisan Haven offers a vibrant community and a seamless experience.",
-      "skills": ["React", "Node", "Express", "MongoDB", "Material-UI"],
-      "liveSiteLink": "https://artisan-haven.web.app",
-      "githubClientRepoLink": "https://github.com/gazimaksudur2/artisan-client",
-      "bannerImgUrl": "https://i.ibb.co/HxZ9DTN/screencapture-artisan-haven-web-app-2024-07-12-23-20-59.png",
-      "features": [
-        "This is a Textile art and craft gallery so here people can view various types of arts and crafts.",
-        "After registering one will have access to add new crafts to our gallery. And he will be able to edit, update or delete his created crafts from his account on our platform",
-        "Another mind blowing feature is category based crafts showing where he will experience with an awesome work."
-      ]
-    }
-  ]
-  
-
+  {
+    "projectType": "Agricultural E-Commerce",
+    "projectTitle": "SmartAgroConnect",
+    "projectDescription": "Built a multi-role agricultural marketplace connecting farmers, buyers, and agents. Features product listing, order management, and role-based dashboards. I contributed to requirement analysis, UI/UX, and authentication flows while participating in team meetings and planning.",
+    "skills": ["React", "Node", "Express", "MongoDB", "Tailwind CSS", "JWT"],
+    "liveSiteLink": "#",
+    "githubServerRepoLink": "#",
+    "githubClientRepoLink": "#",
+    "bannerImgUrl": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80",
+    "features": [
+      "Multi-role platform: farmers, buyers, and agents with dedicated dashboards.",
+      "Product listing, order management, and role-based access control.",
+      "Team collaboration: requirement analysis, meetings, and planning."
+    ]
+  },
+  {
+    "projectType": "Fintech",
+    "projectTitle": "Bank Website Project",
+    "projectDescription": "A fintech web platform simulating real banking features including money transfers, payment handling, and user transaction management. Built to demonstrate secure flows and a production-like banking UI.",
+    "skills": ["React", "Node", "Express", "MongoDB", "JWT", "REST API"],
+    "liveSiteLink": "#",
+    "githubServerRepoLink": "#",
+    "githubClientRepoLink": "#",
+    "bannerImgUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
+    "features": [
+      "Send money, request money, withdraw, and payments.",
+      "Credit requests and cash-in requests.",
+      "User transaction management and secure authentication."
+    ]
+  },
+  {
+    "projectType": "EdTech Platform",
+    "projectTitle": "ElevateEx",
+    "projectDescription": "ElevateEx connects students, instructors, and admins. Students enroll in courses and track progress. Instructors create and submit courses. Admins manage users and content. ElevateEx enhances learning with a user-friendly interface.",
+    "skills": ["React", "MongoDB", "Node", "Express", "Tailwind CSS"],
+    "liveSiteLink": "https://elevateex-ac4de.web.app/",
+    "githubServerRepoLink": "https://github.com/gazimaksudur2/elevateex-server",
+    "githubClientRepoLink": "https://github.com/gazimaksudur2/elevateex-client",
+    "bannerImgUrl": "https://i.ibb.co/K6ZSFhf/screencapture-elevateex-ac4de-web-app-allclass-2024-07-10-11-49-30.png",
+    "features": [
+      "Three user types: admin, instructor, student — each with a functional dashboard.",
+      "Students access approved courses, enroll, and track progress in their dashboard.",
+      "Apply-to-be-admin flow for instructors/general users via profile sidebar."
+    ]
+  },
+  {
+    "projectType": "Hotel Booking Management System",
+    "projectTitle": "TripFlip",
+    "projectDescription": "Trip_Flip is a hotel management web application for exploring and booking hotel services worldwide. Users sign up, book rooms, manage bookings, and share experiences through a user-friendly interface.",
+    "skills": ["React", "Node", "Express", "MongoDB", "DaisyUI"],
+    "liveSiteLink": "https://trip-flip.web.app",
+    "githubServerRepoLink": "https://github.com/gazimaksudur2/trip-flip-server",
+    "githubClientRepoLink": "https://github.com/gazimaksudur2/trip-flip-client",
+    "bannerImgUrl": "https://i.ibb.co/2gwd1Sb/screencapture-trip-flip-web-app-rooms-2024-07-12-23-19-42.png",
+    "features": [
+      "Sign up with credentials or Google/GitHub. Book rooms and edit booking info.",
+      "After checkout, post a review that appears on the home and rooms pages."
+    ]
+  },
+  {
+    "projectType": "Art and Crafts Gallery",
+    "projectTitle": "Artisan Haven",
+    "projectDescription": "Artisan Haven showcases textile art and craft. Artists display work; enthusiasts explore crafts. Features category-based browsing and user-contributed gallery management.",
+    "skills": ["React", "Node", "Express", "MongoDB", "Material-UI"],
+    "liveSiteLink": "https://artisan-haven.web.app",
+    "githubClientRepoLink": "https://github.com/gazimaksudur2/artisan-client",
+    "bannerImgUrl": "https://i.ibb.co/HxZ9DTN/screencapture-artisan-haven-web-app-2024-07-12-23-20-59.png",
+    "features": [
+      "View arts and crafts by category. Register to add, edit, update, or delete your crafts.",
+      "Category-based browsing and community gallery."
+    ]
+  }
+]

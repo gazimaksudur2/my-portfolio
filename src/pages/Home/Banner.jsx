@@ -10,18 +10,23 @@ const Banner = () => {
     }, []);
 
     const roles = [
-        'Full Stack Developer',
-        'MERN Stack Developer', 
-        'Frontend Specialist',
-        'Backend Developer',
-        'Problem Solver'
+        'MERN Stack Developer',
+        'React & Next.js Developer',
+        'CSE Student at SUST',
+        'Cloud & AWS Learner'
     ];
 
     const stats = [
-        { number: "20+", label: "Projects Completed" },
-        { number: "2+", label: "Years Experience" },
+        { number: "10+", label: "Projects Completed" },
+        { number: "2+", label: "Years Project-Based Experience" },
         { number: "15+", label: "Technologies" },
-        { number: "100%", label: "Client Satisfaction" }
+        { number: "—", label: "Open to Opportunities" }
+    ];
+
+    const highlights = [
+        { label: "Bangladesh 🇧🇩", key: "location" },
+        { label: "CSE Student at SUST", key: "sust" },
+        { label: "AWS Academy Graduate", key: "aws" },
     ];
 
     return (
@@ -65,10 +70,20 @@ const Banner = () => {
                             </div>
 
                             <p className="text-lg text-neutral-600 leading-relaxed max-w-2xl">
-                                Passionate about creating exceptional digital experiences through clean code, 
-                                innovative solutions, and user-centered design. Specialized in the MERN stack 
-                                with a focus on scalable, efficient applications.
+                                I'm a MERN Stack Developer specializing in React, Next.js, and modern web technologies. 
+                                I build scalable, user-focused web applications and actively work on real-world projects 
+                                including fintech and agricultural e-commerce platforms.
                             </p>
+                            <div className="flex flex-wrap gap-3">
+                                {highlights.map((h) => (
+                                    <span
+                                        key={h.key}
+                                        className="inline-flex items-center px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium border border-primary-100"
+                                    >
+                                        {h.label}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
 
                         {/* CTA Buttons */}

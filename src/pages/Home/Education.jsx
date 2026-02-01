@@ -1,147 +1,81 @@
-import { HiMiniFire } from "react-icons/hi2";
-import { ScrollRestoration } from "react-router-dom";
+const education = [
+    {
+        period: "2022 – 2026",
+        degree: "B.Sc. in Computer Science",
+        institution: "Shahjalal University of Science and Technology (SUST)",
+        institutionShort: "SUST",
+        cgpa: "CGPA 3.55 (till 7th semester)",
+        focus: "Data structures, algorithms, web development, cloud fundamentals",
+        logo: "https://sust.edu/public/img/sust_logo_big.png",
+        primary: true,
+    },
+    {
+        period: "2018 – 2020",
+        degree: "Higher Secondary School Certificate",
+        institution: "Major General Mahmudul Hasan Adarsha College, Tangail",
+        institutionShort: "Science Department",
+        logo: "https://i.ibb.co.com/q3JyVKCJ/347778677-1265633041011051-2411880285562199077-n.jpg",
+        primary: false,
+    },
+    {
+        period: "2016 – 2018",
+        degree: "Secondary School Certificate",
+        institution: "Jamurky N.S.A.G High School, Tangail",
+        institutionShort: "Science Department",
+        logo: "https://i.ibb.co/bXJ5kmH/jamuky-Logo.png",
+        primary: false,
+    },
+];
 
 const Education = () => {
-	return (
-		<div id="education" className="py-10 w-[80%] lg:w-[70%] mx-auto my-20">
-			<ScrollRestoration />
-			<div className="space-y-2 flex flex-col justify-center items-center text-center">
-				<h1 className="bg-clip-text text-transparent bg-gradient-to-r from-purple-800 to-gray-400 text-2xl font-bold">
-					Education
-				</h1>
-			</div>
-			<div className="mt-8">
-				<ul className="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-					<li>
-						<div className="timeline-middle">
-							<HiMiniFire className="h-5 w-5 text-purple-500 p-[1px] border-[2px] border-purple-500 rounded-full" />
-							{/* <img className="h-5 w-5 " src="https://www.svgrepo.com/show/500378/fire.svg" alt="running state" /> */}
-							{/* <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                                className="">
-                                <path
-                                    fillRule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                                    clipRule="evenodd" />
-                            </svg> */}
-						</div>
-						<div className="timeline-start mr-2 md:text-end pb-5 lg:pb-0">
-							<time className="font-mono italic">2022 - present</time>
-							<h2 className="text-lg font-black">
-								Computer Science and Engineering
-							</h2>
-							<h4 className="text-[#151515bd]">BSc. in Engineering</h4>
-							<div className="mt-2 flex justify-center items-center gap-3">
-								<img
-									className="w-8 h-8"
-									src="https://www.sust.edu/images/logo.png"
-									alt="sust logo"
-								/>
-								<h2 className="font-medium text-[#151515db]">
-									Shahjalal University of Science and Technology
-								</h2>
-							</div>
-						</div>
-						<hr />
-					</li>
-					<li className="">
-						<hr />
-						<div className="timeline-middle">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 20 20"
-								fill="currentColor"
-								className="h-5 w-5 text-purple-500"
-							>
-								<path
-									fillRule="evenodd"
-									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5-5z"
-									clipRule="evenodd"
-								/>
-							</svg>
-						</div>
-						<div className="timeline-end pb-5 lg:pb-0">
-							<time className="font-mono italic">2018 - 2020</time>
-							<h2 className="text-lg font-black">Science Department</h2>
-							<h4 className="text-[#151515bd]">
-								Higher Secondary School Certificate
-							</h4>
-							<div className="mt-2 flex justify-center items-center gap-3">
-								<img
-									className="w-8 h-8"
-									src="https://scontent.fdac24-5.fna.fbcdn.net/v/t39.30808-6/347778677_1265633041011051_2411880285562199077_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHEdNpNSKN9OxT2-Cah_JPufD-3YsgoaNN8P7diyCho09zqdElaeZFfbW60hOtn8kCYWxIcEWJJsNHtOuW_ia8p&_nc_ohc=7ICBSoJsPnUQ7kNvgHzfRQ3&_nc_ht=scontent.fdac24-5.fna&oh=00_AYAJxPxC9iGrkv0N7v8Ufhy1UJ7_0aQTjjq2Kf8LkUSXqw&oe=6691B62C"
-									alt="hasan logo"
-								/>
-								<h2 className="font-medium text-[#151515db]">
-									Major General Mahmudul Hasan Adarsha College, Tangail
-								</h2>
-							</div>
-						</div>
-						<hr />
-					</li>
-					<li>
-						<hr />
-						<div className="timeline-middle">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 20 20"
-								fill="currentColor"
-								className="h-5 w-5 text-purple-500"
-							>
-								<path
-									fillRule="evenodd"
-									d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-									clipRule="evenodd"
-								/>
-							</svg>
-						</div>
-						<div className="timeline-start md:text-end">
-							<time className="font-mono italic">2016 - 2018</time>
-							<h2 className="text-lg font-black">Science Department</h2>
-							<h4 className="text-[#151515bd]">Secondary School Certificate</h4>
-							<div className="mt-2 flex justify-center items-center gap-3">
-								<img
-									className="w-8 h-8"
-									src="https://i.ibb.co/bXJ5kmH/jamuky-Logo.png"
-									alt="jamurky logo"
-								/>
-								<h2 className="font-medium text-[#151515db]">
-									Jamurky N.S.A.G High School, Tangail
-								</h2>
-							</div>
-						</div>
-						{/* <hr /> */}
-					</li>
-					{/* <li>
-                        <hr />
-                        <div className="timeline-middle">
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 20 20"
-                                fill="currentColor"
-                                className="h-5 w-5 text-purple-500">
-                                <path
-                                    fillRule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                                    clipRule="evenodd" />
-                            </svg>
-                        </div>
-                        <div className="timeline-end mb-10">
-                        <time className="font-mono italic">2022 - present</time>
-                            <h2 className="text-lg font-black">Computer Science and Engineering</h2>
-                            <h4 className="text-[#151515bd]">BSc. in Engineering</h4>
-                            <div className="mt-2 flex justify-center items-center gap-3">
-                                <img className="w-8 h-8" src="https://www.sust.edu/images/logo.png" alt="sust logo" />
-                                <h2 className="font-medium text-[#151515db]">Shahjalal University of Science and Technology</h2>
+    return (
+        <section id="education" className="section-padding bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16">
+                    <div className="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+                        Education
+                    </div>
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6">
+                        Academic
+                        <span className="block bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
+                            Background
+                        </span>
+                    </h2>
+                    <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+                        B.Sc. in Computer Science at SUST. Will graduate in 2026. Focus on fundamentals and modern development.
+                    </p>
+                </div>
+
+                <div className="max-w-3xl mx-auto space-y-6">
+                    {education.map((item, index) => (
+                        <div
+                            key={index}
+                            className={`flex flex-col sm:flex-row gap-6 p-6 rounded-2xl border transition-all duration-300 hover:shadow-lg ${
+                                item.primary
+                                    ? "bg-gradient-to-br from-primary-50 to-secondary-50 border-primary-200"
+                                    : "bg-neutral-50 border-neutral-100"
+                            }`}
+                        >
+                            <div className="flex-shrink-0 flex items-center justify-center w-16 h-16 rounded-xl bg-white border border-neutral-200 shadow-sm overflow-hidden">
+                                <img src={item.logo} alt={item.institutionShort} className="w-10 h-10 object-contain" />
+                            </div>
+                            <div className="flex-1">
+                                <span className="text-sm font-medium text-primary-600">{item.period}</span>
+                                <h3 className="text-xl font-bold text-neutral-900 mt-1">{item.degree}</h3>
+                                <p className="text-neutral-700 font-medium mt-1">{item.institution}</p>
+                                {item.cgpa && (
+                                    <p className="text-neutral-600 text-sm mt-2">{item.cgpa}</p>
+                                )}
+                                {item.focus && (
+                                    <p className="text-neutral-600 text-sm mt-1">Focus: {item.focus}</p>
+                                )}
                             </div>
                         </div>
-                    </li> */}
-				</ul>
-			</div>
-		</div>
-	);
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
 };
 
 export default Education;
