@@ -35,7 +35,7 @@ const Footer = () => {
 
 	const socialLinks = [
 		{ icon: FiGithub, href: "https://github.com/gazimaksudur2", label: "GitHub", color: "hover:text-neutral-300" },
-		{ icon: FiLinkedin, href: "https://www.linkedin.com/in/gazi-maksudur-rahman", label: "LinkedIn", color: "hover:text-primary-400" },
+		{ icon: FiLinkedin, href: "https://www.linkedin.com/in/gazimaksudur/", label: "LinkedIn", color: "hover:text-primary-400" },
 		{ icon: FiFacebook, href: "https://www.facebook.com/gazi.maksudur", label: "Facebook", color: "hover:text-primary-400" },
 	];
 

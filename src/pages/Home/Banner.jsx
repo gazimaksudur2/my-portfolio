@@ -124,7 +124,7 @@ const Banner = () => {
                                     <FiGithub className="w-5 h-5" />
                                 </a>
                                 <a
-                                    href="https://linkedin.com/in/gazi-maksudur-rahman"
+                                    href="https://www.linkedin.com/in/gazimaksudur/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="p-3 bg-neutral-100 hover:bg-primary-100 text-neutral-700 hover:text-primary-600 rounded-full transition-all duration-300 hover:scale-110"
