@@ -11,12 +11,15 @@ import Education from "./Education";
 import MySkills from "./MySkills";
 import Projects from "./Projects";
 import Services from "./Services";
+import { trackVisitor } from "../../services/visitorStats";
 // import UnderConstruction from './UnderConstruction';
 
 const Home = () => {
 	const [showBackToTop, setShowBackToTop] = useState(false);
 
 	useEffect(() => {
+		trackVisitor();
+
 		const handleScroll = () => {
 			// Show button when user has scrolled more than 400px
 			setShowBackToTop(window.scrollY > 400);

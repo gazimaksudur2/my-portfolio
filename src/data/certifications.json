@@ -1,0 +1,69 @@
+[
+  {
+    "id": "jenkins-project-building-ci-cd-pipeline-for-scalable-web-applications",
+    "title": "Jenkins Project: Building CI/CD Pipeline for Scalable Web Applications",
+    "issuer": "KodeKloud",
+    "platform": "KodeKloud",
+    "date": "2026-02",
+    "description": "Learn to build a CI/CD pipeline for scalable web applications using Jenkins.",
+    "certificateUrl": "https://media.licdn.com/dms/image/v2/D562DAQHcOpBFoTj9OA/profile-treasury-document-cover-images_800/B56ZxnH3fLIQBA-/0/1771256643875?e=1772024400&v=beta&t=pXbuW-godEultBNF31EXPrEDbrj8LxCO2ISd_2H72j8",
+    "verificationUrl": "https://learn.kodekloud.com/certificate/03edc704-4198-42d7-b161-21bcbfa7e425",
+    "tags": ["Jenkins", "CI/CD", "KodeKloud"]
+  },
+  {
+    "id": "aws-cloud-developing",
+    "title": "AWS Academy Graduate - Cloud Developing - Training Badge",
+    "issuer": "Amazon Web Services (AWS)",
+    "platform": "AWS Academy",
+    "date": "2026-02",
+    "description": "Learn to develop and deploy cloud-native applications on AWS.",
+    "certificateUrl": "https://media.licdn.com/dms/image/v2/D562DAQGUXBrK6T2Ibg/profile-treasury-document-images_1280/B56ZwO2pKTIYAU-/1/1769775735267?e=1772064000&v=beta&t=UUaWqYZu38ckE90PmCgxxzIVaNFWKJCwvhBG2TGR6HM",
+    "verificationUrl": "https://www.credly.com/badges/02e1e6cd-3423-4036-bc43-5188a7350020/",
+    "tags": ["Cloud", "AWS", "Development"]
+  },
+  {
+    "id": "docker-training-course-for-the-absolute-beginner",
+    "title": "Docker Training Course for the Absolute Beginner",
+    "issuer": "KodeKloud",
+    "platform": "KodeKloud",
+    "date": "2026-01",
+    "description": "Learn the basics of Docker and containerization.",
+    "certificateUrl": "https://media.licdn.com/dms/image/v2/D562DAQGzESJ3ezWjqg/profile-treasury-document-cover-images_480/B56ZvhzcwaIYBI-/0/1769019921636?e=1772024400&v=beta&t=w8FzGbv6XCUM2b6dTK2LOSkVaJDvKshXVX0SsSI9e40",
+    "verificationUrl": "https://learn.kodekloud.com/certificate/82c6c61a-dd0a-4a93-b88a-362f5b1c2ee5",
+    "tags": ["Docker", "Containerization", "KodeKloud"]
+  },
+  {
+    "id": "aws-cloud-foundation",
+    "title": "AWS Academy Graduate - Cloud Foundations - Training Certification",
+    "issuer": "Amazon Web Services (AWS)",
+    "platform": "AWS Academy",
+    "date": "2026-01",
+    "description": "Learn the fundamentals of AWS cloud computing and cloud services.",
+    "certificateUrl": "https://media.licdn.com/dms/image/v2/D562DAQG_A_bTOLXu8A/profile-treasury-document-images_1280/B56ZumbwsQIYAY-/1/1768023856391?e=1772064000&v=beta&t=6b00T_Gpku9OBU63dl_so2bz0AaNUGs1lF3NTCIwGtM",
+    "verificationUrl": "https://www.credly.com/badges/e217f892-8d4a-44ca-b47a-c7e548ec3691/linked_in_profile",
+    "tags": ["Cloud", "AWS", "Foundations"]
+  },
+  {
+    "id": "full-stack-web-developer",
+    "title": "Programming Hero certified Full-Stack Web Developer",
+    "issuer": "Programming Hero",
+    "platform": "Programming Hero",
+    "date": "2024-05",
+    "description": "Learn to build and deploy full-stack web applications using modern technologies.",
+    "certificateUrl": "https://media.licdn.com/dms/image/v2/D562DAQEcz8F8IIMGEA/profile-treasury-document-images_1280/B56Znh1qbUI8AU-/1/1760430567265?e=1772064000&v=beta&t=oknZV39iZH1Qgra6kpfFwsGcj020vWH5auuKgtcY3mY",
+    "verificationUrl": "https://media.licdn.com/dms/image/v2/D562DAQEcz8F8IIMGEA/profile-treasury-document-images_1280/B56Znh1qbUI8AU-/1/1760430567265?e=1772064000&v=beta&t=oknZV39iZH1Qgra6kpfFwsGcj020vWH5auuKgtcY3mY",
+    "tags": ["Full-Stack", "Web Development", "Programming Hero"]
+  },
+  {
+    "id": "supervised-machine-learning",
+    "title": "Supervised Machine Learning: Regression and Classification",
+    "issuer": "DeepLearning.AI",
+    "platform": "Coursera",
+    "date": "2025-10",
+    "description": "Learn to build and tune supervised machine learning models using regression and classification algorithms.",
+    "certificateUrl": "https://media.licdn.com/dms/image/v2/D562DAQESpXbd3JCqLQ/profile-treasury-document-images_1280/B56ZncC5S2JoAU-/1/1760333372568?e=1772064000&v=beta&t=ELogt1swJal8OEgegoo9QiEReIxdARJ942joOq4SAeA",
+    "verificationUrl": "https://www.coursera.org/account/accomplishments/verify/2ZPJI1Y6G12V",
+    "tags": ["Machine Learning", "Classification", "Regression"]
+  }
+]
+

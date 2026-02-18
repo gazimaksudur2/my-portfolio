@@ -8,9 +8,29 @@ import {
 	FiMapPin,
 	FiHeart,
 } from "react-icons/fi";
+import { useEffect, useState } from "react";
 import { personalInfo, navLinks } from "../constants";
+import { getVisitorSummary } from "../services/visitorStats";
 
 const Footer = () => {
+	const [visitorSummary, setVisitorSummary] = useState({
+		total: 0,
+		topCountries: [],
+		loading: true,
+	});
+
+	useEffect(() => {
+		const loadSummary = async () => {
+			const data = await getVisitorSummary();
+			setVisitorSummary({
+				...data,
+				loading: false,
+			});
+		};
+
+		loadSummary();
+	}, []);
+
 	const scrollToSection = (sectionId) => {
 		const element = document.querySelector(sectionId);
 		if (element) {
@@ -139,10 +159,23 @@ const Footer = () => {
 				{/* Bottom Section */}
 				<div className="border-t border-white/10 pt-8 mt-12">
 					<div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-						<div className="flex items-center space-x-2 text-neutral-300 text-sm">
-							<span>© {new Date().getFullYear()} {personalInfo.name}. Made with</span>
+						<div className="flex flex-col items-center md:items-start space-y-1 text-neutral-300 text-sm">
+							<div className="flex items-center space-x-2">
+								<span>© {new Date().getFullYear()} {personalInfo.name}. Made with</span>
 							<FiHeart className="w-4 h-4 text-red-400" />
-							<span>in Bangladesh</span>
+								<span>in Bangladesh</span>
+							</div>
+							<p className="text-xs text-neutral-400">
+								{visitorSummary.loading
+									? "Visitor insights loading..."
+									: visitorSummary.total > 0
+									? `Visitors: ${visitorSummary.total} · Top regions: ${
+											visitorSummary.topCountries
+												.map((item) => `${item.country} (${item.count})`)
+												.join(", ") || "—"
+										}`
+									: "Be among the first visitors here."}
+							</p>
 						</div>
 						<div className="flex items-center space-x-6 text-neutral-300 text-sm">
 							<button
