@@ -87,7 +87,7 @@ const Services = () => {
                 </div>
 
                 {/* Process Section */}
-                <div className="mt-20">
+                {/* <div className="mt-20">
                     <div className="text-center mb-12">
                         <h3 className="text-2xl lg:text-3xl font-bold text-neutral-900 mb-4">
                             My Development Process
@@ -122,7 +122,7 @@ const Services = () => {
                             </div>
                         ))}
                     </div>
-                </div>
+                </div> */}
 
                 {/* CTA Section */}
                 <div className="mt-20 text-center">

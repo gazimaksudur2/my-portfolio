@@ -20,7 +20,7 @@ const skillCategories = [
         title: "Database",
         icon: FiDatabase,
         color: "from-green-500 to-green-600",
-        skills: ["MongoDB", "Firebase"],
+        skills: ["MongoDB", "Firebase", "MySQL", "PostgreSQL"],
     },
     {
         id: "cloud",
