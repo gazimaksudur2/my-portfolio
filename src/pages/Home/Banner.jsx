@@ -10,10 +10,9 @@ const Banner = () => {
     }, []);
 
     const roles = [
-        'Backend-focused Software Engineer',
+        'Backend-focused Soft. Engineer',
         'Full Stack Developer',
-        'AWS Cloud Practitioner',
-        'CSE Student at SUST'
+        'Graduated from CSE, SUST'
     ];
 
     const stats = [
@@ -25,8 +24,8 @@ const Banner = () => {
 
     const highlights = [
         { label: "Bangladesh 🇧🇩", key: "location" },
-        { label: "CSE Student at SUST", key: "sust" },
-        { label: "AWS Academy Graduate", key: "aws" },
+        { label: "Graduated from CSE, SUST", key: "sust" },
+        { label: "Software Developer", key: "developer" },
     ];
 
     return (
@@ -47,14 +46,14 @@ const Banner = () => {
                                 <span>Hello, I'm</span>
                             </div>
                             
-                            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-900 leading-tight">
+                            <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-neutral-900 leading-tight">
                                 <span className="block">Gazi Maksudur</span>
                                 <span className="block bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
                                     Rahman
                                 </span>
                             </h1>
 
-                            <div className="text-xl sm:text-2xl lg:text-3xl text-neutral-600 font-medium h-16 flex items-center">
+                            <div className="text-xl sm:text-2xl xl:text-3xl text-neutral-600 font-medium h-16 flex items-center">
                                 <span className="mr-3">I'm a</span>
                                 <span className="text-primary-600 font-semibold">
                                     <Typewriter
@@ -69,7 +68,7 @@ const Banner = () => {
                                 </span>
                             </div>
 
-                            <p className="text-lg text-neutral-600 leading-relaxed max-w-2xl">
+                            <p className="md:text-lg text-neutral-600 leading-relaxed max-w-2xl">
                                 I'm a Backend-focused Software Engineer specializing in Node.js, Express, and PostgreSQL. 
                                 I build secure, scalable web applications and actively work with AWS, Docker, and CI/CD pipelines 
                                 to deliver production-ready systems.

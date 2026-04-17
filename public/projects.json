@@ -44,6 +44,22 @@
     ]
   },
   {
+    "projectType": "Fintech",
+    "projectTitle": "Easy Bank",
+    "projectDescription": "Easy Bank is a comprehensive, full-stack banking application built with React, Vite, and Firebase. It features secure user authentication (email/password, Google, GitHub), dashboard management with profile and transaction history, credit request application and tracking, and administrative controls for user management, credit processing, and platform oversight.",
+    "skills": ["React 18", "Vite 6", "React Router 7", "Tailwind CSS", "DaisyUI", "Ant Design", "React Query", "Firebase Auth", "Firebase Hosting", "Axios"],
+    "liveSiteLink": "https://easybank-b9b62.web.app/",
+    "githubServerRepoLink": "#",
+    "githubClientRepoLink": "https://github.com/gazimaksudur2/bank-client",
+    "bannerImgUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
+    "features": [
+      "Secure authentication via Firebase (email/password, Google, GitHub); dashboard with profile, account status, and transaction history.",
+      "Credit management: apply for and track credit requests; detailed transaction tracking and account activity.",
+      "Admin: user management, credit request approval/denial, transaction oversight, and bank status dashboard with real-time metrics.",
+      "Responsive, mobile-first design with Tailwind CSS and DaisyUI; protected routes and JWT for API communication."
+    ]
+  },
+  {
     "projectType": "Hotel Booking Management System",
     "projectTitle": "TripFlip",
     "projectDescription": "Trip_Flip is a hotel management web application for exploring and booking hotel services worldwide. Users sign up, book rooms, manage bookings, and share experiences through a user-friendly interface.",
