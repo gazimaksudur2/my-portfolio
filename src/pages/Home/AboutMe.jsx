@@ -16,10 +16,9 @@ const AboutMe = () => {
                         </span>
                     </h2>
                     <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-                        I'm a Computer Science student at SUST and a MERN Stack Developer with hands-on experience 
-                        building real-world web applications. I've worked on fintech systems, agricultural e-commerce 
-                        platforms, and authentication-driven apps. I enjoy solving practical problems and continuously 
-                        learning modern tools like AWS, Next.js, and Redux to improve performance and scalability.
+                        I'm a Computer Science student at SUST and a Backend-focused Software Engineer with hands-on 
+                        experience architecting RESTful APIs and managing complex database designs using PostgreSQL and MongoDB. 
+                        I'm also an AWS Academy Graduate with a deep interest in DevSecOps, containerization, and automation.
                     </p>
                 </div>
 
@@ -32,16 +31,17 @@ const AboutMe = () => {
                             </h3>
                             <div className="space-y-4 text-neutral-600 leading-relaxed">
                                 <p>
-                                    My journey into tech is driven by curiosity and a desire to build things that 
-                                    matter. I focus on the MERN stack, Next.js, Redux, and AWS, with experience 
-                                    on real production projects. I'm interested in fintech, agri-tech, and scalable 
-                                    systems, and I'm passionate about improving my English and communication.
+                                    My journey into tech is driven by curiosity and a desire to build secure, high-performance, 
+                                    and scalable systems. While I am well-versed in frontend technologies like React and Tailwind, 
+                                    my core focus is on backend architecture, MVC patterns, RBAC authentication, and CI/CD tools 
+                                    like Docker and Jenkins. I've contributed to the end-to-end development of commercial applications 
+                                    and consistently strive for production-grade reliability.
                                 </p>
                                 <p>
-                                    I bring strong problem-solving, a fast-learning mindset, and real-world project 
-                                    experience. I work well in teams, have participated in requirement analysis and 
-                                    system architecture discussions, and I'm motivated to grow as a professional 
-                                    while staying humble and practical.
+                                    Beyond writing code, I have hands-on experience executing rigorous SQA and training ML models 
+                                    through RLHF. I bring strong problem-solving skills, a fast-learning mindset, and a commitment 
+                                    to industry standards. I work well in collaborative environments, learning from senior developers, 
+                                    and always aiming to elevate the entire engineering team's output.
                                 </p>
                             </div>
                         </div>

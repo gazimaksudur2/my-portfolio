@@ -11,13 +11,13 @@ export const navLinks = [
 
 export const personalInfo = {
     name: "Gazi Maksudur Rahman",
-    title: "Jr. Software Engineer",
-    resumeLink: "https://drive.google.com/file/d/1-AoHayQihlWRG17EFwtaeCt7q30zsTQt/view?usp=sharing",
+    title: "Backend-focused Software Engineer",
+    resumeLink: "/Gazi Maksudur Rahman Resume.pdf",
 };
 
 export const quickFacts = {
     location: "Sylhet, Bangladesh",
-    experience: "Project-based & Freelance",
+    experience: "1+ Years Professional Experience",
     availability: "Open to opportunities",
     languages: "English, Bengali",
 };
@@ -25,22 +25,22 @@ export const quickFacts = {
 export const highlights = [
     {
         icon: "FiCode",
-        title: "MERN & Real Projects",
-        description: "Hands-on experience with fintech systems, agricultural e-commerce, and authentication-driven apps. Focus on Next.js, Redux, and AWS for scalable solutions."
+        title: "Backend Architecture & APIs",
+        description: "Hands-on experience architecting RESTful APIs and complex database designs with PostgreSQL and Prisma."
+    },
+    {
+        icon: "FiServer",
+        title: "Cloud & DevSecOps",
+        description: "AWS Cloud Practitioner focused on DevSecOps, proficient in containerizing applications with Docker and automating CI/CD via Jenkins."
     },
     {
         icon: "FiUsers",
-        title: "Collaborative & Communicative",
-        description: "Participated in requirement analysis, UI/UX decisions, and team meetings (e.g. SmartAgroConnect). Motivated to keep improving English and communication."
-    },
-    {
-        icon: "FiTrendingUp",
-        title: "Growth-Oriented",
-        description: "Continuously learning modern tools like AWS, Next.js, and Redux. Interested in fintech, agri-tech, and scalable systems."
+        title: "Collaborative & Analytical",
+        description: "Proven experience working in cross-functional teams, executing rigorous SQA, and identifying critical edge cases for scalable web platforms."
     },
     {
         icon: "FiAward",
-        title: "Freelancer & Job Seeker",
-        description: "Delivered client-focused responsive websites and production work. Career-focused, disciplined, and ready for new challenges."
+        title: "Growth-Oriented & Dedicated",
+        description: "Continuously training AI models via RLHF and expanding cloud expertise to deliver secure, enterprise-grade systems."
     }
 ];

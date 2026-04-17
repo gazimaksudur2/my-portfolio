@@ -10,16 +10,16 @@ const Banner = () => {
     }, []);
 
     const roles = [
-        'MERN Stack Developer',
-        'React & Next.js Developer',
-        'CSE Student at SUST',
-        'Cloud & AWS Learner'
+        'Backend-focused Software Engineer',
+        'Full Stack Developer',
+        'AWS Cloud Practitioner',
+        'CSE Student at SUST'
     ];
 
     const stats = [
-        { number: "10+", label: "Projects Completed" },
-        { number: "2+", label: "Years Project-Based Experience" },
-        { number: "15+", label: "Technologies" },
+        { number: "3+", label: "Major Enterprise Projects" },
+        { number: "1+", label: "Years Professional Experience" },
+        { number: "15+", label: "Technologies & Tools" },
         { number: "—", label: "Open to Opportunities" }
     ];
 
@@ -70,9 +70,9 @@ const Banner = () => {
                             </div>
 
                             <p className="text-lg text-neutral-600 leading-relaxed max-w-2xl">
-                                I'm a MERN Stack Developer specializing in React, Next.js, and modern web technologies. 
-                                I build scalable, user-focused web applications and actively work on real-world projects 
-                                including fintech and agricultural e-commerce platforms.
+                                I'm a Backend-focused Software Engineer specializing in Node.js, Express, and PostgreSQL. 
+                                I build secure, scalable web applications and actively work with AWS, Docker, and CI/CD pipelines 
+                                to deliver production-ready systems.
                             </p>
                             <div className="flex flex-wrap gap-3">
                                 {highlights.map((h) => (
@@ -89,7 +89,7 @@ const Banner = () => {
                         {/* CTA Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4">
                             <a
-                                href="https://drive.google.com/file/d/1-AoHayQihlWRG17EFwtaeCt7q30zsTQt/view?usp=sharing"
+                                href="/Gazi Maksudur Rahman Resume.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"

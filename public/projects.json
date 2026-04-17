@@ -3,75 +3,65 @@
     "projectType": "Agricultural Marketplace (B2B)",
     "projectTitle": "SmartAgro Connect",
     "projectDescription": "SmartAgro Connect is a comprehensive B2B agricultural marketplace platform that revolutionizes how farmers, agents, and wholesale buyers interact in the agricultural supply chain. By eliminating intermediaries and ensuring transparency, it creates a more efficient and profitable ecosystem. The platform features multi-role dashboards, real-time product catalogs, AI-powered crop recommendations, plant disease detection, smart irrigation planning, and secure payment processing with Stripe.",
-    "skills": ["React 18", "Redux Toolkit", "Firebase Auth & Storage", "Tailwind CSS", "DaisyUI", "React Query", "Stripe", "Vite", "REST API", "JWT"],
+    "skills": [
+      "React.js",
+      "Express.js",
+      "MongoDB",
+      "Node.js",
+      "Tailwind CSS"
+    ],
     "liveSiteLink": "https://smartagroconnect-79578.web.app",
     "githubServerRepoLink": "#",
     "githubClientRepoLink": "https://github.com/gazimaksudur2/smart-agro-market-client",
     "bannerImgUrl": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80",
     "features": [
-      "Multi-role dashboard system (Admin, Regional Agent, Seller/Farmer, Consumer/Wholesale Buyer) with role-based access control.",
-      "Real-time product catalog with advanced filtering, search, and bulk ordering; order management with tracking and delivery coordination.",
-      "AI-powered crop recommendations, plant disease detection, and smart irrigation planning with 5-day weather-based recommendations.",
-      "Secure payment integration with Stripe; application and verification system for sellers and agents with admin approval workflow.",
-      "Firebase Authentication with JWT; responsive design, dashboard analytics with Recharts, and real-time notifications (React Hot Toast)."
-    ]
-  },
-  {
-    "projectType": "Fintech",
-    "projectTitle": "Easy Bank",
-    "projectDescription": "Easy Bank is a comprehensive, full-stack banking application built with React, Vite, and Firebase. It features secure user authentication (email/password, Google, GitHub), dashboard management with profile and transaction history, credit request application and tracking, and administrative controls for user management, credit processing, and platform oversight.",
-    "skills": ["React 18", "Vite 6", "React Router 7", "Tailwind CSS", "DaisyUI", "Ant Design", "React Query", "Firebase Auth", "Firebase Hosting", "Axios"],
-    "liveSiteLink": "https://easybank-b9b62.web.app/",
-    "githubServerRepoLink": "#",
-    "githubClientRepoLink": "https://github.com/gazimaksudur2/bank-client",
-    "bannerImgUrl": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80",
-    "features": [
-      "Secure authentication via Firebase (email/password, Google, GitHub); dashboard with profile, account status, and transaction history.",
-      "Credit management: apply for and track credit requests; detailed transaction tracking and account activity.",
-      "Admin: user management, credit request approval/denial, transaction oversight, and bank status dashboard with real-time metrics.",
-      "Responsive, mobile-first design with Tailwind CSS and DaisyUI; protected routes and JWT for API communication."
+      "Designed and applied RESTful APIs using Express.js and MongoDB to manage marketplace transactions between farmers, agents, and buyers.",
+      "Built a role-based access control (RBAC) system supporting three distinct user roles with route-level authorization middleware.",
+      "Applied modular MVC architecture to separate business logic, improving code maintainability and enabling future scalability.",
+      "Developed a responsive React.js frontend with Tailwind CSS, ensuring cross-device compatibility and clean UX."
     ]
   },
   {
     "projectType": "EdTech Platform",
     "projectTitle": "ElevateEx",
     "projectDescription": "ElevateEx connects students, instructors, and admins. Students enroll in courses and track progress. Instructors create and submit courses. Admins manage users and content. ElevateEx enhances learning with a user-friendly interface.",
-    "skills": ["React", "MongoDB", "Node", "Express", "Tailwind CSS"],
+    "skills": [
+      "React.js",
+      "Firebase Auth",
+      "MongoDB",
+      "Node.js",
+      "Tailwind CSS"
+    ],
     "liveSiteLink": "https://elevateex-ac4de.web.app/",
     "githubServerRepoLink": "https://github.com/gazimaksudur2/elevateex-server",
     "githubClientRepoLink": "https://github.com/gazimaksudur2/elevateex-client",
     "bannerImgUrl": "https://i.ibb.co/K6ZSFhf/screencapture-elevateex-ac4de-web-app-allclass-2024-07-10-11-49-30.png",
     "features": [
-      "Three user types: admin, instructor, student — each with a functional dashboard.",
-      "Students access approved courses, enroll, and track progress in their dashboard.",
-      "Apply-to-be-admin flow for instructors/general users via profile sidebar."
+      "Architected a multi-role EdTech ecosystem with dedicated dashboards and role-based workflows for students, instructors, and administrators.",
+      "Implemented secure authentication and session management using Firebase Auth, integrated with protected API communication via Axios.",
+      "Developed core learning modules, including course publishing, instructor approval cycles, enrollment management, and assignment submission systems.",
+      "Leveraged React Query for efficient server-state management and reusable UI states, ensuring a high-performance, scalable frontend."
     ]
   },
   {
     "projectType": "Hotel Booking Management System",
     "projectTitle": "TripFlip",
     "projectDescription": "Trip_Flip is a hotel management web application for exploring and booking hotel services worldwide. Users sign up, book rooms, manage bookings, and share experiences through a user-friendly interface.",
-    "skills": ["React", "Node", "Express", "MongoDB", "DaisyUI"],
+    "skills": [
+      "React.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS"
+    ],
     "liveSiteLink": "https://trip-flip.web.app",
     "githubServerRepoLink": "https://github.com/gazimaksudur2/trip-flip-server",
     "githubClientRepoLink": "https://github.com/gazimaksudur2/trip-flip-client",
     "bannerImgUrl": "https://i.ibb.co/2gwd1Sb/screencapture-trip-flip-web-app-rooms-2024-07-12-23-19-42.png",
     "features": [
-      "Sign up with credentials or Google/GitHub. Book rooms and edit booking info.",
-      "After checkout, post a review that appears on the home and rooms pages."
-    ]
-  },
-  {
-    "projectType": "Art and Crafts Gallery",
-    "projectTitle": "Artisan Haven",
-    "projectDescription": "Artisan Haven showcases textile art and craft. Artists display work; enthusiasts explore crafts. Features category-based browsing and user-contributed gallery management.",
-    "skills": ["React", "Node", "Express", "MongoDB", "Material-UI"],
-    "liveSiteLink": "https://artisan-haven.web.app",
-    "githubClientRepoLink": "https://github.com/gazimaksudur2/artisan-client",
-    "bannerImgUrl": "https://i.ibb.co/HxZ9DTN/screencapture-artisan-haven-web-app-2024-07-12-23-20-59.png",
-    "features": [
-      "View arts and crafts by category. Register to add, edit, update, or delete your crafts.",
-      "Category-based browsing and community gallery."
+      "Executed multi-provider user authentication (email, Google, and GitHub) using secure OAuth 2.0 flows.",
+      "Built a full hotel room booking and management system with real-time availability tracking and booking state management.",
+      "Developed a post-checkout review and ratings feature, enhancing user trust and engagement.",
+      "Integrated protected API routes with JWT-based session management for secure data access."
     ]
   }
 ]

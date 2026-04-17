@@ -1,12 +1,12 @@
 const education = [
     {
-        period: "2022 – 2026",
-        degree: "B.Sc. in Computer Science",
+        period: "Jan 2022 – Apr 2026",
+        degree: "B.Sc. in Computer Science and Engineering",
         institution: "Shahjalal University of Science and Technology (SUST)",
         institutionShort: "SUST",
-        cgpa: "CGPA 3.55 (till 7th semester)",
+        cgpa: "CGPA 3.57",
         focus: "Data structures, algorithms, web development, cloud fundamentals",
-        logo: "https://sust.edu/public/img/sust_logo_big.png",
+        logo: "https://upload.wikimedia.org/wikipedia/en/d/d9/Shahjalal_University_of_Science_and_Technology_logo.png",
         primary: true,
     },
     {

@@ -2,28 +2,29 @@ import { FiCode, FiBriefcase } from "react-icons/fi";
 
 const experiences = [
     {
-        period: "2023 – Present",
-        title: "Frontend Developer — Project-Based",
-        org: "Team & personal projects",
+        period: "Jul 2025 – Jan 2026",
+        title: "Jr. Full Stack Developer",
+        org: "Digital Way Business LTD",
         icon: FiCode,
         color: "from-primary-500 to-secondary-500",
         points: [
-            "Worked on multi-role web apps (e.g. SmartAgroConnect, fintech).",
-            "Participated in requirement analysis and UI/UX decisions.",
-            "Contributed to authentication flows and role-based dashboards.",
-            "Participated in team meetings and planning (SmartAgroConnect).",
+            "Contributed to the end-to-end development and commercial deployment of 'SyloTea,' an e-commerce product.",
+            "Maintained and optimized the web server environment utilizing Node.js and Express.js.",
+            "Designed and implemented database architecture using PostgreSQL and Prisma ORM.",
+            "Enhanced UX by applying UI design principles and developing frontend components with React.js.",
         ],
     },
     {
-        period: "2023 – Present",
-        title: "Freelance Web Developer",
-        org: "Client-focused work",
+        period: "Mar 2024 – Present",
+        title: "AI Software Trainer & QA Specialist",
+        org: "Outlier AI (Freelance)",
         icon: FiBriefcase,
         color: "from-secondary-500 to-primary-500",
         points: [
-            "Built client-focused responsive websites.",
-            "Delivered real-world production work.",
-            "Collaborated on design and deployment.",
+            "Executed rigorous SQA by debugging AI-generated code across Python, JavaScript, and C++.",
+            "Led multiple RLHF projects, training machine learning models based on technical evaluations.",
+            "Identified edge cases and security vulnerabilities.",
+            "Provided feedback on Git workflows and industry SDLC standards.",
         ],
     },
 ];
@@ -37,14 +38,14 @@ const Experience = () => {
                         Experience
                     </div>
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6">
-                        Project-Based &
+                        Professional
                         <span className="block bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-                            Freelance
+                            Experience
                         </span>
                     </h2>
                     <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-                        As a fresher, my experience centers on real projects and team collaboration—requirement analysis, 
-                        meetings, planning, and delivering production-ready features.
+                        My experience balances building scalable, production-grade applications with 
+                        rigorous quality assurance, system optimization, and training robust machine learning models.
                     </p>
                 </div>
 

@@ -58,17 +58,5 @@
     "type": "pdf",
     "verificationUrl": "https://drive.google.com/file/d/1Ko-VRjuX1gdkcMnONXTrU6tMGhpmCIGB/view?usp=sharing",
     "tags": ["Full-Stack", "Web Development", "Programming Hero"]
-  },
-  {
-    "id": "supervised-machine-learning",
-    "title": "Supervised Machine Learning: Regression and Classification",
-    "issuer": "DeepLearning.AI",
-    "platform": "Coursera",
-    "date": "2025-10",
-    "description": "Learn to build and tune supervised machine learning models using regression and classification algorithms.",
-    "certificateUrl": "https://drive.google.com/file/d/1xWz_hjvkqTEnFkVsBIVZFX91Q2zSsuaH/view?usp=sharing",
-    "type": "pdf",
-    "verificationUrl": "https://www.coursera.org/account/accomplishments/verify/2ZPJI1Y6G12V",
-    "tags": ["Machine Learning", "Classification", "Regression"]
   }
 ]
