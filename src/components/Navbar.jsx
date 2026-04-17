@@ -72,7 +72,7 @@ const Navbar = () => {
 						<div className="p-2.5 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
 							<FiCode className="w-6 h-6 text-white" />
 						</div>
-						<span className="text-lg lg:text-xl font-bold text-neutral-800 group-hover:text-primary-600 transition-colors duration-200">
+						<span className="flex lg:hidden xl:flex text-lg lg:text-xl font-bold text-neutral-800 group-hover:text-primary-600 transition-colors duration-200">
 							{personalInfo.name}
 						</span>
 					</Link>
