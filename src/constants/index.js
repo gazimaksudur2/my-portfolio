@@ -12,7 +12,7 @@ export const navLinks = [
 export const personalInfo = {
     name: "Gazi Maksudur Rahman",
     title: "Backend-focused Software Engineer",
-    resumeLink: "/Gazi Maksudur Rahman Resume.pdf",
+    resumeLink: "https://drive.google.com/file/d/1-AoHayQihlWRG17EFwtaeCt7q30zsTQt/view",
 };
 
 export const quickFacts = {
