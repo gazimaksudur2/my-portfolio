@@ -6,8 +6,27 @@ export default {
 			fontFamily: {
 				poppins: '"Poppins", sans-serif',
 				inter: '"Inter", sans-serif',
+				syne: '"Syne", system-ui, sans-serif',
+				grotesk: '"Space Grotesk", system-ui, sans-serif',
+				sans: '"Space Grotesk", system-ui, sans-serif',
+				heading: '"Syne", system-ui, sans-serif',
 			},
 			colors: {
+				bg: {
+					primary: "#0a0a0f",
+					secondary: "#0d0d1a",
+					card: "#111127",
+				},
+				accent: {
+					cyan: "#00f5ff",
+					violet: "#7c3aed",
+					green: "#00ff88",
+				},
+				content: {
+					primary: "#f0f0ff",
+					muted: "#8888aa",
+				},
+				glow: "rgba(0, 245, 255, 0.2)",
 				primary: {
 					50: "#f0f9ff",
 					100: "#e0f2fe",
@@ -50,6 +69,14 @@ export default {
 				"gradient-conic":
 					"conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
 				"hero-pattern": "url('/img/hero-pattern.svg')",
+				"grid-glow":
+					"linear-gradient(rgba(0,245,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,245,255,0.04) 1px, transparent 1px)",
+			},
+			boxShadow: {
+				"glow-cyan": "0 0 24px rgba(0, 245, 255, 0.35)",
+				"glow-cyan-lg": "0 0 48px rgba(0, 245, 255, 0.45)",
+				"glow-violet": "0 0 24px rgba(124, 58, 237, 0.45)",
+				"glow-green": "0 0 24px rgba(0, 255, 136, 0.4)",
 			},
 			animation: {
 				"fade-in": "fadeIn 0.6s ease-out",
@@ -117,23 +144,23 @@ export default {
 	},
 	plugins: [require("daisyui")],
 	daisyui: {
+		darkTheme: "portfolioDark",
 		themes: [
 			{
-				professional: {
-					primary: "#0ea5e9",
-					secondary: "#c855f5",
-					accent: "#f59e0b",
-					neutral: "#1e293b",
-					"base-100": "#ffffff",
-					"base-200": "#f8fafc",
-					"base-300": "#e2e8f0",
-					info: "#0ea5e9",
-					success: "#10b981",
+				portfolioDark: {
+					primary: "#00f5ff",
+					secondary: "#7c3aed",
+					accent: "#00ff88",
+					neutral: "#111127",
+					"base-100": "#0a0a0f",
+					"base-200": "#0d0d1a",
+					"base-300": "#111127",
+					info: "#00f5ff",
+					success: "#00ff88",
 					warning: "#f59e0b",
 					error: "#ef4444",
 				},
 			},
-			"light",
 			"dark",
 		],
 	},
