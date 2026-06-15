@@ -1,186 +1,254 @@
-import { useEffect, useState } from "react";
+import { Suspense, lazy } from "react";
+import { motion } from "framer-motion";
 import { FiDownload, FiMail, FiGithub, FiLinkedin, FiExternalLink } from "react-icons/fi";
-import { Typewriter } from 'react-simple-typewriter';
+import { Typewriter } from "react-simple-typewriter";
+import { useIsMobile } from "../../hooks/useIsMobile";
+import { useCountUp } from "../../hooks/useCountUp";
+import CanvasFallback from "../../components/three/CanvasFallback";
+
+const ParticleField = lazy(() => import("../../components/three/ParticleField"));
+
+const StatCard = ({ number, label, index }) => {
+	const { ref, display } = useCountUp(number);
+	return (
+		<motion.div
+			ref={ref}
+			initial={{ opacity: 0, y: 24 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true, amount: 0.4 }}
+			transition={{ duration: 0.5, delay: index * 0.1 }}
+			className="text-center rounded-2xl glass glow-border p-5 hover:shadow-glow-cyan transition-all duration-300"
+		>
+			<div className="text-3xl lg:text-4xl font-bold font-syne text-gradient mb-2">
+				{display}
+			</div>
+			<div className="text-content-muted text-sm font-medium">{label}</div>
+		</motion.div>
+	);
+};
 
 const Banner = () => {
-    const [mounted, setMounted] = useState(false);
+	const isMobile = useIsMobile();
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
+	const roles = [
+		"Backend-focused Soft. Engineer",
+		"Full Stack Developer",
+		"Graduated from CSE, SUST",
+	];
 
-    const roles = [
-        'Backend-focused Soft. Engineer',
-        'Full Stack Developer',
-        'Graduated from CSE, SUST'
-    ];
+	const stats = [
+		{ number: "3+", label: "Major Enterprise Projects" },
+		{ number: "1+", label: "Years Professional Experience" },
+		{ number: "15+", label: "Technologies & Tools" },
+		{ number: "—", label: "Open to Opportunities" },
+	];
 
-    const stats = [
-        { number: "3+", label: "Major Enterprise Projects" },
-        { number: "1+", label: "Years Professional Experience" },
-        { number: "15+", label: "Technologies & Tools" },
-        { number: "—", label: "Open to Opportunities" }
-    ];
+	const highlights = [
+		{ label: "Bangladesh 🇧🇩", key: "location" },
+		{ label: "Graduated from CSE, SUST", key: "sust" },
+		{ label: "Software Developer", key: "developer" },
+	];
 
-    const highlights = [
-        { label: "Bangladesh 🇧🇩", key: "location" },
-        { label: "Graduated from CSE, SUST", key: "sust" },
-        { label: "Software Developer", key: "developer" },
-    ];
+	const nameContainer = {
+		hidden: {},
+		visible: { transition: { staggerChildren: 0.06, delayChildren: 0.2 } },
+	};
+	const nameChar = {
+		hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
+		visible: {
+			opacity: 1,
+			y: 0,
+			filter: "blur(0px)",
+			transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+		},
+	};
 
-    return (
-        <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-neutral-50 via-white to-primary-50">
-            {/* Background decoration */}
-            <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -top-40 -right-32 w-80 h-80 bg-gradient-to-br from-primary-200 to-secondary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse-slow"></div>
-                <div className="absolute -bottom-40 -left-32 w-80 h-80 bg-gradient-to-br from-secondary-200 to-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse-slow animation-delay-2000"></div>
-            </div>
+	const renderAnimatedName = (text) =>
+		text.split("").map((char, i) => (
+			<motion.span key={`${char}-${i}`} variants={nameChar} className="inline-block">
+				{char === " " ? "\u00A0" : char}
+			</motion.span>
+		));
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                    {/* Content */}
-                    <div className={`space-y-8 ${mounted ? 'animate-fade-in-up' : 'opacity-0'}`}>
-                        <div className="space-y-4">
-                            <div className="flex items-center space-x-2 text-primary-600 font-medium">
-                                <div className="w-8 h-px bg-primary-500"></div>
-                                <span>Hello, I'm</span>
-                            </div>
-                            
-                            <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-neutral-900 leading-tight">
-                                <span className="block">Gazi Maksudur</span>
-                                <span className="block bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-                                    Rahman
-                                </span>
-                            </h1>
+	return (
+		<section
+			id="home"
+			className="min-h-screen flex items-center justify-center relative overflow-hidden bg-bg-primary"
+		>
+			{/* 3D particle background (desktop only) with graceful fallback */}
+			<div className="absolute inset-0">
+				{isMobile ? (
+					<CanvasFallback variant="field" />
+				) : (
+					<Suspense fallback={<CanvasFallback variant="field" />}>
+						<ParticleField />
+					</Suspense>
+				)}
+				<div className="absolute inset-0 bg-gradient-to-b from-bg-primary/40 via-transparent to-bg-primary pointer-events-none" />
+			</div>
 
-                            <div className="text-xl sm:text-2xl xl:text-3xl text-neutral-600 font-medium h-16 flex items-center">
-                                <span className="mr-3">I'm a</span>
-                                <span className="text-primary-600 font-semibold">
-                                    <Typewriter
-                                        words={roles}
-                                        loop={0}
-                                        cursor
-                                        cursorStyle="|"
-                                        typeSpeed={100}
-                                        deleteSpeed={50}
-                                        delaySpeed={2000}
-                                    />
-                                </span>
-                            </div>
+			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+				<div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+					{/* Content */}
+					<motion.div
+						initial="hidden"
+						animate="visible"
+						variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
+						className="space-y-8"
+					>
+						<div className="space-y-4">
+							<motion.div
+								variants={nameChar}
+								className="flex items-center space-x-2 text-accent-cyan font-medium"
+							>
+								<div className="w-8 h-px bg-accent-cyan shadow-glow-cyan"></div>
+								<span>Hello, I'm</span>
+							</motion.div>
 
-                            <p className="md:text-lg text-neutral-600 leading-relaxed max-w-2xl">
-                                I'm a Backend-focused Software Engineer specializing in Node.js, Express, and PostgreSQL. 
-                                I build secure, scalable web applications and actively work with AWS, Docker, and CI/CD pipelines 
-                                to deliver production-ready systems.
-                            </p>
-                            <div className="flex flex-wrap gap-3">
-                                {highlights.map((h) => (
-                                    <span
-                                        key={h.key}
-                                        className="inline-flex items-center px-4 py-2 bg-primary-50 text-primary-700 rounded-full text-sm font-medium border border-primary-100"
-                                    >
-                                        {h.label}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
+							<motion.h1
+								variants={nameContainer}
+								className="text-4xl md:text-5xl xl:text-6xl font-bold font-syne text-content-primary leading-tight"
+							>
+								<span className="block">{renderAnimatedName("Gazi Maksudur")}</span>
+								<span className="block text-gradient glow-cyan">
+									{renderAnimatedName("Rahman")}
+								</span>
+							</motion.h1>
 
-                        {/* CTA Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-4">
-                            <a
-                                href="https://drive.google.com/file/d/1-AoHayQihlWRG17EFwtaeCt7q30zsTQt/view?usp=sharing"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"
-                            >
-                                <FiDownload className="mr-2 w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
-                                Download Resume
-                                <FiExternalLink className="ml-2 w-4 h-4 opacity-70" />
-                            </a>
-                            <a
-                                href="#contact"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-                                }}
-                                className="inline-flex items-center justify-center px-8 py-4 border-2 border-primary-500 text-primary-600 font-semibold rounded-xl hover:bg-primary-500 hover:text-white transition-all duration-300 group"
-                            >
-                                <FiMail className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                                Let's Talk
-                            </a>
-                        </div>
+							<motion.div
+								variants={nameChar}
+								className="text-xl sm:text-2xl xl:text-3xl text-content-muted font-medium h-16 flex items-center"
+							>
+								<span className="mr-3">I'm a</span>
+								<span className="text-accent-cyan font-semibold glow-cyan">
+									<Typewriter
+										words={roles}
+										loop={0}
+										cursor
+										cursorStyle="|"
+										typeSpeed={100}
+										deleteSpeed={50}
+										delaySpeed={2000}
+									/>
+								</span>
+							</motion.div>
 
-                        {/* Social Links */}
-                        <div className="flex items-center space-x-6 pt-4">
-                            <span className="text-neutral-600 font-medium">Follow me:</span>
-                            <div className="flex space-x-4">
-                                <a
-                                    href="https://github.com/gazimaksudur2"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="p-3 bg-neutral-100 hover:bg-neutral-200 text-neutral-700 hover:text-neutral-900 rounded-full transition-all duration-300 hover:scale-110"
-                                >
-                                    <FiGithub className="w-5 h-5" />
-                                </a>
-                                <a
-                                    href="https://www.linkedin.com/in/gazimaksudur/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="p-3 bg-neutral-100 hover:bg-primary-100 text-neutral-700 hover:text-primary-600 rounded-full transition-all duration-300 hover:scale-110"
-                                >
-                                    <FiLinkedin className="w-5 h-5" />
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+							<motion.p
+								variants={nameChar}
+								className="md:text-lg text-content-muted leading-relaxed max-w-2xl"
+							>
+								I'm a Backend-focused Software Engineer specializing in Node.js, Express, and PostgreSQL.
+								I build secure, scalable web applications and actively work with AWS, Docker, and CI/CD pipelines
+								to deliver production-ready systems.
+							</motion.p>
+							<motion.div variants={nameChar} className="flex flex-wrap gap-3">
+								{highlights.map((h) => (
+									<span
+										key={h.key}
+										className="inline-flex items-center px-4 py-2 glass rounded-full text-sm font-medium text-content-primary border border-accent-cyan/20"
+									>
+										{h.label}
+									</span>
+								))}
+							</motion.div>
+						</div>
 
-                    {/* Image */}
-                    <div className={`relative ${mounted ? 'animate-fade-in-right' : 'opacity-0'}`}>
-                        <div className="relative">
-                            <div className="w-80 h-80 lg:w-96 lg:h-96 mx-auto relative">
-                                <div className="absolute inset-0 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-3xl rotate-6 transform transition-transform duration-700 hover:rotate-12"></div>
-                                <div className="absolute inset-0 bg-gradient-to-br from-secondary-500 to-primary-500 rounded-3xl -rotate-6 transform transition-transform duration-700 hover:-rotate-12 opacity-80"></div>
-                                <img
-                                    src="https://i.ibb.co/nk2X4F0/selfie-png.png"
-                                    alt="Gazi Maksudur Rahman"
-                                    className="relative w-full h-full object-cover rounded-3xl shadow-2xl transform transition-transform duration-700 hover:scale-105 z-10"
-                                />
-                            </div>
-                            
-                            {/* Floating elements */}
-                            <div className="absolute -top-8 -left-8 w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center animate-float">
-                                <span className="text-2xl">⚡</span>
-                            </div>
-                            <div className="absolute -bottom-8 -right-8 w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center animate-float animation-delay-2000">
-                                <span className="text-2xl">🚀</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+						{/* CTA Buttons */}
+						<motion.div variants={nameChar} className="flex flex-col sm:flex-row gap-4">
+							<a
+								href="https://drive.google.com/file/d/1-AoHayQihlWRG17EFwtaeCt7q30zsTQt/view?usp=sharing"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="inline-flex items-center justify-center px-8 py-4 font-semibold rounded-xl text-bg-primary bg-accent-cyan hover:bg-accent-cyan/90 transition-all duration-300 shadow-glow-cyan hover:shadow-glow-cyan-lg transform hover:-translate-y-1 group"
+							>
+								<FiDownload className="mr-2 w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+								Download Resume
+								<FiExternalLink className="ml-2 w-4 h-4 opacity-70" />
+							</a>
+							<a
+								href="#contact"
+								onClick={(e) => {
+									e.preventDefault();
+									document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+								}}
+								className="inline-flex items-center justify-center px-8 py-4 border-2 border-accent-cyan/50 text-accent-cyan font-semibold rounded-xl hover:bg-accent-cyan/10 hover:border-accent-cyan hover:shadow-glow-cyan transition-all duration-300 group"
+							>
+								<FiMail className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+								Let's Talk
+							</a>
+						</motion.div>
 
-                {/* Stats Section */}
-                <div className={`mt-20 grid grid-cols-2 lg:grid-cols-4 gap-8 ${mounted ? 'animate-fade-in-up animation-delay-1000' : 'opacity-0'}`}>
-                    {stats.map((stat, index) => (
-                        <div key={index} className="text-center">
-                            <div className="text-3xl lg:text-4xl font-bold text-primary-600 mb-2">
-                                {stat.number}
-                            </div>
-                            <div className="text-neutral-600 font-medium">
-                                {stat.label}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
+						{/* Social Links */}
+						<motion.div variants={nameChar} className="flex items-center space-x-6 pt-4">
+							<span className="text-content-muted font-medium">Follow me:</span>
+							<div className="flex space-x-4">
+								<a
+									href="https://github.com/gazimaksudur2"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="p-3 glass rounded-full text-content-primary hover:text-accent-cyan hover:shadow-glow-cyan transition-all duration-300 hover:scale-110"
+								>
+									<FiGithub className="w-5 h-5" />
+								</a>
+								<a
+									href="https://www.linkedin.com/in/gazimaksudur/"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="p-3 glass rounded-full text-content-primary hover:text-accent-cyan hover:shadow-glow-cyan transition-all duration-300 hover:scale-110"
+								>
+									<FiLinkedin className="w-5 h-5" />
+								</a>
+							</div>
+						</motion.div>
+					</motion.div>
 
-            {/* Scroll indicator */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-                <div className="w-6 h-10 border-2 border-neutral-400 rounded-full flex justify-center">
-                    <div className="w-1 h-3 bg-neutral-400 rounded-full mt-2 animate-pulse"></div>
-                </div>
-            </div>
-        </section>
-    );
+					{/* Image with rotating glowing ring */}
+					<motion.div
+						initial={{ opacity: 0, scale: 0.9 }}
+						animate={{ opacity: 1, scale: 1 }}
+						transition={{ duration: 0.8, delay: 0.3 }}
+						className="relative"
+					>
+						<div className="relative">
+							<div className="w-80 h-80 lg:w-96 lg:h-96 mx-auto relative flex items-center justify-center">
+								{/* Rotating cyan ring */}
+								<div className="absolute inset-0 rounded-full border-2 border-dashed border-accent-cyan/40 animate-spin-slow" />
+								<div className="absolute inset-3 rounded-full border border-accent-violet/30 animate-glow-pulse" />
+								<div className="absolute inset-6 rounded-full bg-gradient-to-br from-accent-cyan/10 to-accent-violet/10 blur-2xl" />
+								<img
+									src="https://i.ibb.co/nk2X4F0/selfie-png.png"
+									alt="Gazi Maksudur Rahman"
+									className="relative w-[82%] h-[82%] object-cover rounded-full shadow-glow-cyan z-10"
+								/>
+							</div>
+
+							{/* Floating elements */}
+							<div className="absolute -top-2 -left-2 lg:-top-4 lg:-left-4 w-16 h-16 glass rounded-2xl shadow-glow-cyan flex items-center justify-center animate-floaty">
+								<span className="text-2xl">⚡</span>
+							</div>
+							<div className="absolute -bottom-2 -right-2 lg:-bottom-4 lg:-right-4 w-16 h-16 glass rounded-2xl shadow-glow-violet flex items-center justify-center animate-floaty" style={{ animationDelay: "2s" }}>
+								<span className="text-2xl">🚀</span>
+							</div>
+						</div>
+					</motion.div>
+				</div>
+
+				{/* Stats Section */}
+				<div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-6">
+					{stats.map((stat, index) => (
+						<StatCard key={index} number={stat.number} label={stat.label} index={index} />
+					))}
+				</div>
+			</div>
+
+			{/* Scroll indicator */}
+			<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+				<div className="w-6 h-10 border-2 border-accent-cyan/40 rounded-full flex justify-center">
+					<div className="w-1 h-3 bg-accent-cyan rounded-full mt-2 animate-pulse"></div>
+				</div>
+			</div>
+		</section>
+	);
 };
 
 export default Banner;
