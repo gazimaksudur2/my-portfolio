@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property -- react-three-fiber intrinsic element props */
 import { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Icosahedron, Sphere } from "@react-three/drei";
