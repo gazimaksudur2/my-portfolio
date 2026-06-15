@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { Suspense, lazy, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin, FiFacebook, FiInstagram, FiSend, FiCheckCircle } from "react-icons/fi";
+import { FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin, FiFacebook, FiSend, FiCheckCircle } from "react-icons/fi";
 import Swal from "sweetalert2";
+import { useIsMobile } from "../../hooks/useIsMobile";
+import CanvasFallback from "../../components/three/CanvasFallback";
+
+const FloatingSphere = lazy(() => import("../../components/three/FloatingSphere"));
 
 const Connect = () => {
+    const isMobile = useIsMobile();
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -139,38 +144,48 @@ const Connect = () => {
     ];
 
     return (
-        <section id="contact" className="section-padding bg-gradient-to-br from-neutral-900 to-neutral-800 text-white relative overflow-hidden">
+        <section id="contact" className="section-padding bg-bg-primary text-content-primary relative overflow-hidden">
             {/* Background decoration */}
-            <div className="absolute inset-0 opacity-20">
-                <div className="absolute top-0 left-0 w-96 h-96 bg-primary-500 rounded-full filter blur-3xl"></div>
-                <div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-500 rounded-full filter blur-3xl"></div>
+            <div className="absolute inset-0 opacity-30">
+                <div className="absolute top-0 left-0 w-96 h-96 bg-accent-cyan/20 rounded-full filter blur-3xl"></div>
+                <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent-violet/20 rounded-full filter blur-3xl"></div>
             </div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center mb-16">
-                    <div className="inline-flex items-center px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium mb-4 backdrop-blur-sm">
+                    <div className="inline-flex items-center px-4 py-2 glass text-accent-cyan rounded-full text-sm font-medium mb-4">
                         Get In Touch
                     </div>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-                        Let's Work
-                        <span className="block bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
-                            Together
-                        </span>
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-syne mb-6">
+                        <span className="animate-gradient-text">Let's Build Something Together</span>
                     </h2>
-                    <p className="text-lg text-neutral-300 max-w-3xl mx-auto leading-relaxed">
-                        Have a project in mind or want to discuss opportunities? 
+                    <p className="text-lg text-content-muted max-w-3xl mx-auto leading-relaxed">
+                        Have a project in mind or want to discuss opportunities?
                         I'd love to hear from you. Let's create something amazing together!
                     </p>
+                </div>
+
+                {/* 3D globe with Bangladesh highlighted */}
+                <div className="flex justify-center mb-12">
+                    <div className="w-56 h-56 sm:w-64 sm:h-64">
+                        {isMobile ? (
+                            <CanvasFallback variant="sphere" className="w-full h-full" />
+                        ) : (
+                            <Suspense fallback={<CanvasFallback variant="sphere" className="w-full h-full" />}>
+                                <FloatingSphere accent="#00f5ff" globe />
+                            </Suspense>
+                        )}
+                    </div>
                 </div>
 
                 <div className="grid lg:grid-cols-2 gap-16 items-start">
                     {/* Contact Information */}
                     <div className="space-y-8">
                         <div>
-                            <h3 className="text-2xl font-bold mb-6">Let's Connect</h3>
-                            <p className="text-neutral-300 leading-relaxed mb-8">
-                                I'm always open to discussing new projects, creative ideas, or 
-                                opportunities to be part of your vision. Feel free to reach out 
+                            <h3 className="text-2xl font-bold font-syne mb-6">Let's Connect</h3>
+                            <p className="text-content-muted leading-relaxed mb-8">
+                                I'm always open to discussing new projects, creative ideas, or
+                                opportunities to be part of your vision. Feel free to reach out
                                 through any of the channels below.
                             </p>
                         </div>
@@ -180,13 +195,13 @@ const Connect = () => {
                             {contactInfo.map((info, index) => {
                                 const IconComponent = info.icon;
                                 return (
-                                    <div key={index} className="flex items-center space-x-4 p-6 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300">
-                                        <div className={`p-3 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500`}>
-                                            <IconComponent className="w-6 h-6 text-white" />
+                                    <div key={index} className="flex items-center space-x-4 p-6 glass rounded-2xl border border-white/10 hover:border-accent-cyan/40 hover:shadow-glow-cyan transition-all duration-300">
+                                        <div className="p-3 rounded-xl bg-gradient-to-br from-accent-cyan/20 to-accent-violet/20 border border-accent-cyan/30">
+                                            <IconComponent className="w-6 h-6 text-accent-cyan" />
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold text-white mb-1">{info.title}</h4>
-                                            <p className="text-neutral-300">{info.value}</p>
+                                            <h4 className="font-semibold text-content-primary mb-1">{info.title}</h4>
+                                            <p className="text-content-muted">{info.value}</p>
                                         </div>
                                     </div>
                                 );
@@ -205,7 +220,7 @@ const Connect = () => {
                                             href={social.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className={`p-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 text-white hover:text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg ${social.color}`}
+                                            className="p-3 glass rounded-xl border border-white/10 text-content-primary hover:text-accent-cyan hover:border-accent-cyan/40 hover:shadow-glow-cyan transition-all duration-300 transform hover:scale-110"
                                             aria-label={social.label}
                                         >
                                             <IconComponent className="w-5 h-5" />
@@ -216,28 +231,28 @@ const Connect = () => {
                         </div>
 
                         {/* Availability Status */}
-                        <div className="p-6 bg-gradient-to-r from-green-500/20 to-primary-500/20 rounded-2xl border border-green-500/30">
+                        <div className="p-6 glass rounded-2xl border border-accent-green/30">
                             <div className="flex items-center space-x-3">
-                                <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                                <span className="text-green-300 font-medium">Available for new projects</span>
+                                <div className="w-3 h-3 bg-accent-green rounded-full animate-pulse shadow-glow-green"></div>
+                                <span className="text-accent-green font-medium">Available for new projects</span>
                             </div>
-                            <p className="text-neutral-300 text-sm mt-2">
+                            <p className="text-content-muted text-sm mt-2">
                                 Currently accepting new freelance projects and full-time opportunities
                             </p>
                         </div>
                     </div>
 
                     {/* Contact Form */}
-                    <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 lg:p-10 border border-white/10">
-                        <h3 className="text-2xl font-bold mb-2">Send a Message</h3>
-                        <p className="text-neutral-300 mb-8">
+                    <div className="glass glow-border rounded-3xl p-8 lg:p-10">
+                        <h3 className="text-2xl font-bold font-syne mb-2">Send a Message</h3>
+                        <p className="text-content-muted mb-8">
                             Fill out the form below and I'll get back to you as soon as possible.
                         </p>
 
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div>
-                                    <label htmlFor="name" className="block text-sm font-medium text-neutral-300 mb-2">
+                                    <label htmlFor="name" className="block text-sm font-medium text-content-muted mb-2">
                                         Full Name *
                                     </label>
                                     <input
@@ -247,12 +262,12 @@ const Connect = () => {
                                         value={formData.name}
                                         onChange={handleInputChange}
                                         required
-                                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                                        className="w-full px-4 py-3 bg-bg-card/60 border border-white/10 rounded-xl text-content-primary placeholder-content-muted focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent focus:shadow-glow-cyan transition-all duration-300"
                                         placeholder="John Doe"
                                     />
                                 </div>
                                 <div>
-                                    <label htmlFor="email" className="block text-sm font-medium text-neutral-300 mb-2">
+                                    <label htmlFor="email" className="block text-sm font-medium text-content-muted mb-2">
                                         Email Address *
                                     </label>
                                     <input
@@ -262,14 +277,14 @@ const Connect = () => {
                                         value={formData.email}
                                         onChange={handleInputChange}
                                         required
-                                        className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                                        className="w-full px-4 py-3 bg-bg-card/60 border border-white/10 rounded-xl text-content-primary placeholder-content-muted focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent focus:shadow-glow-cyan transition-all duration-300"
                                         placeholder="john@example.com"
                                     />
                                 </div>
                             </div>
 
                             <div>
-                                <label htmlFor="subject" className="block text-sm font-medium text-neutral-300 mb-2">
+                                <label htmlFor="subject" className="block text-sm font-medium text-content-muted mb-2">
                                     Subject *
                                 </label>
                                 <input
@@ -279,13 +294,13 @@ const Connect = () => {
                                     value={formData.subject}
                                     onChange={handleInputChange}
                                     required
-                                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300"
+                                    className="w-full px-4 py-3 bg-bg-card/60 border border-white/10 rounded-xl text-content-primary placeholder-content-muted focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent focus:shadow-glow-cyan transition-all duration-300"
                                     placeholder="Project Discussion"
                                 />
                             </div>
 
                             <div>
-                                <label htmlFor="message" className="block text-sm font-medium text-neutral-300 mb-2">
+                                <label htmlFor="message" className="block text-sm font-medium text-content-muted mb-2">
                                     Message *
                                 </label>
                                 <textarea
@@ -295,7 +310,7 @@ const Connect = () => {
                                     onChange={handleInputChange}
                                     required
                                     rows={6}
-                                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-300 resize-none"
+                                    className="w-full px-4 py-3 bg-bg-card/60 border border-white/10 rounded-xl text-content-primary placeholder-content-muted focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent focus:shadow-glow-cyan transition-all duration-300 resize-none"
                                     placeholder="Tell me about your project..."
                                 />
                             </div>
@@ -303,24 +318,27 @@ const Connect = () => {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
-                                className="w-full flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-500 to-secondary-500 text-white font-semibold rounded-xl hover:from-primary-600 hover:to-secondary-600 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-neutral-900 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                                className="group relative w-full flex items-center justify-center px-8 py-4 font-semibold rounded-xl overflow-hidden border-2 border-accent-cyan text-accent-cyan hover:text-bg-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-bg-primary disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                {isSubmitting ? (
-                                    <>
-                                        <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                                        Sending...
-                                    </>
-                                ) : (
-                                    <>
-                                        <FiSend className="w-5 h-5 mr-2" />
-                                        Send Message
-                                    </>
-                                )}
+                                <span className="absolute inset-0 bg-accent-cyan -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
+                                <span className="relative z-10 flex items-center">
+                                    {isSubmitting ? (
+                                        <>
+                                            <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin mr-2"></div>
+                                            Sending...
+                                        </>
+                                    ) : (
+                                        <>
+                                            <FiSend className="w-5 h-5 mr-2" />
+                                            Send Message
+                                        </>
+                                    )}
+                                </span>
                             </button>
                         </form>
 
-                        <div className="mt-6 p-4 bg-primary-500/10 rounded-xl border border-primary-500/20">
-                            <div className="flex items-center space-x-2 text-primary-300 text-sm">
+                        <div className="mt-6 p-4 glass rounded-xl border border-accent-cyan/20">
+                            <div className="flex items-center space-x-2 text-accent-cyan text-sm">
                                 <FiCheckCircle className="w-4 h-4" />
                                 <span>Your information is secure and will never be shared</span>
                             </div>
