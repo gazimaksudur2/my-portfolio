@@ -54,26 +54,29 @@ const Footer = () => {
 	};
 
 	const socialLinks = [
-		{ icon: FiGithub, href: "https://github.com/gazimaksudur2", label: "GitHub", color: "hover:text-neutral-300" },
-		{ icon: FiLinkedin, href: "https://www.linkedin.com/in/gazimaksudur/", label: "LinkedIn", color: "hover:text-primary-400" },
-		{ icon: FiFacebook, href: "https://www.facebook.com/gazi.maksudur", label: "Facebook", color: "hover:text-primary-400" },
+		{ icon: FiGithub, href: "https://github.com/gazimaksudur2", label: "GitHub" },
+		{ icon: FiLinkedin, href: "https://www.linkedin.com/in/gazimaksudur/", label: "LinkedIn" },
+		{ icon: FiFacebook, href: "https://www.facebook.com/gazi.maksudur", label: "Facebook" },
 	];
 
 	return (
-		<footer className="bg-gradient-to-br from-neutral-900 to-neutral-800 text-white relative overflow-hidden">
+		<footer className="bg-bg-secondary text-content-primary relative overflow-hidden border-t border-accent-cyan/20">
+			{/* Top border glow */}
+			<div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-cyan to-transparent shadow-glow-cyan" />
+
 			<div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 				<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
 					{/* Brand Section */}
 					<div className="lg:col-span-1">
 						<div className="flex items-center space-x-3 mb-6">
-							<div className="p-2 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-xl">
-								<FiCode className="w-6 h-6 text-white" />
+							<div className="p-2 rounded-xl bg-gradient-to-br from-accent-cyan/20 to-accent-violet/20 border border-accent-cyan/30 shadow-glow-cyan">
+								<FiCode className="w-6 h-6 text-accent-cyan" />
 							</div>
-							<h3 className="text-xl font-bold bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">
+							<h3 className="text-xl font-bold font-syne text-gradient">
 								{personalInfo.name}
 							</h3>
 						</div>
-						<p className="text-neutral-300 leading-relaxed mb-6">
+						<p className="text-content-muted leading-relaxed mb-6">
 							MERN Stack Developer building scalable web applications with React, Next.js, and modern tools. Open to new projects and opportunities.
 						</p>
 						<div className="flex space-x-4">
@@ -85,7 +88,7 @@ const Footer = () => {
 										href={social.href}
 										target="_blank"
 										rel="noopener noreferrer"
-										className={`inline-flex p-2 bg-white/10 rounded-lg text-neutral-400 transition-all duration-300 hover:scale-110 hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-primary-400 focus:ring-offset-2 focus:ring-offset-neutral-900 ${social.color}`}
+										className="inline-flex p-2 glass rounded-lg text-content-muted transition-all duration-300 hover:scale-110 hover:text-accent-cyan hover:shadow-glow-cyan focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-bg-secondary"
 										aria-label={`${social.label} (opens in new tab)`}
 									>
 										<IconComponent className="w-5 h-5" />
@@ -103,7 +106,7 @@ const Footer = () => {
 								<li key={link.to}>
 									<button
 										onClick={() => scrollToSection(link.to)}
-										className="text-neutral-300 hover:text-primary-400 transition-colors duration-300 text-left"
+										className="text-content-muted hover:text-accent-cyan transition-colors duration-300 text-left"
 									>
 										{link.label}
 									</button>
@@ -117,7 +120,7 @@ const Footer = () => {
 						<h4 className="text-lg font-semibold mb-6">Services</h4>
 						<ul className="space-y-3">
 							{services.map((service, index) => (
-								<li key={index} className="text-neutral-300 text-sm">
+								<li key={index} className="text-content-muted text-sm">
 									{service}
 								</li>
 							))}
@@ -130,26 +133,26 @@ const Footer = () => {
 						<div className="space-y-4">
 							<a
 								href={`mailto:${contact.email}`}
-								className="flex items-center space-x-3 text-neutral-300 hover:text-primary-400 transition-colors"
+								className="flex items-center space-x-3 text-content-muted hover:text-accent-cyan transition-colors"
 							>
-								<FiMail className="w-4 h-4 text-primary-400 flex-shrink-0" />
+								<FiMail className="w-4 h-4 text-accent-cyan flex-shrink-0" />
 								<span className="text-sm">{contact.email}</span>
 							</a>
 							<a
 								href={`tel:${contact.phone.replace(/\s/g, "")}`}
-								className="flex items-center space-x-3 text-neutral-300 hover:text-primary-400 transition-colors"
+								className="flex items-center space-x-3 text-content-muted hover:text-accent-cyan transition-colors"
 							>
-								<FiPhone className="w-4 h-4 text-primary-400 flex-shrink-0" />
+								<FiPhone className="w-4 h-4 text-accent-cyan flex-shrink-0" />
 								<span className="text-sm">{contact.phone}</span>
 							</a>
-							<div className="flex items-center space-x-3 text-neutral-300">
-								<FiMapPin className="w-4 h-4 text-primary-400 flex-shrink-0" />
+							<div className="flex items-center space-x-3 text-content-muted">
+								<FiMapPin className="w-4 h-4 text-accent-cyan flex-shrink-0" />
 								<span className="text-sm">{contact.location}</span>
 							</div>
 						</div>
 						<button
 							onClick={() => scrollToSection("#contact")}
-							className="mt-6 px-4 py-2 bg-gradient-to-r from-primary-500 to-secondary-500 text-white text-sm font-medium rounded-lg hover:from-primary-600 hover:to-secondary-600 transition-all duration-300"
+							className="mt-6 px-4 py-2 bg-accent-cyan text-bg-primary text-sm font-medium rounded-lg hover:bg-accent-cyan/90 hover:shadow-glow-cyan transition-all duration-300"
 						>
 							Send a message
 						</button>
@@ -159,13 +162,13 @@ const Footer = () => {
 				{/* Bottom Section */}
 				<div className="border-t border-white/10 pt-8 mt-12">
 					<div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-						<div className="flex flex-col items-center md:items-start space-y-1 text-neutral-300 text-sm">
+						<div className="flex flex-col items-center md:items-start space-y-1 text-content-muted text-sm">
 							<div className="flex items-center space-x-2">
 								<span>© {new Date().getFullYear()} {personalInfo.name}. Made with</span>
-							<FiHeart className="w-4 h-4 text-red-400" />
+								<FiHeart className="w-4 h-4 text-red-400" />
 								<span>in Bangladesh</span>
 							</div>
-							<p className="text-xs text-neutral-400">
+							<p className="text-xs text-content-muted/70">
 								{visitorSummary.loading
 									? "Visitor insights loading..."
 									: visitorSummary.total > 0
@@ -177,16 +180,16 @@ const Footer = () => {
 									: "Be among the first visitors here."}
 							</p>
 						</div>
-						<div className="flex items-center space-x-6 text-neutral-300 text-sm">
+						<div className="flex items-center space-x-6 text-content-muted text-sm">
 							<button
 								onClick={() => scrollToSection("#about")}
-								className="hover:text-primary-400 transition-colors duration-300"
+								className="hover:text-accent-cyan transition-colors duration-300"
 							>
 								About
 							</button>
 							<button
 								onClick={() => scrollToSection("#contact")}
-								className="hover:text-primary-400 transition-colors duration-300"
+								className="hover:text-accent-cyan transition-colors duration-300"
 							>
 								Contact
 							</button>
@@ -196,9 +199,9 @@ const Footer = () => {
 			</div>
 
 			{/* Background decoration */}
-			<div className="absolute inset-0 opacity-5 pointer-events-none">
-				<div className="absolute top-0 left-0 w-96 h-96 bg-primary-500 rounded-full filter blur-3xl" />
-				<div className="absolute bottom-0 right-0 w-96 h-96 bg-secondary-500 rounded-full filter blur-3xl" />
+			<div className="absolute inset-0 opacity-10 pointer-events-none">
+				<div className="absolute top-0 left-0 w-96 h-96 bg-accent-cyan rounded-full filter blur-3xl" />
+				<div className="absolute bottom-0 right-0 w-96 h-96 bg-accent-violet rounded-full filter blur-3xl" />
 			</div>
 		</footer>
 	);
