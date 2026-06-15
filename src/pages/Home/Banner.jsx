@@ -110,7 +110,7 @@ const Banner = () => {
 								className="text-4xl md:text-5xl xl:text-6xl font-bold font-syne text-content-primary leading-tight"
 							>
 								<span className="block">{renderAnimatedName("Gazi Maksudur")}</span>
-								<span className="block text-gradient glow-cyan">
+								<span className="block text-accent-cyan glow-cyan">
 									{renderAnimatedName("Rahman")}
 								</span>
 							</motion.h1>
