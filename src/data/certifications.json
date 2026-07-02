@@ -1,5 +1,29 @@
 [
   {
+    "id": "aws-solutions-architect-associate-saa-c03",
+    "title": "AWS Certified Solutions Architect - Associate (SAA-C03)",
+    "issuer": "Amazon Web Services (AWS)",
+    "platform": "AWS Certification",
+    "date": "2026-06",
+    "description": "Demonstrated expertise in designing distributed systems, selecting AWS services, and architecting secure, resilient, and high-performing applications on AWS.",
+    "certificateUrl": "https://drive.google.com/file/d/1eHPsqfsuTX84xrRWnJjJYP1wcwDwk5Ux/view?usp=sharing",
+    "type": "pdf",
+    "verificationUrl": "https://www.credly.com/badges/8b5b00df-d757-4c1f-9a77-f72e7e020167",
+    "tags": ["AWS", "Solutions Architect", "Associate"]
+  },
+  {
+    "id": "aws-cloud-practitioner-clf-c02",
+    "title": "AWS Certified Cloud Practitioner (CLF-C02)",
+    "issuer": "Amazon Web Services (AWS)",
+    "platform": "AWS Certification",
+    "date": "2026-06",
+    "description": "Foundational understanding of AWS Cloud concepts, services, security, architecture, pricing, and support.",
+    "certificateUrl": "https://media.licdn.com/dms/image/v2/D4E2DAQEX927hxRxNqA/profile-treasury-document-images_1280/B4EZ7Lp0qQHkAk-/1/1781533199827?e=1784160000&v=beta&t=-SI7NH6BQzAjsnnbgRgdQTdOm8oWvKP5O3JfnCldVMI",
+    "type": "jpg",
+    "verificationUrl": "https://www.credly.com/badges/a4d25557-db46-4ff4-9365-471232c699b6",
+    "tags": ["AWS", "Cloud Practitioner", "Foundational"]
+  },
+  {
     "id": "jenkins-project-building-ci-cd-pipeline-for-scalable-web-applications",
     "title": "Jenkins Project: Building CI/CD Pipeline for Scalable Web Applications",
     "issuer": "KodeKloud",
