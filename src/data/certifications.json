@@ -24,6 +24,22 @@
     "tags": ["AWS", "Cloud Practitioner", "Foundational"]
   },
   {
+    "id": "ericssonedge-academia-program-2026",
+    "title": "EricssonEdge Academia Program 2026",
+    "issuer": "Ericsson",
+    "platform": "EricssonEdge Academia",
+    "date": "2026-04",
+    "description": "Successfully participated in the EricssonEdge Academia Program 2026, accredited by Ericsson.",
+    "certificateUrl": "https://drive.google.com/file/d/1qC-B_7FaU1_hJpnbaDGV13hzyYAxDE34/view?usp=sharing",
+    "type": "pdf",
+    "verificationUrl": "YOUR_VERIFICATION_URL",
+    "tags": [
+      "Ericsson",
+      "EricssonEdge",
+      "Academia"
+    ]
+  },
+  {
     "id": "jenkins-project-building-ci-cd-pipeline-for-scalable-web-applications",
     "title": "Jenkins Project: Building CI/CD Pipeline for Scalable Web Applications",
     "issuer": "KodeKloud",
