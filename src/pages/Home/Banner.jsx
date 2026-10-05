@@ -216,7 +216,7 @@ const Banner = () => {
 								<div className="absolute inset-3 rounded-full border border-accent-violet/30 animate-glow-pulse" />
 								<div className="absolute inset-6 rounded-full bg-gradient-to-br from-accent-cyan/10 to-accent-violet/10 blur-2xl" />
 								<img
-									src="https://i.ibb.co/nk2X4F0/selfie-png.png"
+									src="https://i.ibb.co.com/8gQZfPxX/profile-removebg-preview.png"
 									alt="Gazi Maksudur Rahman"
 									className="relative w-[82%] h-[82%] object-cover rounded-full shadow-glow-cyan z-10"
 								/>
