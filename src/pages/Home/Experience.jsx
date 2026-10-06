@@ -1,80 +1,107 @@
 import { FiCode, FiBriefcase } from "react-icons/fi";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer, viewportOnce } from "../../utils/motion";
 
 const experiences = [
     {
-        period: "Jul 2025 – Jan 2026",
-        title: "Jr. Full Stack Developer",
-        org: "Digital Way Business LTD",
+        period: "Sept 2026 – Present",
+        title: "Software Engineer Intern",
+        org: "W3 Engineers LTD. · Dhaka, Bangladesh",
         icon: FiCode,
-        color: "from-primary-500 to-secondary-500",
+        current: true,
         points: [
-            "Contributed to the end-to-end development and commercial deployment of 'SyloTea,' an e-commerce product.",
-            "Maintained and optimized the web server environment utilizing Node.js and Express.js.",
-            "Designed and implemented database architecture using PostgreSQL and Prisma ORM.",
-            "Enhanced UX by applying UI design principles and developing frontend components with React.js.",
+            "Completed intensive full-stack training in HTML, CSS, Tailwind CSS, JavaScript, React, Next.js, Go, Beego, Python, and Flask.",
+            "Studied modern AI and automation techniques, including web scraping, LLMs, AI agents, and MCP.",
+            "Transitioned to a live project team, contributing to backend API development and production application workflows.",
         ],
     },
     {
-        period: "Mar 2024 – Present",
+        period: "Mar 2024 – Feb 2026",
         title: "AI Software Trainer & QA Specialist",
-        org: "Outlier AI (Freelance)",
+        org: "Outlier AI · Remote",
         icon: FiBriefcase,
-        color: "from-secondary-500 to-primary-500",
         points: [
-            "Executed rigorous SQA by debugging AI-generated code across Python, JavaScript, and C++.",
-            "Led multiple RLHF projects, training machine learning models based on technical evaluations.",
-            "Identified edge cases and security vulnerabilities.",
-            "Provided feedback on Git workflows and industry SDLC standards.",
+            "Contributed to large-scale RLHF pipelines by evaluating code quality, security, and logic in AI-generated solutions.",
+            "Reviewed Python, JavaScript, and C++ code to identify anti-patterns, logic flaws, and security vulnerabilities.",
+            "Provided qualitative feedback and comparative rankings to improve model reasoning and accuracy.",
         ],
     },
 ];
 
 const Experience = () => {
     return (
-        <section id="experience" className="section-padding bg-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
-                    <div className="inline-flex items-center px-4 py-2 bg-primary-100 text-primary-700 rounded-full text-sm font-medium mb-4">
+        <section id="experience" className="section-padding bg-bg-secondary relative overflow-hidden">
+            <div className="absolute top-1/4 right-0 w-96 h-96 rounded-full bg-accent-violet/5 blur-3xl pointer-events-none" />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewportOnce}
+                    variants={staggerContainer(0.15)}
+                    className="text-center mb-16"
+                >
+                    <motion.div
+                        variants={fadeInUp}
+                        className="inline-flex items-center px-4 py-2 glass text-accent-cyan rounded-full text-sm font-medium mb-4"
+                    >
                         Experience
-                    </div>
-                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-neutral-900 mb-6">
+                    </motion.div>
+                    <motion.h2
+                        variants={fadeInUp}
+                        className="text-3xl sm:text-4xl lg:text-5xl font-bold font-syne text-content-primary mb-6"
+                    >
                         Professional
-                        <span className="block bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent">
-                            Experience
-                        </span>
-                    </h2>
-                    <p className="text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-                        My experience balances building scalable, production-grade applications with 
-                        rigorous quality assurance, system optimization, and training robust machine learning models.
-                    </p>
-                </div>
+                        <span className="block text-gradient">Experience</span>
+                    </motion.h2>
+                    <motion.p
+                        variants={fadeInUp}
+                        className="text-lg text-content-muted max-w-3xl mx-auto leading-relaxed"
+                    >
+                        A mix of production software engineering and rigorous AI quality evaluation.
+                    </motion.p>
+                </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-8">
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={viewportOnce}
+                    variants={staggerContainer(0.15)}
+                    className="grid md:grid-cols-2 gap-6 lg:gap-8"
+                >
                     {experiences.map((exp, index) => {
                         const IconComponent = exp.icon;
                         return (
-                            <div
+                            <motion.article
                                 key={index}
-                                className="p-6 lg:p-8 bg-neutral-50 rounded-2xl border border-neutral-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                                variants={fadeInUp}
+                                className="group h-full p-6 lg:p-8 glass rounded-2xl border border-white/10 hover:border-accent-cyan/40 hover:shadow-glow-cyan transition-all duration-300 hover:-translate-y-1"
                             >
-                                <div className={`inline-flex p-3 rounded-xl bg-gradient-to-br ${exp.color} mb-4`}>
-                                    <IconComponent className="w-6 h-6 text-white" />
+                                <div className="flex items-start justify-between gap-4 mb-5">
+                                    <div className="inline-flex p-3 rounded-xl bg-accent-cyan/10 border border-accent-cyan/20">
+                                        <IconComponent className="w-6 h-6 text-accent-cyan" />
+                                    </div>
+                                    {exp.current && (
+                                        <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-accent-green/25 bg-accent-green/10 text-accent-green text-xs font-medium">
+                                            <span className="w-1.5 h-1.5 rounded-full bg-accent-green" />
+                                            Current
+                                        </span>
+                                    )}
                                 </div>
-                                <span className="text-sm font-medium text-primary-600">{exp.period}</span>
-                                <h3 className="text-xl font-bold text-neutral-900 mt-1">{exp.title}</h3>
-                                <p className="text-neutral-600 font-medium mb-4">{exp.org}</p>
-                                <ul className="space-y-2">
+                                <p className="text-sm font-medium text-accent-cyan">{exp.period}</p>
+                                <h3 className="text-xl lg:text-2xl font-bold font-syne text-content-primary mt-1">{exp.title}</h3>
+                                <p className="text-content-muted font-medium mt-1 mb-6">{exp.org}</p>
+                                <ul className="space-y-3">
                                     {exp.points.map((point, idx) => (
-                                        <li key={idx} className="flex items-start text-neutral-600 text-sm">
-                                            <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mt-1.5 mr-2 flex-shrink-0" />
+                                        <li key={idx} className="flex items-start text-content-muted text-sm leading-relaxed">
+                                            <span className="w-1.5 h-1.5 bg-accent-cyan rounded-full mt-2 mr-3 flex-shrink-0 shadow-glow-cyan" />
                                             {point}
                                         </li>
                                     ))}
                                 </ul>
-                            </div>
+                            </motion.article>
                         );
                     })}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

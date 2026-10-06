@@ -1,6 +1,6 @@
 # Gazi Maksudur Rahman — Personal Portfolio
 
-A modern, single-page personal portfolio website for **Gazi Maksudur Rahman**, a backend-focused software engineer based in Sylhet, Bangladesh. The site showcases professional experience, projects, skills, certifications, education, and a contact form — built with React and Vite, styled with Tailwind CSS and DaisyUI, and deployed to Firebase Hosting.
+A modern, single-page personal portfolio website for **Gazi Maksudur Rahman**, a backend-focused software engineer based in Dhaka, Bangladesh. The site showcases professional experience, projects, skills, certifications, education, and a contact form — built with React and Vite, styled with Tailwind CSS and DaisyUI, and deployed to Firebase Hosting.
 
 **Live site:** [gazimaksudur.me](https://gazimaksudur.me)
 
@@ -314,7 +314,7 @@ Future plans may include authenticated content management and admin-only portfol
 ## Author & Contact
 
 **Gazi Maksudur Rahman**  
-Backend-focused Software Engineer · Sylhet, Bangladesh
+Backend-focused Software Engineer · Dhaka, Bangladesh
 
 | | |
 |---|---|

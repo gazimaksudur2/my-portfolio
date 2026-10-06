@@ -11,13 +11,13 @@ export const navLinks = [
 
 export const personalInfo = {
     name: "Gazi Maksudur Rahman",
-    title: "Backend-focused Software Engineer",
+    title: "Software & Cloud Engineer",
     resumeLink: "https://drive.google.com/file/d/1-AoHayQihlWRG17EFwtaeCt7q30zsTQt/view",
 };
 
 export const quickFacts = {
-    location: "Sylhet, Bangladesh",
-    experience: "1+ Years Professional Experience",
+    location: "Dhaka-1245, Bangladesh",
+    experience: "2+ Years AI Training & QA",
     availability: "Open to opportunities",
     languages: "English, Bengali",
 };
@@ -26,21 +26,21 @@ export const highlights = [
     {
         icon: "FiCode",
         title: "Backend Architecture & APIs",
-        description: "Hands-on experience architecting RESTful APIs and complex database designs with PostgreSQL and Prisma."
+        description: "Builds RESTful APIs and full-stack applications with TypeScript, Node.js, React, PostgreSQL, MongoDB, and MVC architecture."
     },
     {
         icon: "FiServer",
         title: "Cloud & DevSecOps",
-        description: "AWS Cloud Practitioner focused on DevSecOps, proficient in containerizing applications with Docker and automating CI/CD via Jenkins."
+        description: "AWS Solutions Architect certified, with hands-on Docker containerization and automated CI/CD pipeline experience using Jenkins."
     },
     {
         icon: "FiUsers",
         title: "Collaborative & Analytical",
-        description: "Proven experience working in cross-functional teams, executing rigorous SQA, and identifying critical edge cases for scalable web platforms."
+        description: "Experienced in production application workflows and evaluating AI-generated code for quality, security, logic, and edge cases."
     },
     {
         icon: "FiAward",
         title: "Growth-Oriented & Dedicated",
-        description: "Continuously training AI models via RLHF and expanding cloud expertise to deliver secure, enterprise-grade systems."
+        description: "Combines full-stack engineering, cloud architecture, and RLHF evaluation to deliver reliable, scalable software."
     }
 ];

@@ -194,9 +194,9 @@ const Certifications = () => {
                                                 </div>
                                             </>
                                         ) : (
-                                            <div className="h-full w-full flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-red-500/10 to-bg-card">
-                                                <FiFileText className="w-10 h-10 text-red-400" />
-                                                <span className="text-xs font-medium text-red-400 uppercase tracking-wide">PDF Certificate</span>
+                                            <div className="h-full w-full flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-accent-cyan/10 to-bg-card">
+                                                <FiAward className="w-10 h-10 text-accent-cyan" />
+                                                <span className="text-xs font-medium text-content-muted uppercase tracking-wide">Credential record</span>
                                             </div>
                                         )}
                                         {/* PDF badge overlay */}
@@ -327,6 +327,12 @@ const Certifications = () => {
                                         </span>
                                     )}
                                 </div>
+
+                                {selectedCert.credentialId && (
+                                    <p className="text-sm text-content-muted">
+                                        Credential ID: <span className="font-medium text-content-primary">{selectedCert.credentialId}</span>
+                                    </p>
+                                )}
 
                                 {/* Divider */}
                                 <hr className="border-white/10" />

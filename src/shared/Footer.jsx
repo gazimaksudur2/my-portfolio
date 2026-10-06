@@ -50,7 +50,7 @@ const Footer = () => {
 	const contact = {
 		email: "gazimaksudur2@gmail.com",
 		phone: "+880 1903-219313",
-		location: "Akhalia, Sylhet, Bangladesh",
+		location: "Dhaka-1245, Bangladesh",
 	};
 
 	const socialLinks = [

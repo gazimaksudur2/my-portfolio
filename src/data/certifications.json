@@ -1,5 +1,18 @@
 [
   {
+    "id": "itee-fundamental-engineering-fe-level-2-2026",
+    "title": "ITEE Fundamental Engineering (FE) - Level 2",
+    "issuer": "Innovation Platform Agency, Japan (IPA)",
+    "platform": "ITPEC",
+    "date": "2026-06",
+    "credentialId": "FE2026APRO0032",
+    "certificateUrl": "https://drive.google.com/file/d/1eptMje1ykbu_8Ak_46iOazHMWcLFlzL8/view?usp=drivesdk",
+    "type": "jpg",
+    "description": "Fundamental Engineering Level 2 certification covering business management and core information technology concepts.",
+    "verificationUrl": "https://itpec.org/statsandresults/all-passers-information/Bangladesh/2026S_FE.pdf",
+    "tags": ["Business Management", "Information Technology", "Computer Programming", "Operating Systems", "Computer Networking"]
+  },
+  {
     "id": "aws-solutions-architect-associate-saa-c03",
     "title": "AWS Certified Solutions Architect - Associate (SAA-C03)",
     "issuer": "Amazon Web Services (AWS)",

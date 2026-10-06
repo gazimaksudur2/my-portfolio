@@ -1,8 +1,29 @@
 [
   {
+    "projectType": "AWS Certification Preparation",
+    "projectTitle": "AWS Certification Practice Hub ",
+    "projectDescription": "A browser-based study app for AWS certification exams. Take timed practice quizzes that mirror exam pressure, use untimed guided practice with instant feedback, browse the full question bank, and review AWS services.",
+    "skills": [
+      "React.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Netlify",
+      "React Router"
+    ],
+    "liveSiteLink": "https://aws-certification-prep.netlify.app/",
+    "githubClientRepoLink": "https://github.com/gazimaksudur2/aws-certification-prep",
+    "bannerImgUrl": "https://res.cloudinary.com/dsawnilz3/image/upload/v1791261420/aws-certification-landingpage_mtzhim.png",
+    "features": [
+      "Practice under exam conditions with timed quizzes.",
+      "Use untimed guided practice with instant feedback.",
+      "Browse the full AWS certification question bank.",
+      "Review AWS services while preparing for certification exams."
+    ]
+  },
+  {
     "projectType": "Agricultural Marketplace (B2B)",
-    "projectTitle": "SmartAgro Connect",
-    "projectDescription": "SmartAgro Connect is a comprehensive B2B agricultural marketplace platform that revolutionizes how farmers, agents, and wholesale buyers interact in the agricultural supply chain. By eliminating intermediaries and ensuring transparency, it creates a more efficient and profitable ecosystem. The platform features multi-role dashboards, real-time product catalogs, AI-powered crop recommendations, plant disease detection, smart irrigation planning, and secure payment processing with Stripe.",
+    "projectTitle": "SmartAgroConnect",
+    "projectDescription": "An end-to-end agricultural marketplace connecting farmers, agents, and wholesale buyers, with role-based workflows and secure transactions.",
     "skills": [
       "React.js",
       "Express.js",
@@ -15,16 +36,16 @@
     "githubClientRepoLink": "https://github.com/gazimaksudur2/smart-agro-market-client",
     "bannerImgUrl": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80",
     "features": [
-      "Designed and applied RESTful APIs using Express.js and MongoDB to manage marketplace transactions between farmers, agents, and buyers.",
-      "Built a role-based access control (RBAC) system supporting three distinct user roles with route-level authorization middleware.",
-      "Applied modular MVC architecture to separate business logic, improving code maintainability and enabling future scalability.",
-      "Developed a responsive React.js frontend with Tailwind CSS, ensuring cross-device compatibility and clean UX."
+      "Developed an MVC-structured marketplace to keep business logic maintainable and testable.",
+      "Implemented role-based access control for farmer, agent, and buyer workflows.",
+      "Integrated Cloudinary asset management to reduce image latency for mobile users by 40%.",
+      "Integrated secure payment processing for transactions between wholesale buyers and farmers."
     ]
   },
   {
     "projectType": "EdTech Platform",
     "projectTitle": "ElevateEx",
-    "projectDescription": "ElevateEx connects students, instructors, and admins. Students enroll in courses and track progress. Instructors create and submit courses. Admins manage users and content. ElevateEx enhances learning with a user-friendly interface.",
+    "projectDescription": "A multi-role EdTech platform with dedicated dashboards and workflows for administrators, instructors, and students.",
     "skills": [
       "React.js",
       "Firebase Auth",
@@ -37,10 +58,10 @@
     "githubClientRepoLink": "https://github.com/gazimaksudur2/elevateex-client",
     "bannerImgUrl": "https://i.ibb.co/K6ZSFhf/screencapture-elevateex-ac4de-web-app-allclass-2024-07-10-11-49-30.png",
     "features": [
-      "Architected a multi-role EdTech ecosystem with dedicated dashboards and role-based workflows for students, instructors, and administrators.",
-      "Implemented secure authentication and session management using Firebase Auth, integrated with protected API communication via Axios.",
-      "Developed core learning modules, including course publishing, instructor approval cycles, enrollment management, and assignment submission systems.",
-      "Leveraged React Query for efficient server-state management and reusable UI states, ensuring a high-performance, scalable frontend."
+      "Built specialized dashboards for administrators, instructors, and students.",
+      "Implemented Firebase authentication, session management, and route-level protection for sensitive data.",
+      "Used React Query for responsive server-state management.",
+      "Added automated notifications for course enrollments and updates."
     ]
   },
   {

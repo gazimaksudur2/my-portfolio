@@ -105,13 +105,13 @@ const Connect = () => {
         {
             icon: FiMapPin,
             title: "Location",
-            value: "Akhalia, Sylhet, Bangladesh",
+            value: "Dhaka-1245, Bangladesh",
             color: "text-green-500"
         },
         {
             icon: FiPhone,
             title: "Phone",
-            value: "+880 1903-219313",
+            value: "+880 1903 219313",
             color: "text-blue-500"
         },
         {

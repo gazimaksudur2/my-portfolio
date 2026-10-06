@@ -9,8 +9,8 @@ import { fadeInUp, staggerContainer, viewportOnce } from "../../utils/motion";
 const FloatingSphere = lazy(() => import("../../components/three/FloatingSphere"));
 
 const bioParagraphs = [
-	"My journey into tech is driven by curiosity and a desire to build secure, high-performance, and scalable systems. While I am well-versed in frontend technologies like React and Tailwind, my core focus is on backend architecture, MVC patterns, RBAC authentication, and CI/CD tools like Docker and Jenkins. I've contributed to the end-to-end development of commercial applications and consistently strive for production-grade reliability.",
-	"Beyond writing code, I have hands-on experience executing rigorous SQA and training ML models through RLHF. I bring strong problem-solving skills, a fast-learning mindset, and a commitment to industry standards. I work well in collaborative environments, learning from senior developers, and always aiming to elevate the entire engineering team's output.",
+	"I'm a Software and Cloud Engineer with a B.Sc. in Computer Science and Engineering from SUST and AWS Solutions Architect certification. I combine full-stack development with TypeScript, Node.js, and React with hands-on experience in REST API design, Docker, Jenkins CI/CD, and cloud architecture.",
+	"I currently contribute to backend API development and production workflows at W3 Engineers. Previously, I spent two years at Outlier AI evaluating AI-generated code across Python, JavaScript, and C++, with a focus on quality, security, logic, and clear feedback for RLHF pipelines.",
 ];
 
 const AboutMe = () => {
@@ -44,9 +44,8 @@ const AboutMe = () => {
 						variants={fadeInUp}
 						className="text-lg text-content-muted max-w-3xl mx-auto leading-relaxed"
 					>
-						I'm a Computer Science student at SUST and a Backend-focused Software Engineer with hands-on
-						experience architecting RESTful APIs and managing complex database designs using PostgreSQL and MongoDB.
-						I'm also an AWS Academy Graduate with a deep interest in DevSecOps, containerization, and automation.
+						I'm a CSE graduate from SUST and a Software & Cloud Engineer focused on scalable full-stack systems,
+						RESTful APIs, containerization, and automated delivery. I hold AWS Solutions Architect and Cloud Practitioner certifications.
 					</motion.p>
 				</motion.div>
 

@@ -31,22 +31,22 @@ const Banner = () => {
 	const isMobile = useIsMobile();
 
 	const roles = [
-		"Backend-focused Soft. Engineer",
+		"Software & Cloud Engineer",
 		"Full Stack Developer",
-		"Graduated from CSE, SUST",
+		"AWS Solutions Architect",
 	];
 
 	const stats = [
-		{ number: "3+", label: "Major Enterprise Projects" },
-		{ number: "1+", label: "Years Professional Experience" },
+		{ number: "3+", label: "Full-Stack Projects" },
+		{ number: "2+", label: "Years AI Training & QA" },
 		{ number: "15+", label: "Technologies & Tools" },
 		{ number: "—", label: "Open to Opportunities" },
 	];
 
 	const highlights = [
 		{ label: "Bangladesh 🇧🇩", key: "location" },
-		{ label: "Graduated from CSE, SUST", key: "sust" },
-		{ label: "Software Developer", key: "developer" },
+		{ label: "CSE, SUST · 2026", key: "sust" },
+		{ label: "AWS Solutions Architect", key: "aws" },
 	];
 
 	const nameContainer = {
@@ -137,9 +137,9 @@ const Banner = () => {
 								variants={nameChar}
 								className="md:text-lg text-content-muted leading-relaxed max-w-2xl"
 							>
-								I'm a Backend-focused Software Engineer specializing in Node.js, Express, and PostgreSQL.
-								I build secure, scalable web applications and actively work with AWS, Docker, and CI/CD pipelines
-								to deliver production-ready systems.
+								I'm a Software and Cloud Engineer with a B.Sc. in CSE from SUST and AWS Solutions Architect certification.
+								I build full-stack applications with TypeScript, Node.js, and React, and work with Docker and Jenkins CI/CD
+								to deliver reliable production systems.
 							</motion.p>
 							<motion.div variants={nameChar} className="flex flex-wrap gap-3">
 								{highlights.map((h) => (
@@ -240,13 +240,13 @@ const Banner = () => {
 					))}
 				</div>
 			</div>
-
 			{/* Scroll indicator */}
-			<div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+			<div className="absolute bottom-0 right-[calc(50%-12px)] animate-bounce">
 				<div className="w-6 h-10 border-2 border-accent-cyan/40 rounded-full flex justify-center">
 					<div className="w-1 h-3 bg-accent-cyan rounded-full mt-2 animate-pulse"></div>
 				</div>
 			</div>
+
 		</section>
 	);
 };

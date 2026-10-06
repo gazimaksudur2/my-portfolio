@@ -12,6 +12,7 @@ import MySkills from "./MySkills";
 import Projects from "./Projects";
 import Services from "./Services";
 import { trackVisitor } from "../../services/visitorStats";
+import Experience from "./Experience";
 // import UnderConstruction from './UnderConstruction';
 
 const Home = () => {
@@ -45,6 +46,7 @@ const Home = () => {
 				{/* Account for fixed navbar */}
 				<Banner />
 				<AboutMe />
+				<Experience />
 				<MySkills />
 				<Services />
 				<Projects />

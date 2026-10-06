@@ -7,11 +7,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 const education = [
 	{
-		period: "Jan 2022 – Apr 2026",
+		period: "Jan 2022 – Aug 2026",
 		degree: "B.Sc. in Computer Science and Engineering",
 		institution: "Shahjalal University of Science and Technology (SUST)",
 		institutionShort: "SUST",
-		cgpa: "CGPA 3.57",
+		cgpa: "CGPA 3.58",
 		focus: "Data structures, algorithms, web development, cloud fundamentals",
 		logo: "https://upload.wikimedia.org/wikipedia/en/d/d9/Shahjalal_University_of_Science_and_Technology_logo.png",
 		primary: true,
@@ -77,7 +77,7 @@ const Education = () => {
 						<span className="block text-gradient">Background</span>
 					</h2>
 					<p className="text-lg text-content-muted max-w-3xl mx-auto leading-relaxed">
-						B.Sc. in Computer Science at SUST. Will graduate in 2026. Focus on fundamentals and modern development.
+						B.Sc. graduate in Computer Science and Engineering from SUST, with a focus on software engineering and cloud technologies.
 					</p>
 				</div>
 

@@ -6,11 +6,11 @@ import { staggerContainer, viewportOnce } from "../../utils/motion";
 const skillCategories = [
 	{
 		id: "languages",
-		title: "Programming",
+		title: "Languages",
 		icon: FiTool,
 		color: "from-primary-500 to-primary-600",
 		accent: "#00f5ff",
-		skills: ["Python", "Java", "C++", "JavaScript", "TypeScript"],
+		skills: ["JavaScript (ES6+)", "TypeScript", "Python", "Java", "C++", "Go"],
 	},
 	{
 		id: "backend",
@@ -18,7 +18,7 @@ const skillCategories = [
 		icon: FiServer,
 		color: "from-secondary-500 to-secondary-600",
 		accent: "#7c3aed",
-		skills: ["Node.js", "Express.js", "PostgreSQL", "MongoDB", "MySQL", "Prisma"],
+		skills: ["Node.js", "Express.js", "Beego", "PostgreSQL", "MongoDB", "FastAPI", "REST APIs"],
 	},
 	{
 		id: "frontend",
@@ -26,7 +26,7 @@ const skillCategories = [
 		icon: FiCode,
 		color: "from-green-500 to-green-600",
 		accent: "#00ff88",
-		skills: ["React.js", "Tailwind CSS", "HTML5", "CSS3", "Responsive UX"],
+		skills: ["React.js", "Next.js", "Tailwind CSS", "HTML5", "CSS3"],
 	},
 	{
 		id: "cloud",
@@ -34,7 +34,7 @@ const skillCategories = [
 		icon: FiCloud,
 		color: "from-orange-500 to-orange-600",
 		accent: "#00f5ff",
-		skills: ["AWS Cloud", "Docker", "Jenkins", "CI/CD"],
+		skills: ["AWS Solutions Architect", "AWS Cloud Practitioner", "Docker", "Jenkins", "CI/CD"],
 	},
 	{
 		id: "core",
@@ -42,7 +42,7 @@ const skillCategories = [
 		icon: FiDatabase,
 		color: "from-neutral-600 to-neutral-700",
 		accent: "#7c3aed",
-		skills: ["OOP", "Data Structures", "MVC", "RBAC", "Agile", "Git"],
+		skills: ["OOP", "Data Structures & Algorithms", "MVC", "Agile", "Git", "GitHub", "Postman"],
 	},
 ];
 
