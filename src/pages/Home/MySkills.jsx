@@ -53,11 +53,13 @@ const FILTERS = ["All", "Languages", "Frontend", "Backend", "Cloud", "Core"];
 // Tech logos for the marquee (sponsors.json data inlined)
 const TECH_LOGOS = [
 	{ name: "React", url: "https://www.svgrepo.com/show/303157/react-logo.svg" },
-	{ name: "JavaScript", url: "https://www.svgrepo.com/show/353925/javascript.svg" },
+	{ name: "JavaScript", url: "https://www.svgrepo.com/show/452045/js.svg" },
+	{ name: "NextJS", url: "https://www.svgrepo.com/show/512317/github-142.svg" },
+	{ name: "Go", url: "https://www.svgrepo.com/show/452214/go.svg" },
 	{ name: "MongoDB", url: "https://www.svgrepo.com/show/373845/mongo.svg" },
 	{ name: "Express.js", url: "https://www.svgrepo.com/show/376367/express.svg" },
 	{ name: "Node.js", url: "https://www.svgrepo.com/show/452075/node-js.svg" },
-	{ name: "Tailwind CSS", url: "https://www.svgrepo.com/show/333609/tailwind-css.svg" },
+	{ name: "Tailwind CSS", url: "https://www.svgrepo.com/show/354431/tailwindcss-icon.svg" },
 	{ name: "GitHub", url: "https://www.svgrepo.com/show/512317/github-142.svg" },
 ];
 

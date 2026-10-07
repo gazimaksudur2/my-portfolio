@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiExternalLink, FiGithub, FiServer } from "react-icons/fi";
 import Project from "./Project";
-import { fadeInUp, staggerContainer, viewportOnce } from "../../utils/motion";
+import { staggerContainer, viewportOnce } from "../../utils/motion";
 import SectionHeader from "../../components/SectionHeader";
 
 // Map raw projectType strings to short filter labels
