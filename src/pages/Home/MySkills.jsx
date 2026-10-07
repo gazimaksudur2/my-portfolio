@@ -52,15 +52,26 @@ const FILTERS = ["All", "Languages", "Frontend", "Backend", "Cloud", "Core"];
 
 // Tech logos for the marquee (sponsors.json data inlined)
 const TECH_LOGOS = [
-	{ name: "React", url: "https://www.svgrepo.com/show/303157/react-logo.svg" },
+	{ name: "React", url: "https://www.svgrepo.com/show/452092/react.svg" },
+	{ name: "NextJS", url: "https://www.svgrepo.com/show/354113/nextjs-icon.svg" },
 	{ name: "JavaScript", url: "https://www.svgrepo.com/show/452045/js.svg" },
-	{ name: "NextJS", url: "https://www.svgrepo.com/show/512317/github-142.svg" },
+	{ name: "TypeScript", url: "https://www.svgrepo.com/show/354478/typescript-icon.svg" },
+	{ name: "Python", url: "https://www.svgrepo.com/show/452091/python.svg" },
+	{ name: "Java", url: "https://www.svgrepo.com/show/452234/java.svg" },
 	{ name: "Go", url: "https://www.svgrepo.com/show/452214/go.svg" },
 	{ name: "MongoDB", url: "https://www.svgrepo.com/show/373845/mongo.svg" },
+	{ name: "PostgreSQL", url: "https://www.svgrepo.com/show/354200/postgresql.svg" },
+	{ name: "MySQL", url: "https://www.svgrepo.com/show/303251/mysql-logo.svg" },
 	{ name: "Express.js", url: "https://www.svgrepo.com/show/376367/express.svg" },
 	{ name: "Node.js", url: "https://www.svgrepo.com/show/452075/node-js.svg" },
 	{ name: "Tailwind CSS", url: "https://www.svgrepo.com/show/354431/tailwindcss-icon.svg" },
+	{ name: "HTML5", url: "https://www.svgrepo.com/show/452228/html-5.svg" },
+	{ name: "CSS3", url: "https://www.svgrepo.com/show/373535/css.svg" },
 	{ name: "GitHub", url: "https://www.svgrepo.com/show/512317/github-142.svg" },
+	{ name: "Postman", url: "https://www.svgrepo.com/show/354202/postman-icon.svg" },
+	{ name: "AWS", url: "https://www.svgrepo.com/show/448266/aws.svg" },
+	{ name: "Docker", url: "https://www.svgrepo.com/show/448221/docker.svg" },
+	{ name: "Jenkins", url: "https://www.svgrepo.com/show/373699/jenkins.svg" },
 ];
 
 const hexClip = { clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" };

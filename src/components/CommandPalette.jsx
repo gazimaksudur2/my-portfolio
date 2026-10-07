@@ -176,7 +176,7 @@ const CommandPalette = () => {
 										}}
 										onKeyDown={onKeyDown}
 										placeholder="Search commands…"
-										className="flex-1 bg-transparent text-content-primary placeholder-content-muted outline-none text-sm"
+										className="flex-1 bg-transparent text-content-primary placeholder-content-muted focus:outline-none text-sm"
 									/>
 									<button
 										onClick={() => setOpen(false)}
@@ -225,21 +225,21 @@ const CommandPalette = () => {
 								</div>
 
 								{/* Footer hint */}
-								<div className="px-4 py-2.5 border-t border-white/10 flex items-center gap-4 text-[11px] text-content-muted/70">
+								<div className="px-4 py-2.5 border-t border-white/10 flex items-center gap-4 text-[12px] text-content-muted/70">
 									<span>
-										<kbd className="px-1.5 py-0.5 rounded bg-white/10 font-mono text-[10px]">↑↓</kbd>{" "}
+										<kbd className="px-1.5 py-0.5 rounded text-accent-cyan bg-white/10 font-mono text-[16px]">↑↓</kbd>{" "}
 										navigate
 									</span>
 									<span>
-										<kbd className="px-1.5 py-0.5 rounded bg-white/10 font-mono text-[10px]">↵</kbd>{" "}
+										<kbd className="px-1.5 py-0.5 rounded text-accent-cyan bg-white/10 font-mono text-[16px]">↵</kbd>{" "}
 										select
 									</span>
 									<span>
-										<kbd className="px-1.5 py-0.5 rounded bg-white/10 font-mono text-[10px]">esc</kbd>{" "}
+										<kbd className="px-1.5 py-0.5 rounded text-accent-cyan bg-white/10 font-mono text-[16px]">esc</kbd>{" "}
 										close
 									</span>
 									<span className="ml-auto">
-										<kbd className="px-1.5 py-0.5 rounded bg-white/10 font-mono text-[10px]">⌘K</kbd>
+										<kbd className="px-1.5 py-0.5 rounded text-accent-cyan bg-white/10 font-mono text-[16px]">⌘ K</kbd>
 									</span>
 								</div>
 							</div>

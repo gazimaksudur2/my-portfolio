@@ -107,10 +107,11 @@ const Navbar = () => {
 							const evt = new KeyboardEvent("keydown", { key: "k", ctrlKey: true, bubbles: true });
 							window.dispatchEvent(evt);
 						}}
-						className="ml-3 hidden xl:flex items-center gap-1.5 px-3 py-1.5 glass rounded-lg border border-white/10 text-content-muted text-xs hover:border-accent-cyan/30 hover:text-accent-cyan transition-all duration-200"
+						className="ml-3 hidden xl:flex items-center gap-1.5 px-2 glass rounded-lg border border-white/10 text-content-muted hover:border-accent-cyan/30 hover:text-accent-cyan transition-all duration-200"
 						title="Open command palette"
-					>
-						<span className="text-[10px] font-mono">⌘K</span>
+					>	
+						<span className="text-[16px] font-mono">⌘</span> 
+						<span className="text-[16px] font-mono">K</span>
 					</button>
 					<a
 						href={personalInfo.resumeLink}
