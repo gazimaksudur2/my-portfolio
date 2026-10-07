@@ -60,7 +60,7 @@ const Banner = () => {
 	const highlights = [
 		{ label: "Bangladesh 🇧🇩", key: "location" },
 		{ label: "CSE, SUST · 2020", key: "sust" },
-		{ label: "AWS Solutions Architect", key: "aws" },
+		{ label: "AWS Solutions Architect - Associate", key: "aws" },
 	];
 
 	const nameContainer = {
