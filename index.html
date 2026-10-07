@@ -16,5 +16,7 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- Prevent browser scroll-restoration from jumping mid-page on reload -->
+    <script>history.scrollRestoration = "manual";</script>
   </body>
 </html>

@@ -25,6 +25,12 @@ export function scrollToSection(sectionId) {
 
 export function useLenis() {
 	useEffect(() => {
+		// On every fresh page load, snap to the very top before Lenis boots.
+		// This prevents the browser from restoring a previous scroll position
+		// or a stale hash anchor (e.g. #projects) from jumping mid-page.
+		window.history.replaceState(null, "", window.location.pathname);
+		window.scrollTo(0, 0);
+
 		const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 		const lenis = new Lenis({
