@@ -13,7 +13,6 @@ import {
 	FiZap,
 } from "react-icons/fi";
 import Swal from "sweetalert2";
-import { useIsMobile } from "../../hooks/useIsMobile";
 import CanvasFallback from "../../components/three/CanvasFallback";
 import { getVisitorSummary } from "../../services/visitorStats";
 import SectionHeader from "../../components/SectionHeader";
@@ -23,7 +22,6 @@ import { fadeInUp, staggerContainer, viewportOnce } from "../../utils/motion";
 const FloatingSphere = lazy(() => import("../../components/three/FloatingSphere"));
 
 const Connect = () => {
-	const isMobile = useIsMobile();
 	const [formData, setFormData] = useState({
 		name: "",
 		email: "",
@@ -149,16 +147,12 @@ const Connect = () => {
 					</motion.div>
 				)}
 
-				{/* 3D globe */}
-				<div className="flex justify-center mb-12">
-					<div className="w-56 h-56 sm:w-64 sm:h-64">
-						{isMobile ? (
-							<CanvasFallback variant="sphere" className="w-full h-full" />
-						) : (
-							<Suspense fallback={<CanvasFallback variant="sphere" className="w-full h-full" />}>
-								<FloatingSphere accent="#00f5ff" globe />
-							</Suspense>
-						)}
+				{/* 3D globe — desktop only; hidden on tablet/mobile */}
+				<div className="hidden lg:flex justify-center mb-12">
+					<div className="w-64 h-64">
+						<Suspense fallback={<CanvasFallback variant="sphere" className="w-full h-full" />}>
+							<FloatingSphere accent="#00f5ff" globe />
+						</Suspense>
 					</div>
 				</div>
 

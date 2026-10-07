@@ -31,11 +31,18 @@ const StatCard = ({ number, label, index }) => {
 const Banner = () => {
 	const isMobile = useIsMobile();
 
-	// Scroll-linked hero image collapse
+	// Scroll-linked collapse for the portrait — desktop only.
+	// On mobile the portrait stacks below the text; applying scroll transforms
+	// there makes it vanish before the visitor has even read the bio.
 	const { scrollY } = useScroll();
 	const portraitOpacity = useTransform(scrollY, [0, 500], [1, 0]);
 	const portraitScale = useTransform(scrollY, [0, 500], [1, 0.88]);
 	const portraitY = useTransform(scrollY, [0, 500], [0, -40]);
+
+	// On mobile/tablet use static style so portrait stays visible on scroll
+	const portraitScrollStyle = isMobile
+		? {}
+		: { opacity: portraitOpacity, scale: portraitScale, y: portraitY };
 
 	const roles = [
 		"Software & Cloud Engineer",
@@ -206,14 +213,14 @@ const Banner = () => {
 						</motion.div>
 					</motion.div>
 
-					{/* Portrait — scroll-linked collapse */}
-					<motion.div
-						style={{ opacity: portraitOpacity, scale: portraitScale, y: portraitY }}
-						initial={{ opacity: 0, scale: 0.9 }}
-						animate={{ opacity: 1, scale: 1 }}
-						transition={{ duration: 0.8, delay: 0.3 }}
-						className="relative"
-					>
+				{/* Portrait — scroll-linked collapse on desktop, static on mobile */}
+				<motion.div
+					style={portraitScrollStyle}
+					initial={{ opacity: 0, scale: 0.9 }}
+					animate={{ opacity: 1, scale: 1 }}
+					transition={{ duration: 0.8, delay: 0.3 }}
+					className="relative"
+				>
 						<div className="relative">
 							<div className="w-80 h-80 lg:w-96 lg:h-96 mx-auto relative flex items-center justify-center">
 								{/* Rotating cyan ring */}

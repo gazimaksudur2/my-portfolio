@@ -2,7 +2,6 @@ import { Suspense, lazy } from "react";
 import { motion } from "framer-motion";
 import Icon from "../../components/Icon";
 import { highlights, quickFacts } from "../../constants";
-import { useIsMobile } from "../../hooks/useIsMobile";
 import CanvasFallback from "../../components/three/CanvasFallback";
 import { fadeInUp, staggerContainer, viewportOnce } from "../../utils/motion";
 import SectionHeader from "../../components/SectionHeader";
@@ -15,8 +14,6 @@ const bioParagraphs = [
 ];
 
 const AboutMe = () => {
-	const isMobile = useIsMobile();
-
 	return (
 		<section id="about" className="section-padding bg-bg-secondary relative overflow-hidden">
 			<div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-accent-violet/5 blur-3xl pointer-events-none" />
@@ -28,28 +25,24 @@ const AboutMe = () => {
 					description="CSE graduate from SUST and a Software & Cloud Engineer focused on scalable full-stack systems, RESTful APIs, containerization, and automated delivery. AWS Solutions Architect and Cloud Practitioner certified."
 				/>
 
-				<div className="grid lg:grid-cols-2 gap-16 items-center">
-					{/* 3D floating sphere */}
-					<motion.div
-						initial={{ opacity: 0, scale: 0.9 }}
-						whileInView={{ opacity: 1, scale: 1 }}
-						viewport={viewportOnce}
-						transition={{ duration: 0.7 }}
-						className="order-2 lg:order-1 flex items-center justify-center"
-					>
-						<div className="w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
-							{isMobile ? (
-								<CanvasFallback variant="sphere" className="w-full h-full" />
-							) : (
-								<Suspense fallback={<CanvasFallback variant="sphere" className="w-full h-full" />}>
-									<FloatingSphere accent="#00f5ff" />
-								</Suspense>
-							)}
-						</div>
-					</motion.div>
+			<div className="grid lg:grid-cols-2 gap-16 items-center">
+				{/* 3D floating sphere — desktop only; too cramped on tablet/mobile */}
+				<motion.div
+					initial={{ opacity: 0, scale: 0.9 }}
+					whileInView={{ opacity: 1, scale: 1 }}
+					viewport={viewportOnce}
+					transition={{ duration: 0.7 }}
+					className="hidden lg:flex items-center justify-center"
+				>
+					<div className="w-96 h-96">
+						<Suspense fallback={<CanvasFallback variant="sphere" className="w-full h-full" />}>
+							<FloatingSphere accent="#00f5ff" />
+						</Suspense>
+					</div>
+				</motion.div>
 
-					{/* Content */}
-					<div className="order-1 lg:order-2 space-y-8">
+				{/* Content */}
+				<div className="space-y-8">
 						<motion.div
 							initial="hidden"
 							whileInView="visible"
@@ -142,8 +135,8 @@ const AboutMe = () => {
 								Ready to Work Together?
 							</h3>
 							<p className="text-content-muted text-lg mb-8 max-w-2xl mx-auto">
-								I'm always excited to take on new challenges and collaborate on
-								innovative projects. Let's create something amazing together!
+								I&apos;m always excited to take on new challenges and collaborate on
+								innovative projects. Let&apos;s create something amazing together!
 							</p>
 							<a
 								href="#contact"
@@ -153,7 +146,7 @@ const AboutMe = () => {
 								}}
 								className="inline-flex items-center px-8 py-4 bg-accent-cyan text-bg-primary font-semibold rounded-xl hover:bg-accent-cyan/90 transition-all duration-300 shadow-glow-cyan hover:shadow-glow-cyan-lg transform hover:-translate-y-1"
 							>
-								Let's Connect
+								Let&apos;s Connect
 								<svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
 								</svg>

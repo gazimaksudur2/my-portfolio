@@ -146,13 +146,27 @@ const Projects = () => {
 											</ul>
 										</div>
 									</div>
-									<div className="lg:w-[45%] rounded-2xl overflow-hidden border border-accent-cyan/20 shadow-glow-cyan">
-										<img
-											className="w-full aspect-video object-cover hover:scale-105 transition-transform duration-500"
-											src={featured.bannerImgUrl}
-											alt={featured.projectTitle}
-										/>
-									</div>
+								{/* Featured image — live-site overlay on image hover */}
+								<div className="group/img lg:w-[45%] relative rounded-2xl overflow-hidden border border-accent-cyan/20 shadow-glow-cyan">
+									<img
+										className="w-full aspect-video object-cover group-hover/img:scale-105 transition-transform duration-500"
+										src={featured.bannerImgUrl}
+										alt={featured.projectTitle}
+									/>
+									{featured.liveSiteLink && featured.liveSiteLink !== "#" && (
+										<a
+											href={featured.liveSiteLink}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="absolute inset-0 z-10 flex items-center justify-center rounded-2xl bg-transparent group-hover/img:bg-black/55 group-hover/img:backdrop-blur-[3px] transition-all duration-300"
+											aria-label={`Visit ${featured.projectTitle} live`}
+										>
+											<div className="opacity-0 scale-75 group-hover/img:opacity-100 group-hover/img:scale-100 transition-all duration-300 p-5 rounded-full bg-accent-cyan/20 border border-accent-cyan/50 shadow-glow-cyan">
+												<FiExternalLink className="w-9 h-9 text-accent-cyan" />
+											</div>
+										</a>
+									)}
+								</div>
 								</div>
 							</motion.div>
 						)}
