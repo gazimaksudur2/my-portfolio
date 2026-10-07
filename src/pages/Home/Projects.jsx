@@ -38,7 +38,7 @@ const Projects = () => {
 						variants={fadeInUp}
 						className="text-3xl sm:text-4xl lg:text-5xl font-bold font-syne text-content-primary mb-6"
 					>
-						What I've Built
+						{"What I've Built"}
 						<span className="block text-gradient">Highlights</span>
 					</motion.h2>
 					<motion.p

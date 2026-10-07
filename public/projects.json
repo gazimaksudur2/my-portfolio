@@ -34,7 +34,7 @@
     "liveSiteLink": "https://smartagroconnect-79578.web.app",
     "githubServerRepoLink": "#",
     "githubClientRepoLink": "https://github.com/gazimaksudur2/smart-agro-market-client",
-    "bannerImgUrl": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80",
+    "bannerImgUrl": "https://res.cloudinary.com/dsawnilz3/image/upload/v1791331932/Screenshot_2026-10-07_055500_zaochz.png",
     "features": [
       "Developed an MVC-structured marketplace to keep business logic maintainable and testable.",
       "Implemented role-based access control for farmer, agent, and buyer workflows.",

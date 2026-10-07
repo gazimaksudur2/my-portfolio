@@ -45,7 +45,7 @@ const Banner = () => {
 
 	const highlights = [
 		{ label: "Bangladesh 🇧🇩", key: "location" },
-		{ label: "CSE, SUST · 2026", key: "sust" },
+		{ label: "CSE, SUST · 2020", key: "sust" },
 		{ label: "AWS Solutions Architect", key: "aws" },
 	];
 
