@@ -101,14 +101,25 @@ const Navbar = () => {
 								);
 							})}
 						</div>
-						<a
-							href={personalInfo.resumeLink}
-							target="_blank"
-							rel="noopener noreferrer"
-							className="ml-4 px-6 py-2.5 text-sm font-semibold rounded-lg text-accent-cyan border border-accent-cyan/40 bg-accent-cyan/5 hover:bg-accent-cyan/15 hover:shadow-glow-cyan transition-all duration-300 transform hover:-translate-y-0.5"
-						>
-							Resume
-						</a>
+					{/* ⌘K hint */}
+					<button
+						onClick={() => {
+							const evt = new KeyboardEvent("keydown", { key: "k", ctrlKey: true, bubbles: true });
+							window.dispatchEvent(evt);
+						}}
+						className="ml-3 hidden xl:flex items-center gap-1.5 px-3 py-1.5 glass rounded-lg border border-white/10 text-content-muted text-xs hover:border-accent-cyan/30 hover:text-accent-cyan transition-all duration-200"
+						title="Open command palette"
+					>
+						<span className="text-[10px] font-mono">⌘K</span>
+					</button>
+					<a
+						href={personalInfo.resumeLink}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="ml-3 px-6 py-2.5 text-sm font-semibold rounded-lg text-accent-cyan border border-accent-cyan/40 bg-accent-cyan/5 hover:bg-accent-cyan/15 hover:shadow-glow-cyan transition-all duration-300 transform hover:-translate-y-0.5"
+					>
+						Resume
+					</a>
 					</div>
 
 					{/* Mobile menu button */}

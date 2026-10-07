@@ -5,6 +5,7 @@ import { highlights, quickFacts } from "../../constants";
 import { useIsMobile } from "../../hooks/useIsMobile";
 import CanvasFallback from "../../components/three/CanvasFallback";
 import { fadeInUp, staggerContainer, viewportOnce } from "../../utils/motion";
+import SectionHeader from "../../components/SectionHeader";
 
 const FloatingSphere = lazy(() => import("../../components/three/FloatingSphere"));
 
@@ -20,34 +21,12 @@ const AboutMe = () => {
 		<section id="about" className="section-padding bg-bg-secondary relative overflow-hidden">
 			<div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-accent-violet/5 blur-3xl pointer-events-none" />
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-				<motion.div
-					initial="hidden"
-					whileInView="visible"
-					viewport={viewportOnce}
-					variants={staggerContainer(0.15)}
-					className="text-center mb-16"
-				>
-					<motion.div
-						variants={fadeInUp}
-						className="inline-flex items-center px-4 py-2 glass text-accent-cyan rounded-full text-sm font-medium mb-4"
-					>
-						About Me
-					</motion.div>
-					<motion.h2
-						variants={fadeInUp}
-						className="text-3xl sm:text-4xl lg:text-5xl font-bold font-syne text-content-primary mb-6"
-					>
-						My Story &
-						<span className="block text-gradient">Direction</span>
-					</motion.h2>
-					<motion.p
-						variants={fadeInUp}
-						className="text-lg text-content-muted max-w-3xl mx-auto leading-relaxed"
-					>
-						I'm a CSE graduate from SUST and a Software & Cloud Engineer focused on scalable full-stack systems,
-						RESTful APIs, containerization, and automated delivery. I hold AWS Solutions Architect and Cloud Practitioner certifications.
-					</motion.p>
-				</motion.div>
+				<SectionHeader
+					badge="About Me"
+					title="My Story &"
+					titleAccent="Direction"
+					description="CSE graduate from SUST and a Software & Cloud Engineer focused on scalable full-stack systems, RESTful APIs, containerization, and automated delivery. AWS Solutions Architect and Cloud Practitioner certified."
+				/>
 
 				<div className="grid lg:grid-cols-2 gap-16 items-center">
 					{/* 3D floating sphere */}

@@ -1,98 +1,89 @@
 import { Link, useRouteError } from "react-router-dom";
-import { FiHome, FiMail, FiArrowLeft } from "react-icons/fi";
+import { FiHome, FiMail, FiArrowLeft, FiCode } from "react-icons/fi";
 
 const ErrorPage = () => {
-  const error = useRouteError();
-  const status = error?.status || 404;
-  const title =
-    status === 404 ? "Page not found" : "Something went wrong";
-  const description =
-    status === 404
-      ? "The page you’re looking for doesn’t exist or may have been moved."
-      : "An unexpected error occurred. Please try again or return home.";
+	const error = useRouteError();
+	const status = error?.status || 404;
+	const title = status === 404 ? "Page not found" : "Something went wrong";
+	const description =
+		status === 404
+			? "The page you're looking for doesn't exist or may have been moved."
+			: "An unexpected error occurred. Please try again or return home.";
 
-  return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-neutral-50 via-white to-primary-50">
-      {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-32 w-80 h-80 bg-gradient-to-br from-primary-200 to-secondary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse-slow"></div>
-        <div className="absolute -bottom-40 -left-32 w-80 h-80 bg-gradient-to-br from-secondary-200 to-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse-slow animation-delay-2000"></div>
-      </div>
+	return (
+		<section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-bg-primary">
+			{/* Background blobs — matches site palette */}
+			<div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-accent-violet/5 blur-3xl pointer-events-none" />
+			<div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-accent-cyan/5 blur-3xl pointer-events-none" />
 
-      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        {/* Back link */}
-        <div className="mb-10">
-          <Link
-            to="/"
-            className="inline-flex items-center text-neutral-600 hover:text-primary-600 transition-colors"
-          >
-            <FiArrowLeft className="mr-2" />
-            Back to home
-          </Link>
-        </div>
+			<div className="relative z-10 w-full max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+				{/* Back link */}
+				<div className="mb-10 flex justify-start">
+					<Link
+						to="/"
+						className="inline-flex items-center text-content-muted hover:text-accent-cyan transition-colors duration-300 font-medium"
+					>
+						<FiArrowLeft className="mr-2 w-4 h-4" />
+						Back to portfolio
+					</Link>
+				</div>
 
-        <div className="bg-white/70 backdrop-blur-xl border border-neutral-200 rounded-3xl shadow-xl p-8 sm:p-12 text-center animate-fade-in-up">
-          {/* 404 badge */}
-          <div className="mx-auto mb-6 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary-500 text-white shadow-lg">
-            {status}
-          </div>
+				<div className="glass glow-border rounded-3xl p-8 sm:p-12">
+					{/* Status badge */}
+					<div className="mx-auto mb-6 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-accent-cyan/20 to-accent-violet/20 border border-accent-cyan/30 shadow-glow-cyan">
+						<span className="text-2xl font-bold font-syne text-gradient">{status}</span>
+					</div>
 
-          {/* Big gradient heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent leading-tight">
-            {title}
-          </h1>
+					{/* Logo */}
+					<div className="flex items-center justify-center gap-2 mb-6">
+						<FiCode className="w-5 h-5 text-accent-cyan" />
+						<span className="text-sm font-medium text-content-muted">Gazi Maksudur Rahman</span>
+					</div>
 
-          {/* Message */}
-          <p className="mt-4 text-lg text-neutral-600 max-w-2xl mx-auto">
-            {description}
-          </p>
+					<h1 className="text-4xl sm:text-5xl font-bold font-syne text-gradient mb-4">
+						{title}
+					</h1>
 
-          {/* Helpful hints */}
-          <div className="mt-6 text-sm text-neutral-500">
-            <p>
-              If you typed the URL directly, please make sure the spelling is correct.
-            </p>
-          </div>
+					<p className="text-lg text-content-muted max-w-md mx-auto leading-relaxed">
+						{description}
+					</p>
 
-          {/* Actions */}
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              to="/"
-              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white font-semibold rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-            >
-              <FiHome className="mr-2 w-5 h-5" />
-              Go Home
-            </Link>
-            <Link
-              to="/#contact"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-primary-500 text-primary-600 font-semibold rounded-xl hover:bg-primary-50 transition-all duration-300"
-            >
-              <FiMail className="mr-2 w-5 h-5" />
-              Contact Me
-            </Link>
-          </div>
+					{/* Actions */}
+					<div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+						<Link
+							to="/"
+							className="inline-flex items-center justify-center px-8 py-4 bg-accent-cyan text-bg-primary font-semibold rounded-xl hover:bg-accent-cyan/90 transition-all duration-300 shadow-glow-cyan hover:shadow-glow-cyan-lg hover:-translate-y-1"
+						>
+							<FiHome className="mr-2 w-5 h-5" />
+							Go Home
+						</Link>
+						<Link
+							to="/#contact"
+							className="inline-flex items-center justify-center px-8 py-4 border-2 border-accent-cyan/50 text-accent-cyan font-semibold rounded-xl hover:bg-accent-cyan/10 hover:border-accent-cyan transition-all duration-300"
+						>
+							<FiMail className="mr-2 w-5 h-5" />
+							Contact Me
+						</Link>
+					</div>
 
-          {/* Quick links */}
-          <div className="mt-8 text-sm text-neutral-600">
-            <span className="mr-2">Looking for something else?</span>
-            <Link
-              to="/#projects"
-              className="text-primary-600 hover:underline font-medium"
-            >
-              See my projects
-            </Link>
-            <span className="mx-2">•</span>
-            <Link
-              to="/#services"
-              className="text-primary-600 hover:underline font-medium"
-            >
-              Explore services
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+					<div className="mt-8 text-sm text-content-muted/70">
+						<span>Looking for something specific? </span>
+						<Link to="/#projects" className="text-accent-cyan hover:glow-cyan font-medium">
+							Projects
+						</Link>
+						<span className="mx-2">·</span>
+						<Link to="/#skills" className="text-accent-cyan hover:glow-cyan font-medium">
+							Skills
+						</Link>
+						<span className="mx-2">·</span>
+						<Link to="/#certifications" className="text-accent-cyan hover:glow-cyan font-medium">
+							Certifications
+						</Link>
+					</div>
+				</div>
+			</div>
+		</section>
+	);
 };
 
 export default ErrorPage;

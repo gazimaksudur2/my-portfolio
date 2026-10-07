@@ -1,11 +1,10 @@
 export const navLinks = [
     { to: "#about", label: "About" },
+    { to: "#experience", label: "Experience" },
     { to: "#skills", label: "Skills" },
-    { to: "#services", label: "Services" },
     { to: "#projects", label: "Projects" },
     { to: "#certifications", label: "Certifications" },
     { to: "#education", label: "Education" },
-    { to: "#achievements", label: "Achievements" },
     { to: "#contact", label: "Contact" },
 ];
 

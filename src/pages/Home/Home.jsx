@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FiArrowUp } from "react-icons/fi";
+import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import Footer from "../../shared/Footer";
 import AboutMe from "./AboutMe";
@@ -13,37 +14,56 @@ import Projects from "./Projects";
 import Services from "./Services";
 import { trackVisitor } from "../../services/visitorStats";
 import Experience from "./Experience";
-// import UnderConstruction from './UnderConstruction';
+import ProgressBar from "../../components/ProgressBar";
+import SectionDots from "../../components/SectionDots";
+import MagneticCursor from "../../components/MagneticCursor";
+import CommandPalette from "../../components/CommandPalette";
+import { useLenis } from "../../hooks/useLenis";
 
 const Home = () => {
 	const [showBackToTop, setShowBackToTop] = useState(false);
 
+	// Initialise Lenis smooth scroll + GSAP ScrollTrigger bridge
+	useLenis();
+
 	useEffect(() => {
 		trackVisitor();
 
+		// Activate custom-cursor class so CSS hides the native pointer
+		document.body.classList.add("custom-cursor");
+
 		const handleScroll = () => {
-			// Show button when user has scrolled more than 400px
 			setShowBackToTop(window.scrollY > 400);
 		};
 
 		window.addEventListener("scroll", handleScroll);
-		return () => window.removeEventListener("scroll", handleScroll);
+		return () => {
+			window.removeEventListener("scroll", handleScroll);
+			document.body.classList.remove("custom-cursor");
+		};
 	}, []);
 
 	const scrollToTop = () => {
-		window.scrollTo({
-			top: 0,
-			behavior: "smooth",
-		});
+		window.scrollTo({ top: 0, behavior: "smooth" });
 	};
 
 	return (
 		<div>
+			{/* Custom cursor (desktop only, touch / reduced-motion aware) */}
+			<MagneticCursor />
+
+			{/* Scroll progress bar */}
+			<ProgressBar />
+
+			{/* Right-side section dot navigator */}
+			<SectionDots />
+
+			{/* Cmd+K command palette */}
+			<CommandPalette />
+
 			<Navbar />
-			{/* <UnderConstruction /> */}
+
 			<main className="pt-16 lg:pt-20">
-				{" "}
-				{/* Account for fixed navbar */}
 				<Banner />
 				<AboutMe />
 				<Experience />
@@ -55,20 +75,25 @@ const Home = () => {
 				<Achievements />
 				<Connect />
 			</main>
+
 			<Footer />
 
-			{/* Floating Back to Top Button */}
-			<button
-				onClick={scrollToTop}
-				className={`fixed bottom-8 right-8 z-50 p-3 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 ${
-					showBackToTop
-						? "translate-y-0 opacity-100"
-						: "translate-y-16 opacity-0 pointer-events-none"
-				}`}
-				aria-label="Back to top"
-			>
-				<FiArrowUp className="w-5 h-5" />
-			</button>
+			{/* Back-to-top button — properly themed */}
+			<AnimatePresence>
+				{showBackToTop && (
+					<motion.button
+						initial={{ opacity: 0, y: 16 }}
+						animate={{ opacity: 1, y: 0 }}
+						exit={{ opacity: 0, y: 16 }}
+						transition={{ duration: 0.25 }}
+						onClick={scrollToTop}
+						className="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-accent-cyan text-bg-primary shadow-glow-cyan hover:bg-accent-cyan/90 hover:shadow-glow-cyan-lg hover:-translate-y-1 transition-all duration-300"
+						aria-label="Back to top"
+					>
+						<FiArrowUp className="w-5 h-5" />
+					</motion.button>
+				)}
+			</AnimatePresence>
 		</div>
 	);
 };

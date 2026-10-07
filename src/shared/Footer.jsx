@@ -77,7 +77,7 @@ const Footer = () => {
 							</h3>
 						</div>
 						<p className="text-content-muted leading-relaxed mb-6">
-							MERN Stack Developer building scalable web applications with React, Next.js, and modern tools. Open to new projects and opportunities.
+							Software & Cloud Engineer building full-stack applications with TypeScript, Node.js, React, and AWS. AWS Solutions Architect certified. Open to new opportunities.
 						</p>
 						<div className="flex space-x-4">
 							{socialLinks.map((social, index) => {

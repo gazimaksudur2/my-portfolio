@@ -15,8 +15,8 @@
 }
 
 html {
-  scroll-behavior: smooth;
   background-color: var(--bg-primary);
+  /* scroll-behavior handled by Lenis */
 }
 
 * {
@@ -196,6 +196,35 @@ h1, h2, h3, h4, h5, h6 {
   animation: gradientShift 6s ease infinite;
 }
 
+/* ---------- Tech logo marquee ---------- */
+@keyframes marqueeScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marqueeScroll 28s linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover */
+.marquee-track:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* Hide native cursor when custom cursor is active (desktop only) */
+@media (hover: hover) {
+  body.custom-cursor,
+  body.custom-cursor * {
+    cursor: none !important;
+  }
+}
+
+/* ---------- Command palette kbd styles ---------- */
+kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -204,5 +233,9 @@ h1, h2, h3, h4, h5, h6 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .animate-marquee {
+    animation: none !important;
   }
 }

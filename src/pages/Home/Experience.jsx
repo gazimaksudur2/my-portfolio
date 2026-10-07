@@ -1,6 +1,7 @@
 import { FiCode, FiBriefcase } from "react-icons/fi";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, viewportOnce } from "../../utils/motion";
+import SectionHeader from "../../components/SectionHeader";
 
 const experiences = [
     {
@@ -33,33 +34,12 @@ const Experience = () => {
         <section id="experience" className="section-padding bg-bg-secondary relative overflow-hidden">
             <div className="absolute top-1/4 right-0 w-96 h-96 rounded-full bg-accent-violet/5 blur-3xl pointer-events-none" />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={viewportOnce}
-                    variants={staggerContainer(0.15)}
-                    className="text-center mb-16"
-                >
-                    <motion.div
-                        variants={fadeInUp}
-                        className="inline-flex items-center px-4 py-2 glass text-accent-cyan rounded-full text-sm font-medium mb-4"
-                    >
-                        Experience
-                    </motion.div>
-                    <motion.h2
-                        variants={fadeInUp}
-                        className="text-3xl sm:text-4xl lg:text-5xl font-bold font-syne text-content-primary mb-6"
-                    >
-                        Professional
-                        <span className="block text-gradient">Experience</span>
-                    </motion.h2>
-                    <motion.p
-                        variants={fadeInUp}
-                        className="text-lg text-content-muted max-w-3xl mx-auto leading-relaxed"
-                    >
-                        A mix of production software engineering and rigorous AI quality evaluation.
-                    </motion.p>
-                </motion.div>
+                <SectionHeader
+                    badge="Experience"
+                    title="Professional"
+                    titleAccent="Experience"
+                    description="A mix of production software engineering and rigorous AI quality evaluation."
+                />
 
                 <motion.div
                     initial="hidden"

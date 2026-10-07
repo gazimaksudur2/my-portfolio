@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SectionHeader from "../../components/SectionHeader";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +16,7 @@ const education = [
 		focus: "Data structures, algorithms, web development, cloud fundamentals",
 		logo: "https://upload.wikimedia.org/wikipedia/en/d/d9/Shahjalal_University_of_Science_and_Technology_logo.png",
 		primary: true,
+		year: 2022,
 	},
 	{
 		period: "2018 – 2020",
@@ -23,6 +25,7 @@ const education = [
 		institutionShort: "Science Department",
 		logo: "https://i.ibb.co.com/q3JyVKCJ/347778677-1265633041011051-2411880285562199077-n.jpg",
 		primary: false,
+		year: 2018,
 	},
 	{
 		period: "2016 – 2018",
@@ -31,16 +34,20 @@ const education = [
 		institutionShort: "Science Department",
 		logo: "https://i.ibb.co/bXJ5kmH/jamuky-Logo.png",
 		primary: false,
+		year: 2016,
 	},
 ];
 
 const Education = () => {
 	const sectionRef = useRef(null);
 	const lineRef = useRef(null);
+	const yearRef = useRef(null);
 
 	useEffect(() => {
 		const ctx = gsap.context(() => {
 			if (!lineRef.current) return;
+
+			// Draw the timeline line on scroll
 			gsap.fromTo(
 				lineRef.current,
 				{ scaleY: 0 },
@@ -56,7 +63,28 @@ const Education = () => {
 					},
 				}
 			);
+
+			// Year counter ticks in sync with the line
+			if (yearRef.current) {
+				const obj = { y: 2016 };
+				gsap.to(obj, {
+					y: 2026,
+					ease: "none",
+					scrollTrigger: {
+						trigger: sectionRef.current,
+						start: "top 65%",
+						end: "bottom 75%",
+						scrub: true,
+						onUpdate: () => {
+							if (yearRef.current) {
+								yearRef.current.textContent = Math.round(obj.y);
+							}
+						},
+					},
+				});
+			}
 		}, sectionRef);
+
 		return () => ctx.revert();
 	}, []);
 
@@ -67,24 +95,32 @@ const Education = () => {
 			className="section-padding bg-bg-primary relative overflow-hidden"
 		>
 			<div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full bg-accent-cyan/5 blur-3xl pointer-events-none" />
+
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-				<div className="text-center mb-16">
-					<div className="inline-flex items-center px-4 py-2 glass text-accent-cyan rounded-full text-sm font-medium mb-4">
-						Education
+				<SectionHeader
+					badge="Education"
+					title="Academic"
+					titleAccent="Background"
+					description="B.Sc. graduate in Computer Science and Engineering from SUST, with a focus on software engineering and cloud technologies."
+				/>
+
+				{/* Scroll-driven year counter */}
+				<div className="text-center mb-12">
+					<div className="inline-flex items-center gap-3 glass px-6 py-3 rounded-2xl border border-accent-cyan/20">
+						<span className="text-content-muted text-sm font-medium">Academic year</span>
+						<span
+							ref={yearRef}
+							className="text-3xl font-bold font-syne text-gradient tabular-nums"
+						>
+							2016
+						</span>
 					</div>
-					<h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-syne text-content-primary mb-6">
-						Academic
-						<span className="block text-gradient">Background</span>
-					</h2>
-					<p className="text-lg text-content-muted max-w-3xl mx-auto leading-relaxed">
-						B.Sc. graduate in Computer Science and Engineering from SUST, with a focus on software engineering and cloud technologies.
-					</p>
 				</div>
 
 				<div className="relative max-w-5xl mx-auto">
 					{/* Timeline track */}
 					<div className="absolute left-5 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-px bg-white/10" />
-					{/* Animated glowing fill (GSAP draws this on scroll) */}
+					{/* Animated glowing fill */}
 					<div
 						ref={lineRef}
 						className="absolute left-5 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent-cyan via-accent-cyan to-accent-violet shadow-glow-cyan origin-top"
@@ -107,7 +143,7 @@ const Education = () => {
 											className={`w-4 h-4 rounded-full border-2 ${
 												item.primary
 													? "bg-accent-cyan border-accent-cyan shadow-glow-cyan"
-													: "bg-bg-card border-accent-cyan/60 shadow-glow-cyan"
+													: "bg-bg-card border-accent-cyan/60"
 											}`}
 										/>
 									</div>
@@ -130,17 +166,29 @@ const Education = () => {
 											}`}
 										>
 											<div className="flex-shrink-0 flex items-center justify-center w-16 h-16 rounded-xl bg-bg-card border border-white/10 overflow-hidden">
-												<img src={item.logo} alt={item.institutionShort} className="w-10 h-10 object-contain" />
+												<img
+													src={item.logo}
+													alt={item.institutionShort}
+													className="w-10 h-10 object-contain"
+												/>
 											</div>
 											<div className="flex-1">
-												<span className="text-sm font-medium text-accent-cyan">{item.period}</span>
-												<h3 className="text-xl font-bold font-syne text-content-primary mt-1">{item.degree}</h3>
-												<p className="text-content-primary/80 font-medium mt-1">{item.institution}</p>
+												<span className="text-sm font-medium text-accent-cyan">
+													{item.period}
+												</span>
+												<h3 className="text-xl font-bold font-syne text-content-primary mt-1">
+													{item.degree}
+												</h3>
+												<p className="text-content-primary/80 font-medium mt-1">
+													{item.institution}
+												</p>
 												{item.cgpa && (
 													<p className="text-content-muted text-sm mt-2">{item.cgpa}</p>
 												)}
 												{item.focus && (
-													<p className="text-content-muted text-sm mt-1">Focus: {item.focus}</p>
+													<p className="text-content-muted text-sm mt-1">
+														Focus: {item.focus}
+													</p>
 												)}
 											</div>
 										</div>

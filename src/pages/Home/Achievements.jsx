@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FiTarget, FiZap, FiUsers, FiMessageCircle } from "react-icons/fi";
 import { fadeInUp, staggerContainer, viewportOnce } from "../../utils/motion";
+import SectionHeader from "../../components/SectionHeader";
 
 const achievements = [
 	{
@@ -34,33 +35,13 @@ const Achievements = () => {
 		<section id="achievements" className="section-padding bg-bg-secondary relative overflow-hidden">
 			<div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-accent-cyan/5 blur-3xl pointer-events-none" />
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-				<motion.div
-					initial="hidden"
-					whileInView="visible"
-					viewport={viewportOnce}
-					variants={staggerContainer(0.15)}
-					className="text-center mb-16"
-				>
-					<motion.div
-						variants={fadeInUp}
-						className="inline-flex items-center px-4 py-2 glass text-accent-violet rounded-full text-sm font-medium mb-4"
-					>
-						Achievements & Highlights
-					</motion.div>
-					<motion.h2
-						variants={fadeInUp}
-						className="text-3xl sm:text-4xl lg:text-5xl font-bold font-syne text-content-primary mb-6"
-					>
-						What I've Done
-						<span className="block text-gradient">So Far</span>
-					</motion.h2>
-					<motion.p
-						variants={fadeInUp}
-						className="text-lg text-content-muted max-w-3xl mx-auto leading-relaxed"
-					>
-						Practical, growth-oriented contributions—real projects, teamwork, and continuous learning.
-					</motion.p>
-				</motion.div>
+				<SectionHeader
+					badge="Achievements & Highlights"
+					badgeColor="text-accent-violet"
+					title="What I've Done"
+					titleAccent="So Far"
+					description="Practical, growth-oriented contributions — real projects, teamwork, and continuous learning."
+				/>
 
 				<motion.div
 					initial="hidden"

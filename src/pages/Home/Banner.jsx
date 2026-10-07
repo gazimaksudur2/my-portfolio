@@ -1,10 +1,11 @@
 import { Suspense, lazy } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { FiDownload, FiMail, FiGithub, FiLinkedin, FiExternalLink } from "react-icons/fi";
 import { Typewriter } from "react-simple-typewriter";
 import { useIsMobile } from "../../hooks/useIsMobile";
 import { useCountUp } from "../../hooks/useCountUp";
 import CanvasFallback from "../../components/three/CanvasFallback";
+import { scrollToSection } from "../../hooks/useLenis";
 
 const ParticleField = lazy(() => import("../../components/three/ParticleField"));
 
@@ -29,6 +30,12 @@ const StatCard = ({ number, label, index }) => {
 
 const Banner = () => {
 	const isMobile = useIsMobile();
+
+	// Scroll-linked hero image collapse
+	const { scrollY } = useScroll();
+	const portraitOpacity = useTransform(scrollY, [0, 500], [1, 0]);
+	const portraitScale = useTransform(scrollY, [0, 500], [1, 0.88]);
+	const portraitY = useTransform(scrollY, [0, 500], [0, -40]);
 
 	const roles = [
 		"Software & Cloud Engineer",
@@ -75,7 +82,7 @@ const Banner = () => {
 			id="home"
 			className="min-h-screen flex items-center justify-center relative overflow-hidden bg-bg-primary"
 		>
-			{/* 3D particle background (desktop only) with graceful fallback */}
+			{/* 3D particle background */}
 			<div className="absolute inset-0">
 				{isMobile ? (
 					<CanvasFallback variant="field" />
@@ -89,7 +96,7 @@ const Banner = () => {
 
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
 				<div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-					{/* Content */}
+					{/* Text content */}
 					<motion.div
 						initial="hidden"
 						animate="visible"
@@ -102,7 +109,7 @@ const Banner = () => {
 								className="flex items-center space-x-2 text-accent-cyan font-medium"
 							>
 								<div className="w-8 h-px bg-accent-cyan shadow-glow-cyan"></div>
-								<span>Hello, I'm</span>
+								<span>Hello, I&apos;m</span>
 							</motion.div>
 
 							<motion.h1
@@ -119,7 +126,7 @@ const Banner = () => {
 								variants={nameChar}
 								className="text-xl sm:text-2xl xl:text-3xl text-content-muted font-medium h-16 flex items-center"
 							>
-								<span className="mr-3">I'm a</span>
+								<span className="mr-3">I&apos;m a</span>
 								<span className="text-accent-cyan font-semibold glow-cyan">
 									<Typewriter
 										words={roles}
@@ -137,10 +144,11 @@ const Banner = () => {
 								variants={nameChar}
 								className="md:text-lg text-content-muted leading-relaxed max-w-2xl"
 							>
-								I'm a Software and Cloud Engineer with a B.Sc. in CSE from SUST and AWS Solutions Architect certification.
+								I&apos;m a Software and Cloud Engineer with a B.Sc. in CSE from SUST and AWS Solutions Architect certification.
 								I build full-stack applications with TypeScript, Node.js, and React, and work with Docker and Jenkins CI/CD
 								to deliver reliable production systems.
 							</motion.p>
+
 							<motion.div variants={nameChar} className="flex flex-wrap gap-3">
 								{highlights.map((h) => (
 									<span
@@ -165,17 +173,13 @@ const Banner = () => {
 								Download Resume
 								<FiExternalLink className="ml-2 w-4 h-4 opacity-70" />
 							</a>
-							<a
-								href="#contact"
-								onClick={(e) => {
-									e.preventDefault();
-									document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-								}}
+							<button
+								onClick={() => scrollToSection("#contact")}
 								className="inline-flex items-center justify-center px-8 py-4 border-2 border-accent-cyan/50 text-accent-cyan font-semibold rounded-xl hover:bg-accent-cyan/10 hover:border-accent-cyan hover:shadow-glow-cyan transition-all duration-300 group"
 							>
 								<FiMail className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-								Let's Talk
-							</a>
+								Let&apos;s Talk
+							</button>
 						</motion.div>
 
 						{/* Social Links */}
@@ -202,8 +206,9 @@ const Banner = () => {
 						</motion.div>
 					</motion.div>
 
-					{/* Image with rotating glowing ring */}
+					{/* Portrait — scroll-linked collapse */}
 					<motion.div
+						style={{ opacity: portraitOpacity, scale: portraitScale, y: portraitY }}
 						initial={{ opacity: 0, scale: 0.9 }}
 						animate={{ opacity: 1, scale: 1 }}
 						transition={{ duration: 0.8, delay: 0.3 }}
@@ -222,31 +227,38 @@ const Banner = () => {
 								/>
 							</div>
 
-							{/* Floating elements */}
+							{/* Floating emoji cards */}
 							<div className="absolute -top-2 -left-2 lg:-top-4 lg:-left-4 w-16 h-16 glass rounded-2xl shadow-glow-cyan flex items-center justify-center animate-floaty">
 								<span className="text-2xl">⚡</span>
 							</div>
-							<div className="absolute -bottom-2 -right-2 lg:-bottom-4 lg:-right-4 w-16 h-16 glass rounded-2xl shadow-glow-violet flex items-center justify-center animate-floaty" style={{ animationDelay: "2s" }}>
+							<div
+								className="absolute -bottom-2 -right-2 lg:-bottom-4 lg:-right-4 w-16 h-16 glass rounded-2xl shadow-glow-violet flex items-center justify-center animate-floaty"
+								style={{ animationDelay: "2s" }}
+							>
 								<span className="text-2xl">🚀</span>
 							</div>
 						</div>
 					</motion.div>
 				</div>
 
-				{/* Stats Section */}
+				{/* Stats */}
 				<div className="mt-20 grid grid-cols-2 lg:grid-cols-4 gap-6">
 					{stats.map((stat, index) => (
 						<StatCard key={index} number={stat.number} label={stat.label} index={index} />
 					))}
 				</div>
 			</div>
-			{/* Scroll indicator */}
-			<div className="absolute bottom-0 right-[calc(50%-12px)] animate-bounce">
+
+			{/* Scroll indicator — clicking advances to About */}
+			<button
+				onClick={() => scrollToSection("#about")}
+				className="absolute bottom-4 right-[calc(50%-12px)] animate-bounce focus:outline-none"
+				aria-label="Scroll to About section"
+			>
 				<div className="w-6 h-10 border-2 border-accent-cyan/40 rounded-full flex justify-center">
 					<div className="w-1 h-3 bg-accent-cyan rounded-full mt-2 animate-pulse"></div>
 				</div>
-			</div>
-
+			</button>
 		</section>
 	);
 };
