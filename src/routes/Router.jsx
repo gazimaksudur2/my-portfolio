@@ -4,9 +4,16 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
-        path: '',
-        element: <MainLayout/>,
-        errorElement: <ErrorPage/>
+        path: "/",
+        element: <MainLayout />,
+        errorElement: <ErrorPage />,
+    },
+    {
+        path: "*",
+        loader: () => {
+            throw new Response("Not Found", { status: 404 });
+        },
+        errorElement: <ErrorPage />,
     },
 ]);
 
