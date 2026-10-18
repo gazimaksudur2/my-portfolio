@@ -53,6 +53,14 @@ const TECH_LOGOS = [
   { name: 'Docker',      url: 'https://www.svgrepo.com/show/448221/docker.svg' },
   { name: 'Jenkins',     url: 'https://www.svgrepo.com/show/373699/jenkins.svg' },
   { name: 'GitHub',      url: 'https://www.svgrepo.com/show/512317/github-142.svg' },
+	{ name: "NextJS", url: "https://www.svgrepo.com/show/354113/nextjs-icon.svg" },
+	{ name: "JavaScript", url: "https://www.svgrepo.com/show/452045/js.svg" },
+	{ name: "Java", url: "https://www.svgrepo.com/show/452234/java.svg" },
+	{ name: "Go", url: "https://www.svgrepo.com/show/452214/go.svg" },
+	{ name: "Tailwind CSS", url: "https://www.svgrepo.com/show/354431/tailwindcss-icon.svg" },
+	{ name: "HTML5", url: "https://www.svgrepo.com/show/452228/html-5.svg" },
+	{ name: "CSS3", url: "https://www.svgrepo.com/show/373535/css.svg" },
+	{ name: "Postman", url: "https://www.svgrepo.com/show/354202/postman-icon.svg" },
 ];
 
 const SkillChip = ({ skill, accent }) => (
