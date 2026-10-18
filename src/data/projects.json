@@ -1,0 +1,78 @@
+[
+  {
+    "featured": true,
+    "projectType": "AWS Certification Preparation",
+    "projectTitle": "AWS Certification Practice Hub",
+    "projectDescription": "A browser-based study app for AWS certification exams. Take timed practice quizzes that mirror exam pressure, use untimed guided practice with instant feedback, browse the full question bank, and review AWS services.",
+    "skills": ["React.js", "TypeScript", "Tailwind CSS", "Netlify", "React Router"],
+    "liveSiteLink": "https://aws-certification-prep.netlify.app/",
+    "githubClientRepoLink": "https://github.com/gazimaksudur2/aws-certification-prep",
+    "githubServerRepoLink": null,
+    "bannerImgUrl": "https://res.cloudinary.com/dsawnilz3/image/upload/f_auto,q_auto,w_800/v1791261420/aws-certification-landingpage_mtzhim.png",
+    "features": [
+      "Practice under exam conditions with timed quizzes.",
+      "Untimed guided practice with instant feedback and explanations.",
+      "Browse the full AWS certification question bank by domain."
+    ]
+  },
+  {
+    "projectType": "Agricultural Marketplace (B2B)",
+    "projectTitle": "SmartAgroConnect",
+    "projectDescription": "An end-to-end agricultural marketplace connecting farmers, agents, and wholesale buyers, with role-based workflows and secure transactions.",
+    "skills": ["React.js", "Express.js", "MongoDB", "Node.js", "Tailwind CSS"],
+    "liveSiteLink": "https://smartagroconnect-79578.web.app",
+    "githubClientRepoLink": "https://github.com/gazimaksudur2/smart-agro-market-client",
+    "githubServerRepoLink": null,
+    "bannerImgUrl": "https://res.cloudinary.com/dsawnilz3/image/upload/f_auto,q_auto,w_800/v1791331932/Screenshot_2026-10-07_055500_zaochz.png",
+    "features": [
+      "MVC-structured marketplace with role-based access control for farmers, agents, and buyers.",
+      "Integrated Cloudinary asset management, reducing image latency for mobile users by 40%.",
+      "Secure payment processing for wholesale transactions."
+    ]
+  },
+  {
+    "projectType": "EdTech Platform",
+    "projectTitle": "ElevateEx",
+    "projectDescription": "A multi-role EdTech platform with dedicated dashboards and workflows for administrators, instructors, and students.",
+    "skills": ["React.js", "Firebase Auth", "MongoDB", "Node.js", "Tailwind CSS"],
+    "liveSiteLink": "https://elevateex-ac4de.web.app/",
+    "githubClientRepoLink": "https://github.com/gazimaksudur2/elevateex-client",
+    "githubServerRepoLink": "https://github.com/gazimaksudur2/elevateex-server",
+    "bannerImgUrl": "https://i.ibb.co/K6ZSFhf/screencapture-elevateex-ac4de-web-app-allclass-2024-07-10-11-49-30.png",
+    "features": [
+      "Specialized dashboards for administrators, instructors, and students.",
+      "Firebase authentication with session management and route-level protection.",
+      "React Query for responsive server-state management with automated notifications."
+    ]
+  },
+  {
+    "projectType": "Fintech",
+    "projectTitle": "Easy Bank",
+    "projectDescription": "A full-stack banking application with secure authentication, dashboard management, credit requests, and admin controls for user and transaction oversight.",
+    "skills": ["React 18", "Vite", "Firebase Auth", "Tailwind CSS", "React Query"],
+    "liveSiteLink": "https://easybank-b9b62.web.app/",
+    "githubClientRepoLink": "https://github.com/gazimaksudur2/bank-client",
+    "githubServerRepoLink": null,
+    "bannerImgUrl": "https://res.cloudinary.com/dsawnilz3/image/upload/f_auto,q_auto,w_800/v1791261420/aws-certification-landingpage_mtzhim.png",
+    "features": [
+      "Secure authentication via Firebase with profile, account status and transaction history.",
+      "Credit management: apply, track, and approve credit requests.",
+      "Admin dashboard with real-time metrics, user management and transaction oversight."
+    ]
+  },
+  {
+    "projectType": "Hotel Booking Management System",
+    "projectTitle": "TripFlip",
+    "projectDescription": "A hotel management web application for exploring and booking hotel services worldwide. Users sign up, book rooms, manage bookings, and share experiences.",
+    "skills": ["React.js", "Express.js", "MongoDB", "Tailwind CSS"],
+    "liveSiteLink": "https://trip-flip.web.app",
+    "githubClientRepoLink": "https://github.com/gazimaksudur2/trip-flip-client",
+    "githubServerRepoLink": "https://github.com/gazimaksudur2/trip-flip-server",
+    "bannerImgUrl": "https://i.ibb.co/2gwd1Sb/screencapture-trip-flip-web-app-rooms-2024-07-12-23-19-42.png",
+    "features": [
+      "Multi-provider authentication (email, Google, GitHub) using OAuth 2.0.",
+      "Real-time room availability tracking and booking state management.",
+      "JWT-based session management for secure data access."
+    ]
+  }
+]

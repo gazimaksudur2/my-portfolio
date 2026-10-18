@@ -1,55 +1,30 @@
-import { useEffect } from "react";
-import Lenis from "lenis";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+/**
+ * Smooth-scroll helper — replaces Lenis + GSAP with native browser scrolling.
+ * CSS `scroll-behavior: smooth` and `scroll-padding-top: 80px` are set in index.css.
+ */
 
-gsap.registerPlugin(ScrollTrigger);
+import { useEffect } from 'react';
 
-// Module-level reference so other components can call scrollTo.
-let lenisInstance = null;
-
-export function getLenis() {
-	return lenisInstance;
-}
+const NAVBAR_OFFSET = 80;
 
 export function scrollToSection(sectionId) {
-	const el = document.querySelector(sectionId);
-	if (!el) return;
-	const navbarHeight = 80;
-	if (lenisInstance) {
-		lenisInstance.scrollTo(el, { offset: -navbarHeight, duration: 1.2 });
-	} else {
-		window.scrollTo({ top: el.offsetTop - navbarHeight, behavior: "smooth" });
-	}
+  const el = document.querySelector(sectionId);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY - NAVBAR_OFFSET;
+  window.scrollTo({ top, behavior: 'smooth' });
 }
 
+/**
+ * Hook used once in Home — handles /#hash deep-links on first load.
+ */
 export function useLenis() {
-	useEffect(() => {
-		// On every fresh page load, snap to the very top before Lenis boots.
-		// This prevents the browser from restoring a previous scroll position
-		// or a stale hash anchor (e.g. #projects) from jumping mid-page.
-		window.history.replaceState(null, "", window.location.pathname);
-		window.scrollTo(0, 0);
-
-		const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-		const lenis = new Lenis({
-			lerp: prefersReduced ? 1 : 0.1,
-			smoothWheel: !prefersReduced,
-		});
-
-		lenisInstance = lenis;
-
-		lenis.on("scroll", ScrollTrigger.update);
-
-		gsap.ticker.add((time) => {
-			lenis.raf(time * 1000);
-		});
-		gsap.ticker.lagSmoothing(0);
-
-		return () => {
-			lenis.destroy();
-			lenisInstance = null;
-		};
-	}, []);
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      // Two rAF ticks give layout a chance to settle before scrolling
+      requestAnimationFrame(() =>
+        requestAnimationFrame(() => scrollToSection(hash))
+      );
+    }
+  }, []);
 }

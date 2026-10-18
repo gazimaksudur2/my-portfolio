@@ -23,5 +23,16 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-*.txt
+
+# Env — keep example, never commit actual
 .env
+!.env.example
+
+# Firebase CLI cache (auto-generated, not source)
+.firebase/
+
+# Keep public/robots.txt in source
+!public/robots.txt
+
+# Random notes file
+public/imageSrc.txt

@@ -1,210 +1,82 @@
-import {
-	FiCode,
-	FiGithub,
-	FiLinkedin,
-	FiFacebook,
-	FiMail,
-	FiPhone,
-	FiMapPin,
-	FiHeart,
-} from "react-icons/fi";
-import { useEffect, useState } from "react";
-import { personalInfo, navLinks } from "../constants";
-import { getVisitorSummary } from "../services/visitorStats";
+import { FiCode, FiGithub, FiLinkedin, FiFacebook, FiMail, FiHeart } from 'react-icons/fi';
+import { personalInfo, navLinks } from '../constants';
+import { scrollToSection } from '../hooks/useLenis';
 
 const Footer = () => {
-	const [visitorSummary, setVisitorSummary] = useState({
-		total: 0,
-		topCountries: [],
-		loading: true,
-	});
+  const socialLinks = [
+    { icon: FiGithub,   href: personalInfo.github,   label: 'GitHub' },
+    { icon: FiLinkedin, href: personalInfo.linkedIn,  label: 'LinkedIn' },
+    { icon: FiFacebook, href: personalInfo.facebook,  label: 'Facebook' },
+  ];
 
-	useEffect(() => {
-		const loadSummary = async () => {
-			const data = await getVisitorSummary();
-			setVisitorSummary({
-				...data,
-				loading: false,
-			});
-		};
+  return (
+    <footer className="bg-bg-secondary text-content-primary relative overflow-hidden border-t border-accent-cyan/20">
+      {/* Top border glow */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-cyan to-transparent" aria-hidden="true" />
 
-		loadSummary();
-	}, []);
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
 
-	const scrollToSection = (sectionId) => {
-		const element = document.querySelector(sectionId);
-		if (element) {
-			element.scrollIntoView({
-				behavior: "smooth",
-				block: "start",
-			});
-		}
-	};
+          {/* Brand */}
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-xl bg-gradient-to-br from-accent-cyan/20 to-accent-violet/20 border border-accent-cyan/30" aria-hidden="true">
+              <FiCode className="w-5 h-5 text-accent-cyan" />
+            </div>
+            <span className="font-bold font-syne text-gradient">{personalInfo.name}</span>
+          </div>
 
-	const services = [
-		"Frontend Development",
-		"Backend Development",
-		"Full Stack Solutions",
-	];
+          {/* Quick links */}
+          <nav aria-label="Footer navigation" className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-content-muted">
+            {navLinks.map((link) => (
+              <a
+                key={link.to}
+                href={link.to}
+                onClick={(e) => { e.preventDefault(); scrollToSection(link.to); }}
+                className="hover:text-accent-cyan transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
 
-	const contact = {
-		email: "gazimaksudur2@gmail.com",
-		phone: "+880 1903-219313",
-		location: "Dhaka-1245, Bangladesh",
-	};
+          {/* Socials */}
+          <div className="flex gap-3">
+            {socialLinks.map((s) => {
+              const Ic = s.icon;
+              return (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${s.label} (opens in new tab)`}
+                  className="p-2 glass-card rounded-lg text-content-muted hover:text-accent-cyan hover:shadow-glow-cyan transition-all duration-300 hover:scale-110 focus-visible:ring-2 focus-visible:ring-accent-cyan"
+                >
+                  <Ic className="w-4 h-4" aria-hidden="true" />
+                </a>
+              );
+            })}
+          </div>
+        </div>
 
-	const socialLinks = [
-		{ icon: FiGithub, href: "https://github.com/gazimaksudur2", label: "GitHub" },
-		{ icon: FiLinkedin, href: "https://www.linkedin.com/in/gazimaksudur/", label: "LinkedIn" },
-		{ icon: FiFacebook, href: "https://www.facebook.com/gazi.maksudur", label: "Facebook" },
-	];
-
-	return (
-		<footer className="bg-bg-secondary text-content-primary relative overflow-hidden border-t border-accent-cyan/20">
-			{/* Top border glow */}
-			<div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-cyan to-transparent shadow-glow-cyan" />
-
-			<div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-				<div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
-					{/* Brand Section */}
-					<div className="lg:col-span-1">
-						<div className="flex items-center space-x-3 mb-6">
-							<div className="p-2 rounded-xl bg-gradient-to-br from-accent-cyan/20 to-accent-violet/20 border border-accent-cyan/30 shadow-glow-cyan">
-								<FiCode className="w-6 h-6 text-accent-cyan" />
-							</div>
-							<h3 className="text-xl font-bold font-syne text-gradient">
-								{personalInfo.name}
-							</h3>
-						</div>
-						<p className="text-content-muted leading-relaxed mb-6">
-							Software & Cloud Engineer building full-stack applications with TypeScript, Node.js, React, and AWS. AWS Solutions Architect certified. Open to new opportunities.
-						</p>
-						<div className="flex space-x-4">
-							{socialLinks.map((social, index) => {
-								const IconComponent = social.icon;
-								return (
-									<a
-										key={index}
-										href={social.href}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="inline-flex p-2 glass rounded-lg text-content-muted transition-all duration-300 hover:scale-110 hover:text-accent-cyan hover:shadow-glow-cyan focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:ring-offset-2 focus:ring-offset-bg-secondary"
-										aria-label={`${social.label} (opens in new tab)`}
-									>
-										<IconComponent className="w-5 h-5" />
-									</a>
-								);
-							})}
-						</div>
-					</div>
-
-					{/* Quick Links - aligned with navbar */}
-					<div>
-						<h4 className="text-lg font-semibold mb-6">Quick Links</h4>
-						<ul className="space-y-3">
-							{navLinks.map((link) => (
-								<li key={link.to}>
-									<button
-										onClick={() => scrollToSection(link.to)}
-										className="text-content-muted hover:text-accent-cyan transition-colors duration-300 text-left"
-									>
-										{link.label}
-									</button>
-								</li>
-							))}
-						</ul>
-					</div>
-
-					{/* Services - matches Services section */}
-					<div>
-						<h4 className="text-lg font-semibold mb-6">Services</h4>
-						<ul className="space-y-3">
-							{services.map((service, index) => (
-								<li key={index} className="text-content-muted text-sm">
-									{service}
-								</li>
-							))}
-						</ul>
-					</div>
-
-					{/* Contact - matches Connect section */}
-					<div>
-						<h4 className="text-lg font-semibold mb-6">Get in Touch</h4>
-						<div className="space-y-4">
-							<a
-								href={`mailto:${contact.email}`}
-								className="flex items-center space-x-3 text-content-muted hover:text-accent-cyan transition-colors"
-							>
-								<FiMail className="w-4 h-4 text-accent-cyan flex-shrink-0" />
-								<span className="text-sm">{contact.email}</span>
-							</a>
-							<a
-								href={`tel:${contact.phone.replace(/\s/g, "")}`}
-								className="flex items-center space-x-3 text-content-muted hover:text-accent-cyan transition-colors"
-							>
-								<FiPhone className="w-4 h-4 text-accent-cyan flex-shrink-0" />
-								<span className="text-sm">{contact.phone}</span>
-							</a>
-							<div className="flex items-center space-x-3 text-content-muted">
-								<FiMapPin className="w-4 h-4 text-accent-cyan flex-shrink-0" />
-								<span className="text-sm">{contact.location}</span>
-							</div>
-						</div>
-						<button
-							onClick={() => scrollToSection("#contact")}
-							className="mt-6 px-4 py-2 bg-accent-cyan text-bg-primary text-sm font-medium rounded-lg hover:bg-accent-cyan/90 hover:shadow-glow-cyan transition-all duration-300"
-						>
-							Send a message
-						</button>
-					</div>
-				</div>
-
-				{/* Bottom Section */}
-				<div className="border-t border-white/10 pt-8 mt-12">
-					<div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-						<div className="flex flex-col items-center md:items-start space-y-1 text-content-muted text-sm">
-							<div className="flex items-center space-x-2">
-								<span>© {new Date().getFullYear()} {personalInfo.name}. Made with</span>
-								<FiHeart className="w-4 h-4 text-red-400" />
-								<span>in Bangladesh</span>
-							</div>
-							<p className="text-xs text-content-muted/70">
-								{visitorSummary.loading
-									? "Visitor insights loading..."
-									: visitorSummary.total > 0
-									? `Visitors: ${visitorSummary.total} · Top regions: ${
-											visitorSummary.topCountries
-												.map((item) => `${item.country} (${item.count})`)
-												.join(", ") || "—"
-										}`
-									: "Be among the first visitors here."}
-							</p>
-						</div>
-						<div className="flex items-center space-x-6 text-content-muted text-sm">
-							<button
-								onClick={() => scrollToSection("#about")}
-								className="hover:text-accent-cyan transition-colors duration-300"
-							>
-								About
-							</button>
-							<button
-								onClick={() => scrollToSection("#contact")}
-								className="hover:text-accent-cyan transition-colors duration-300"
-							>
-								Contact
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			{/* Background decoration */}
-			<div className="absolute inset-0 opacity-10 pointer-events-none">
-				<div className="absolute top-0 left-0 w-96 h-96 bg-accent-cyan rounded-full filter blur-3xl" />
-				<div className="absolute bottom-0 right-0 w-96 h-96 bg-accent-violet rounded-full filter blur-3xl" />
-			</div>
-		</footer>
-	);
+        {/* Bottom row */}
+        <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-content-muted/70">
+          <span className="flex items-center gap-1">
+            © {new Date().getFullYear()} {personalInfo.name}. Made with
+            <FiHeart className="w-3.5 h-3.5 text-red-400 mx-0.5" aria-hidden="true" />
+            in Bangladesh
+          </span>
+          <a
+            href={`mailto:${personalInfo.email}`}
+            className="flex items-center gap-1 hover:text-accent-cyan transition-colors"
+          >
+            <FiMail className="w-3.5 h-3.5" aria-hidden="true" />
+            {personalInfo.email}
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

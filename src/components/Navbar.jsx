@@ -1,191 +1,179 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { HiMenuAlt3, HiX } from "react-icons/hi";
-import { FiCode } from "react-icons/fi";
-import { navLinks, personalInfo } from "../constants";
+import { useState, useEffect } from 'react';
+import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import { FiCode } from 'react-icons/fi';
+import { navLinks, personalInfo } from '../constants';
+import { scrollToSection } from '../hooks/useLenis';
+
+const NAVBAR_SECTIONS = navLinks.map((l) => l.to.slice(1)); // strip leading '#'
 
 const Navbar = () => {
-	const [isScrolled, setIsScrolled] = useState(false);
-	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-	const [activeSection, setActiveSection] = useState("");
+  const [isScrolled, setIsScrolled]         = useState(false);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection]   = useState('');
 
-	useEffect(() => {
-		const handleScroll = () => {
-			setIsScrolled(window.scrollY > 50);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
 
-			// Detect active section
-			const sections = navLinks.map((link) => link.to.slice(1));
-			const scrollPosition = window.scrollY + 100; // Offset for navbar
+      const scrollPos = window.scrollY + 90;
+      for (let i = NAVBAR_SECTIONS.length - 1; i >= 0; i--) {
+        const el = document.getElementById(NAVBAR_SECTIONS[i]);
+        if (el && el.offsetTop <= scrollPos) {
+          setActiveSection(NAVBAR_SECTIONS[i]);
+          break;
+        }
+      }
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-			for (let i = sections.length - 1; i >= 0; i--) {
-				const section = document.getElementById(sections[i]);
-				if (section && section.offsetTop <= scrollPosition) {
-					setActiveSection(sections[i]);
-					break;
-				}
-			}
-		};
+  // Close menu on Escape or outside click
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') setMobileMenuOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
-		window.addEventListener("scroll", handleScroll);
-		handleScroll(); // Call on mount
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    scrollToSection(href);
+    setMobileMenuOpen(false);
+  };
 
-		return () => window.removeEventListener("scroll", handleScroll);
-	}, []);
+  const scrollToTop = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setActiveSection('');
+  };
 
-	const scrollToSection = (sectionId) => {
-		const element = document.querySelector(sectionId);
-		if (element) {
-			const navbarHeight = 80; // Account for navbar height
-			const elementPosition = element.offsetTop - navbarHeight;
+  return (
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'backdrop-blur-md bg-black/40 border-b border-accent-cyan/15 shadow-[0_8px_30px_rgba(0,0,0,0.5)]'
+          : 'backdrop-blur-md bg-black/20 border-b border-white/5'
+      }`}
+      aria-label="Main navigation"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 lg:h-20">
 
-			window.scrollTo({
-				top: elementPosition,
-				behavior: "smooth",
-			});
-		}
-		setIsMobileMenuOpen(false);
-	};
+          {/* Logo */}
+          <a
+            href="/"
+            onClick={scrollToTop}
+            className="flex items-center space-x-3 group"
+            aria-label="Back to top"
+          >
+            <div className="p-2.5 rounded-xl bg-gradient-to-br from-accent-cyan/20 to-accent-violet/20 border border-accent-cyan/30 shadow-glow-cyan group-hover:shadow-glow-cyan-lg transition-all duration-300 group-hover:scale-105">
+              <FiCode className="w-5 h-5 text-accent-cyan" aria-hidden="true" />
+            </div>
+            <span className="flex lg:hidden xl:flex text-lg font-bold font-syne text-content-primary group-hover:text-accent-cyan transition-colors duration-200">
+              {personalInfo.name}
+            </span>
+          </a>
 
-	const scrollToTop = () => {
-		window.scrollTo({ top: 0, behavior: "smooth" });
-		setActiveSection("");
-	};
+          {/* Desktop nav */}
+          <div className="hidden lg:flex items-center gap-1">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.to.slice(1);
+              return (
+                <a
+                  key={link.to}
+                  href={link.to}
+                  onClick={(e) => handleNavClick(e, link.to)}
+                  aria-current={isActive ? 'location' : undefined}
+                  className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 relative group ${
+                    isActive ? 'text-accent-cyan' : 'text-content-muted hover:text-content-primary'
+                  }`}
+                >
+                  {link.label}
+                  <span
+                    className={`absolute -bottom-0.5 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-gradient-to-r from-accent-cyan to-accent-violet transition-all duration-300 ${
+                      isActive ? 'w-2/3' : 'w-0 group-hover:w-2/3'
+                    }`}
+                    aria-hidden="true"
+                  />
+                </a>
+              );
+            })}
 
-	return (
-		<nav
-			className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-				isScrolled
-					? "backdrop-blur-md bg-black/40 border-b border-accent-cyan/15 shadow-[0_8px_30px_rgba(0,0,0,0.5)]"
-					: "backdrop-blur-md bg-black/20 border-b border-white/5"
-			}`}
-		>
-			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="flex items-center justify-between h-16 lg:h-20">
-					{/* Logo + Name */}
-					<Link
-						to={"/"}
-						className="flex items-center space-x-3 group cursor-pointer"
-						onClick={scrollToTop}
-						aria-label="Home"
-					>
-						<div className="p-2.5 rounded-xl bg-gradient-to-br from-accent-cyan/20 to-accent-violet/20 border border-accent-cyan/30 shadow-glow-cyan group-hover:shadow-glow-cyan-lg transition-all duration-300 group-hover:scale-105">
-							<FiCode className="w-6 h-6 text-accent-cyan" />
-						</div>
-						<span className="flex lg:hidden xl:flex text-lg lg:text-xl font-bold font-syne text-content-primary group-hover:text-accent-cyan group-hover:glow-cyan transition-all duration-200">
-							{personalInfo.name}
-						</span>
-					</Link>
+            {/* ⌘K hint */}
+            <button
+              onClick={() => window.dispatchEvent(new KeyboardEvent('keydown', { key: 'k', ctrlKey: true, bubbles: true }))}
+              className="ml-2 hidden xl:flex items-center gap-1 px-2 py-1 glass-card rounded-lg border border-white/10 text-content-muted hover:border-accent-cyan/30 hover:text-accent-cyan transition-all text-[13px] font-mono"
+              aria-label="Open command palette (Ctrl K)"
+              title="Command palette"
+            >
+              Ctrl K
+            </button>
 
-					{/* Desktop Navigation */}
-					<div className="hidden lg:flex items-center">
-						<div className="flex items-center">
-							{navLinks.map((link) => {
-								const isActive = activeSection === link.to.slice(1);
-								return (
-									<button
-										key={link.to}
-										onClick={() => scrollToSection(link.to)}
-										className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 relative group ${
-											isActive
-												? "text-accent-cyan"
-												: "text-content-muted hover:text-content-primary"
-										}`}
-									>
-										{link.label}
-										<span
-											className={`absolute -bottom-0.5 left-1/2 -translate-x-1/2 h-0.5 rounded-full bg-gradient-to-r from-accent-cyan to-accent-violet shadow-glow-cyan transition-all duration-300 ${
-												isActive ? "w-2/3" : "w-0 group-hover:w-2/3"
-											}`}
-										></span>
-									</button>
-								);
-							})}
-						</div>
-					{/* ⌘K hint */}
-					<button
-						onClick={() => {
-							const evt = new KeyboardEvent("keydown", { key: "k", ctrlKey: true, bubbles: true });
-							window.dispatchEvent(evt);
-						}}
-						className="ml-3 hidden xl:flex items-center gap-1.5 px-2 glass rounded-lg border border-white/10 text-content-muted hover:border-accent-cyan/30 hover:text-accent-cyan transition-all duration-200"
-						title="Open command palette"
-					>	
-						<span className="text-[16px] font-mono">⌘</span> 
-						<span className="text-[16px] font-mono">K</span>
-					</button>
-					<a
-						href={personalInfo.resumeLink}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="ml-3 px-6 py-2.5 text-sm font-semibold rounded-lg text-accent-cyan border border-accent-cyan/40 bg-accent-cyan/5 hover:bg-accent-cyan/15 hover:shadow-glow-cyan transition-all duration-300 transform hover:-translate-y-0.5"
-					>
-						Resume
-					</a>
-					</div>
+            <a
+              href={personalInfo.resumeDriveLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 px-5 py-2 text-sm font-semibold rounded-lg text-accent-cyan border border-accent-cyan/40 bg-accent-cyan/5 hover:bg-accent-cyan/15 hover:shadow-glow-cyan transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Resume
+            </a>
+          </div>
 
-					{/* Mobile menu button */}
-					<div className="lg:hidden">
-						<button
-							onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-							className="relative p-2 text-content-primary hover:text-accent-cyan rounded-lg border border-white/5 hover:border-accent-cyan/30 transition-all duration-200"
-							aria-label="Toggle mobile menu"
-						>
-							<span
-								className={`block transition-all duration-300 ${
-									isMobileMenuOpen ? "rotate-180 opacity-100" : "rotate-0"
-								}`}
-							>
-								{isMobileMenuOpen ? (
-									<HiX className="w-6 h-6" />
-								) : (
-									<HiMenuAlt3 className="w-6 h-6" />
-								)}
-							</span>
-						</button>
-					</div>
-				</div>
+          {/* Mobile menu button */}
+          <button
+            className="lg:hidden p-2 text-content-primary hover:text-accent-cyan rounded-lg border border-white/5 hover:border-accent-cyan/30 transition-all"
+            onClick={() => setMobileMenuOpen((o) => !o)}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+          >
+            {isMobileMenuOpen ? <HiX className="w-6 h-6" /> : <HiMenuAlt3 className="w-6 h-6" />}
+          </button>
+        </div>
 
-				{/* Mobile Navigation */}
-				<div
-					className={`lg:hidden transition-all duration-300 ${
-						isMobileMenuOpen
-							? "max-h-96 opacity-100"
-							: "max-h-0 opacity-0 overflow-hidden"
-					}`}
-				>
-					<div className="px-2 pt-2 pb-4 space-y-1 backdrop-blur-xl bg-black/60 border-t border-accent-cyan/15 rounded-b-xl shadow-[0_12px_40px_rgba(0,0,0,0.6)]">
-						{navLinks.map((link) => {
-							const isActive = activeSection === link.to.slice(1);
-							return (
-								<button
-									key={link.to}
-									onClick={() => scrollToSection(link.to)}
-									className={`block w-full text-left px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 ${
-										isActive
-											? "text-accent-cyan bg-accent-cyan/10 border border-accent-cyan/20"
-											: "text-content-muted hover:text-content-primary hover:bg-white/5"
-									}`}
-								>
-									{link.label}
-								</button>
-							);
-						})}
-						<div className="pt-2 border-t border-white/10">
-							<a
-								href={personalInfo.resumeLink}
-								target="_blank"
-								rel="noopener noreferrer"
-								className="block w-full text-center px-4 py-3 font-semibold rounded-lg text-accent-cyan border border-accent-cyan/40 bg-accent-cyan/5 hover:bg-accent-cyan/15 hover:shadow-glow-cyan transition-all duration-300"
-								onClick={() => setIsMobileMenuOpen(false)}
-							>
-								Download Resume
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</nav>
-	);
+        {/* Mobile menu */}
+        <div
+          id="mobile-menu"
+          className={`lg:hidden transition-all duration-300 ${
+            isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+          }`}
+        >
+          <div className="px-2 pt-2 pb-4 space-y-1 backdrop-blur-xl bg-black/60 border-t border-accent-cyan/15 rounded-b-xl shadow-[0_12px_40px_rgba(0,0,0,0.6)]">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.to.slice(1);
+              return (
+                <a
+                  key={link.to}
+                  href={link.to}
+                  onClick={(e) => handleNavClick(e, link.to)}
+                  aria-current={isActive ? 'location' : undefined}
+                  className={`block px-4 py-3 text-sm font-medium rounded-lg transition-all duration-200 ${
+                    isActive
+                      ? 'text-accent-cyan bg-accent-cyan/10 border border-accent-cyan/20'
+                      : 'text-content-muted hover:text-content-primary hover:bg-white/5'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
+            <div className="pt-2 border-t border-white/10">
+              <a
+                href={personalInfo.resumeDriveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="block w-full text-center px-4 py-3 font-semibold rounded-lg text-accent-cyan border border-accent-cyan/40 bg-accent-cyan/5 hover:bg-accent-cyan/15 hover:shadow-glow-cyan transition-all"
+              >
+                Download Resume
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar;
