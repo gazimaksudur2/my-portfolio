@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
-import { FiCode } from 'react-icons/fi';
 import { navLinks, personalInfo } from '../constants';
 import { scrollToSection } from '../hooks/useLenis';
 
@@ -67,9 +66,13 @@ const Navbar = () => {
             className="flex items-center space-x-3 group"
             aria-label="Back to top"
           >
-            <div className="p-2.5 rounded-xl bg-gradient-to-br from-accent-cyan/20 to-accent-violet/20 border border-accent-cyan/30 shadow-glow-cyan group-hover:shadow-glow-cyan-lg transition-all duration-300 group-hover:scale-105">
-              <FiCode className="w-5 h-5 text-accent-cyan" aria-hidden="true" />
-            </div>
+            <img
+              src={personalInfo.logo}
+              alt=""
+              width="40"
+              height="40"
+              className="w-10 h-10 rounded-xl object-cover border border-accent-cyan/30 shadow-glow-cyan group-hover:shadow-glow-cyan-lg group-hover:scale-105 transition-all duration-300"
+            />
             <span className="flex lg:hidden xl:flex text-lg font-bold font-syne text-content-primary group-hover:text-accent-cyan transition-colors duration-200">
               {personalInfo.name}
             </span>

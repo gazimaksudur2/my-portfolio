@@ -7,8 +7,8 @@ import { personalInfo } from '../../constants';
 
 const ROLES = [
   'Software & Cloud Engineer',
-  'Full-Stack Developer',
-  'AWS Solutions Architect',
+  'Full-Stack Engineer',
+  'AWS Solutions Architect - Associate',
 ];
 
 const RESUME_HREF = personalInfo.resumeDriveLink;

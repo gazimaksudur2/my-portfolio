@@ -1,4 +1,4 @@
-import { FiCode, FiGithub, FiLinkedin, FiFacebook, FiMail, FiHeart } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiFacebook, FiMail, FiHeart } from 'react-icons/fi';
 import { personalInfo, navLinks } from '../constants';
 import { scrollToSection } from '../hooks/useLenis';
 
@@ -19,9 +19,14 @@ const Footer = () => {
 
           {/* Brand */}
           <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-gradient-to-br from-accent-cyan/20 to-accent-violet/20 border border-accent-cyan/30" aria-hidden="true">
-              <FiCode className="w-5 h-5 text-accent-cyan" />
-            </div>
+            <img
+              src={personalInfo.logo}
+              alt=""
+              width="36"
+              height="36"
+              className="w-9 h-9 rounded-xl object-cover border border-accent-cyan/30"
+              aria-hidden="true"
+            />
             <span className="font-bold font-syne text-gradient">{personalInfo.name}</span>
           </div>
 

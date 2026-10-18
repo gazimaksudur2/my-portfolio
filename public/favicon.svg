@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background rounded square matching the site dark theme -->
+  <rect width="32" height="32" rx="7" fill="#0d0d1a"/>
+  <!-- Subtle inner border for depth -->
+  <rect x="1" y="1" width="30" height="30" rx="6" fill="none" stroke="#00f5ff" stroke-width="0.75" stroke-opacity="0.35"/>
+  <!-- "G" initial  bold, centered, accent cyan -->
+  <text
+    x="16"
+    y="23"
+    font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+    font-size="20"
+    font-weight="700"
+    fill="#00f5ff"
+    text-anchor="middle"
+    letter-spacing="-0.5"
+  >G</text>
+</svg>

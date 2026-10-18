@@ -1,6 +1,6 @@
 {
   "name": "Gazi Maksudur Rahman — Portfolio",
-  "short_name": "Gazi's Portfolio",
+  "short_name": "Gazi Rahman",
   "description": "Software & Cloud Engineer portfolio — full-stack, AWS, React, Node.js",
   "start_url": "/",
   "display": "standalone",
@@ -8,14 +8,14 @@
   "theme_color": "#00f5ff",
   "icons": [
     {
-      "src": "https://res.cloudinary.com/dsawnilz3/image/upload/v1791172752/profile-removebg-preview_pdcx3l.png",
+      "src": "https://i.ibb.co.com/GfsHcxt2/portfolio-logo.jpg",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/jpeg"
     },
     {
-      "src": "https://res.cloudinary.com/dsawnilz3/image/upload/v1791172752/profile-removebg-preview_pdcx3l.png",
+      "src": "https://i.ibb.co.com/GfsHcxt2/portfolio-logo.jpg",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/jpeg"
     }
   ]
 }
