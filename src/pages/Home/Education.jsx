@@ -18,15 +18,15 @@ const education = [
     degree: 'Higher Secondary Certificate (HSC) — Science',
     institution: 'Major General Mahmudul Hasan Adarsha College, Tangail',
     institutionShort: 'Science Dept.',
-    logo: 'https://i.ibb.co.com/q3JyVKCJ/347778677-1265633041011051-2411880285562199077-n.jpg',
+    logo: 'https://res.cloudinary.com/dsawnilz3/image/upload/v1794066977/mgmhacbd_huejwn.jpg',
     primary: false,
   },
   {
     period: '2016 – 2018',
     degree: 'Secondary School Certificate (SSC) — Science',
-    institution: 'Jamurky N.S.A.G High School, Tangail',
+    institution: 'Jamurki N.S.A.G High School, Tangail',
     institutionShort: 'Science Dept.',
-    logo: 'https://i.ibb.co/bXJ5kmH/jamuky-Logo.png',
+    logo: 'https://res.cloudinary.com/dsawnilz3/image/upload/v1794066978/jamurkiNSAGhighschool_nhhxka.png',
     primary: false,
   },
 ];

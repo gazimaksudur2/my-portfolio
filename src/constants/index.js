@@ -8,7 +8,7 @@ export const personalInfo = {
 	email: "gazimaksudur2@gmail.com",
 	phone: "+880 1903-219313",
 	location: "Dhaka, Bangladesh",
-	logo: "https://i.ibb.co.com/GfsHcxt2/portfolio-logo.jpg",
+	logo: "https://res.cloudinary.com/dsawnilz3/image/upload/v1794066408/portfolio-logo_zzkpdq.jpg",
 	resumeLink: "/resume.pdf", // self-hosted; fallback to Drive if file is absent
 	resumeDriveLink:
 		"https://drive.google.com/file/d/1-AoHayQihlWRG17EFwtaeCt7q30zsTQt/view",

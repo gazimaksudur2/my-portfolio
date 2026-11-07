@@ -38,7 +38,7 @@
     "liveSiteLink": "https://elevateex-ac4de.web.app/",
     "githubClientRepoLink": "https://github.com/gazimaksudur2/elevateex-client",
     "githubServerRepoLink": "https://github.com/gazimaksudur2/elevateex-server",
-    "bannerImgUrl": "https://i.ibb.co/K6ZSFhf/screencapture-elevateex-ac4de-web-app-allclass-2024-07-10-11-49-30.png",
+    "bannerImgUrl": "https://res.cloudinary.com/dsawnilz3/image/upload/v1794068304/elevateex-landing_gpuicl.png",
     "features": [
       "Specialized dashboards for administrators, instructors, and students.",
       "Firebase authentication with session management and route-level protection.",
@@ -53,7 +53,7 @@
     "liveSiteLink": "https://easybank-b9b62.web.app/",
     "githubClientRepoLink": "https://github.com/gazimaksudur2/bank-client",
     "githubServerRepoLink": null,
-    "bannerImgUrl": "https://i.ibb.co.com/nMcwK6Mx/Screenshot-2026-10-18-103331.png",
+    "bannerImgUrl": "https://res.cloudinary.com/dsawnilz3/image/upload/v1794067929/easy-bank-landing_kalgj8.png",
     "features": [
       "Secure authentication via Firebase with profile, account status and transaction history.",
       "Credit management: apply, track, and approve credit requests.",
@@ -68,7 +68,7 @@
     "liveSiteLink": "https://trip-flip.web.app",
     "githubClientRepoLink": "https://github.com/gazimaksudur2/trip-flip-client",
     "githubServerRepoLink": "https://github.com/gazimaksudur2/trip-flip-server",
-    "bannerImgUrl": "https://i.ibb.co/2gwd1Sb/screencapture-trip-flip-web-app-rooms-2024-07-12-23-19-42.png",
+    "bannerImgUrl": "https://res.cloudinary.com/dsawnilz3/image/upload/v1794067568/tripflip-landingpage_bjaxf6.png",
     "features": [
       "Multi-provider authentication (email, Google, GitHub) using OAuth 2.0.",
       "Real-time room availability tracking and booking state management.",

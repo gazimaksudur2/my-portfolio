@@ -8,12 +8,12 @@
   "theme_color": "#00f5ff",
   "icons": [
     {
-      "src": "https://i.ibb.co.com/GfsHcxt2/portfolio-logo.jpg",
+      "src": "https://res.cloudinary.com/dsawnilz3/image/upload/v1794066408/portfolio-logo_zzkpdq.jpg",
       "sizes": "192x192",
       "type": "image/jpeg"
     },
     {
-      "src": "https://i.ibb.co.com/GfsHcxt2/portfolio-logo.jpg",
+      "src": "https://res.cloudinary.com/dsawnilz3/image/upload/v1794066408/portfolio-logo_zzkpdq.jpg",
       "sizes": "512x512",
       "type": "image/jpeg"
     }
