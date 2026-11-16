@@ -1,0 +1,113 @@
+{
+  "personalInfo": {
+    "name": "Gazi Maksudur Rahman",
+    "title": "Software & Cloud Engineer",
+    "tagline": "Backend · Full-Stack · AWS · CI/CD",
+    "email": "gazimaksudur2@gmail.com",
+    "phone": "+880 1903-219313",
+    "location": "Dhaka, Bangladesh",
+    "logo": "https://res.cloudinary.com/dsawnilz3/image/upload/v1794066408/portfolio-logo_zzkpdq.jpg",
+    "resumeLink": "/resume.pdf",
+    "resumeDriveLink": "https://drive.google.com/file/d/1-AoHayQihlWRG17EFwtaeCt7q30zsTQt/view",
+    "linkedIn": "https://www.linkedin.com/in/gazimaksudur/",
+    "github": "https://github.com/gazimaksudur2",
+    "facebook": "https://www.facebook.com/gazi.maksudur"
+  },
+  "navLinks": [
+    { "to": "#projects", "label": "Projects" },
+    { "to": "#experience", "label": "Experience" },
+    { "to": "#skills", "label": "Skills" },
+    { "to": "#about", "label": "About" },
+    { "to": "#education", "label": "Education" },
+    { "to": "#achievements", "label": "Achievements" },
+    { "to": "#contact", "label": "Contact" }
+  ],
+  "quickFacts": {
+    "location": "Dhaka-1245, Bangladesh",
+    "experience": "2+ Years AI Training & QA",
+    "availability": "Open to opportunities",
+    "languages": "English, Bengali"
+  },
+  "highlights": [
+    {
+      "icon": "FiCode",
+      "title": "Backend Architecture & APIs",
+      "description": "Builds RESTful APIs and full-stack applications with TypeScript, Node.js, React, PostgreSQL, MongoDB, and MVC architecture."
+    },
+    {
+      "icon": "FiServer",
+      "title": "Cloud & DevSecOps",
+      "description": "AWS Solutions Architect certified, with hands-on Docker containerisation and automated CI/CD pipeline experience using Jenkins."
+    },
+    {
+      "icon": "FiUsers",
+      "title": "Collaborative & Analytical",
+      "description": "Experienced in production application workflows and evaluating AI-generated code for quality, security, logic, and edge cases."
+    },
+    {
+      "icon": "FiAward",
+      "title": "Growth-Oriented & Dedicated",
+      "description": "Combines full-stack engineering, cloud architecture, and RLHF evaluation to deliver reliable, scalable software."
+    }
+  ],
+  "banner": {
+    "greeting": "Hello, I'm",
+    "nameFirst": "Gazi Maksudur",
+    "nameLast": "Rahman",
+    "rolePrefix": "I'm a",
+    "roles": [
+      "Software & Cloud Engineer",
+      "Full-Stack Engineer",
+      "AWS Solutions Architect - Associate"
+    ],
+    "bio": "Software and Cloud Engineer with a B.Sc. in CSE from SUST and AWS Solutions Architect certification. I build full-stack applications with TypeScript, Node.js and React, and ship them with Docker and Jenkins CI/CD.",
+    "highlights": [
+      { "label": "Bangladesh 🇧🇩", "key": "location" },
+      { "label": "CSE, SUST · 2026", "key": "sust" },
+      { "label": "AWS Solutions Architect – Associate", "key": "aws" }
+    ],
+    "stats": [
+      { "number": "5+", "label": "Projects Shipped" },
+      { "number": "2+", "label": "Years AI Training & QA" },
+      { "number": "15+", "label": "Technologies & Tools" },
+      { "number": "3+", "label": "AWS Certifications" }
+    ],
+    "cta": {
+      "resume": "Download Resume",
+      "talk": "Let's Talk",
+      "connectLabel": "Connect:",
+      "scrollAria": "Scroll to Projects"
+    },
+    "portrait": {
+      "src": "https://lh3.googleusercontent.com/a/ACg8ocKicwZNepBXFUX9CRSHDHCK2mARSIwq0XlemttEsiTbrB2ww9Qq=s360-c-no",
+      "alt": "Gazi Maksudur Rahman",
+      "width": 320,
+      "height": 320
+    },
+    "trustBadge": {
+      "href": "https://www.credly.com/badges/8b5b00df-d757-4c1f-9a77-f72e7e020167",
+      "label": "☁️ AWS SAA",
+      "ariaLabel": "View AWS Solutions Architect Associate credential on Credly"
+    }
+  },
+  "about": {
+    "badge": "About Me",
+    "title": "My Story &",
+    "titleAccent": "Direction",
+    "description": "CSE graduate from SUST and a Software & Cloud Engineer focused on scalable full-stack systems, RESTful APIs, containerisation, and automated delivery. AWS Solutions Architect and Cloud Practitioner certified.",
+    "bioHeading": "Journey, Motivation & Focus",
+    "bioParagraphs": [
+      "I'm a Software and Cloud Engineer with a B.Sc. in Computer Science and Engineering from SUST and AWS Solutions Architect certification. I combine full-stack development with TypeScript, Node.js, and React with hands-on experience in REST API design, Docker, Jenkins CI/CD, and cloud architecture.",
+      "I currently contribute to backend API development and production workflows at W3 Engineers. Previously, I spent two years at Outlier AI evaluating AI-generated code across Python, JavaScript, and C++, with a focus on quality, security, logic, and clear feedback for RLHF pipelines."
+    ],
+    "quickFactsHeading": "Quick Facts",
+    "whatIBringHeading": "What I Bring",
+    "cta": "Let's Connect"
+  },
+  "seo": {
+    "title": "Gazi Maksudur Rahman — Software & Cloud Engineer",
+    "description": "Portfolio of Gazi Maksudur Rahman — Software & Cloud Engineer from Dhaka, Bangladesh. AWS Solutions Architect certified. Builds full-stack apps with TypeScript, React, Node.js and MongoDB. Open to remote opportunities.",
+    "ogImage": "https://res.cloudinary.com/dsawnilz3/image/upload/f_auto,q_auto,w_1200,h_630,c_fill/v1791172752/profile-removebg-preview_pdcx3l.png",
+    "canonical": "https://gazimaksudur.dev/"
+  }
+}

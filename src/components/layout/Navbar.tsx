@@ -58,8 +58,7 @@ const Navbar = ({ navLinks, personalInfo }: NavbarProps) => {
     setMobileMenuOpen(false);
   };
 
-  const scrollToTop = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
+  const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setActiveSection("");
   };
@@ -75,8 +74,8 @@ const Navbar = ({ navLinks, personalInfo }: NavbarProps) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <a
-            href="/"
+          <button
+            type="button"
             onClick={scrollToTop}
             className="flex items-center space-x-3 group"
             aria-label="Back to top"
@@ -91,7 +90,7 @@ const Navbar = ({ navLinks, personalInfo }: NavbarProps) => {
             <span className="flex lg:hidden xl:flex text-lg font-bold font-syne text-content-primary group-hover:text-accent-cyan transition-colors duration-200">
               {personalInfo.name}
             </span>
-          </a>
+          </button>
 
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => {

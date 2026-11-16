@@ -1,0 +1,38 @@
+{
+  "section": {
+    "badge": "Experience",
+    "title": "Professional",
+    "titleAccent": "Experience",
+    "description": "A mix of production software engineering and rigorous AI quality evaluation."
+  },
+  "items": [
+    {
+      "id": "w3-engineers-intern",
+      "period": "Sept 2026 – Present",
+      "title": "Software Engineer Intern",
+      "org": "W3 Engineers LTD. · Dhaka, Bangladesh",
+      "icon": "FiCode",
+      "current": true,
+      "tech": ["Go", "Beego", "Node.js", "React", "Next.js", "Python"],
+      "points": [
+        "Joined a live project team contributing to backend API development and production application workflows.",
+        "Built and maintained RESTful API endpoints and integration tests using Go (Beego) and Python (Flask).",
+        "Completed intensive full-stack training covering modern AI and automation techniques including LLMs and MCP."
+      ]
+    },
+    {
+      "id": "outlier-ai",
+      "period": "Mar 2024 – Feb 2026",
+      "title": "AI Software Trainer & QA Specialist",
+      "org": "Outlier AI · Remote",
+      "icon": "FiBriefcase",
+      "current": false,
+      "tech": ["Python", "JavaScript", "C++", "Code Review", "RLHF"],
+      "points": [
+        "Contributed to large-scale RLHF pipelines evaluating code quality, security, and logic in AI-generated solutions across Python, JavaScript, and C++.",
+        "Identified logic flaws, anti-patterns, and security vulnerabilities; provided comparative rankings to improve model reasoning and accuracy.",
+        "Reviewed thousands of code samples for quality and correctness, contributing to measurable improvements in model output."
+      ]
+    }
+  ]
+}
