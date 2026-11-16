@@ -1,0 +1,42 @@
+{
+  "section": {
+    "badge": "Achievements",
+    "title": "Highlights &",
+    "titleAccent": "Wins",
+    "description": "Milestones from certifications, shipping production software, and contributing to AI quality systems."
+  },
+  "items": [
+    {
+      "id": "aws-saa",
+      "title": "AWS Solutions Architect – Associate",
+      "description": "Earned the SAA-C03 credential, validating cloud architecture design for secure, resilient, and cost-optimised systems on AWS.",
+      "year": "2026",
+      "icon": "FiAward",
+      "link": "https://www.credly.com/badges/8b5b00df-d757-4c1f-9a77-f72e7e020167"
+    },
+    {
+      "id": "itee-fe",
+      "title": "ITEE Fundamental Engineering – Level 2",
+      "description": "Passed the ITPEC FE Level 2 exam covering business management and core information technology concepts.",
+      "year": "2026",
+      "icon": "FiAward",
+      "link": "https://itpec.org/statsandresults/all-passers-information/Bangladesh/2026S_FE.pdf"
+    },
+    {
+      "id": "outlier-rlhf",
+      "title": "2+ Years AI Code Evaluation at Outlier",
+      "description": "Reviewed thousands of AI-generated code samples across Python, JavaScript, and C++ for quality, security, and logic in RLHF pipelines.",
+      "year": "2024–2026",
+      "icon": "FiZap",
+      "link": null
+    },
+    {
+      "id": "projects-shipped",
+      "title": "5+ Full-Stack Projects Shipped",
+      "description": "Delivered production-ready applications spanning edtech, fintech, hospitality, agri-marketplace, and AWS exam prep.",
+      "year": "2024–2026",
+      "icon": "FiCode",
+      "link": "#projects"
+    }
+  ]
+}

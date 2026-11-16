@@ -1,0 +1,39 @@
+{
+  "section": {
+    "badge": "Education",
+    "title": "Academic",
+    "titleAccent": "Background",
+    "description": "B.Sc. graduate in Computer Science and Engineering from SUST, with a focus on software engineering and cloud technologies."
+  },
+  "items": [
+    {
+      "id": "sust-bsc",
+      "period": "Jan 2022 – Aug 2026",
+      "degree": "B.Sc. in Computer Science and Engineering",
+      "institution": "Shahjalal University of Science and Technology (SUST)",
+      "institutionShort": "SUST",
+      "cgpa": "CGPA 3.58",
+      "focus": "Data structures, algorithms, web development, cloud fundamentals",
+      "logo": "https://upload.wikimedia.org/wikipedia/en/d/d9/Shahjalal_University_of_Science_and_Technology_logo.png",
+      "primary": true
+    },
+    {
+      "id": "hsc",
+      "period": "2018 – 2020",
+      "degree": "Higher Secondary Certificate (HSC) — Science",
+      "institution": "Major General Mahmudul Hasan Adarsha College, Tangail",
+      "institutionShort": "Science Dept.",
+      "logo": "https://res.cloudinary.com/dsawnilz3/image/upload/v1794066977/mgmhacbd_huejwn.jpg",
+      "primary": false
+    },
+    {
+      "id": "ssc",
+      "period": "2016 – 2018",
+      "degree": "Secondary School Certificate (SSC) — Science",
+      "institution": "Jamurki N.S.A.G High School, Tangail",
+      "institutionShort": "Science Dept.",
+      "logo": "https://res.cloudinary.com/dsawnilz3/image/upload/v1794066978/jamurkiNSAGhighschool_nhhxka.png",
+      "primary": false
+    }
+  ]
+}

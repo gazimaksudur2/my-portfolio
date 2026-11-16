@@ -1,0 +1,66 @@
+{
+  "section": {
+    "badge": "Technical Skills",
+    "title": "What I Work With",
+    "titleAccent": "By Category",
+    "description": "A continuously expanding toolkit spanning languages, frameworks, cloud platforms, and core engineering concepts."
+  },
+  "marqueeLabel": "Core technologies",
+  "categories": [
+    {
+      "id": "languages",
+      "title": "Languages",
+      "icon": "FiTool",
+      "accent": "#00f5ff",
+      "skills": ["JavaScript (ES6+)", "TypeScript", "Python", "Java", "C++", "Go"]
+    },
+    {
+      "id": "backend",
+      "title": "Backend & DB",
+      "icon": "FiServer",
+      "accent": "#7c3aed",
+      "skills": ["Node.js", "Express.js", "Beego", "PostgreSQL", "MongoDB", "FastAPI", "REST APIs"]
+    },
+    {
+      "id": "frontend",
+      "title": "Frontend",
+      "icon": "FiCode",
+      "accent": "#00ff88",
+      "skills": ["React.js", "Next.js", "Tailwind CSS", "HTML5", "CSS3"]
+    },
+    {
+      "id": "cloud",
+      "title": "Cloud & DevOps",
+      "icon": "FiCloud",
+      "accent": "#00f5ff",
+      "skills": ["AWS Solutions Architect", "AWS Cloud Practitioner", "Docker", "Jenkins", "CI/CD"]
+    },
+    {
+      "id": "core",
+      "title": "Core Concepts",
+      "icon": "FiDatabase",
+      "accent": "#7c3aed",
+      "skills": ["OOP", "Data Structures & Algorithms", "MVC", "Agile", "Git", "GitHub", "Postman"]
+    }
+  ],
+  "techLogos": [
+    { "name": "React", "url": "https://www.svgrepo.com/show/452092/react.svg" },
+    { "name": "TypeScript", "url": "https://www.svgrepo.com/show/349540/typescript.svg" },
+    { "name": "Node.js", "url": "https://www.svgrepo.com/show/452075/node-js.svg" },
+    { "name": "Python", "url": "https://www.svgrepo.com/show/452091/python.svg" },
+    { "name": "MongoDB", "url": "https://www.svgrepo.com/show/439231/mongodb.svg" },
+    { "name": "PostgreSQL", "url": "https://www.svgrepo.com/show/354200/postgresql.svg" },
+    { "name": "AWS", "url": "https://www.svgrepo.com/show/448266/aws.svg" },
+    { "name": "Docker", "url": "https://www.svgrepo.com/show/448221/docker.svg" },
+    { "name": "Jenkins", "url": "https://www.svgrepo.com/show/373699/jenkins.svg" },
+    { "name": "GitHub", "url": "https://www.svgrepo.com/show/512317/github-142.svg" },
+    { "name": "NextJS", "url": "https://www.svgrepo.com/show/354113/nextjs-icon.svg" },
+    { "name": "JavaScript", "url": "https://www.svgrepo.com/show/452045/js.svg" },
+    { "name": "Java", "url": "https://www.svgrepo.com/show/452234/java.svg" },
+    { "name": "Go", "url": "https://www.svgrepo.com/show/452214/go.svg" },
+    { "name": "Tailwind CSS", "url": "https://www.svgrepo.com/show/354431/tailwindcss-icon.svg" },
+    { "name": "HTML5", "url": "https://www.svgrepo.com/show/452228/html-5.svg" },
+    { "name": "CSS3", "url": "https://www.svgrepo.com/show/373535/css.svg" },
+    { "name": "Postman", "url": "https://www.svgrepo.com/show/354202/postman-icon.svg" }
+  ]
+}

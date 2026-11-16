@@ -1,3 +1,11 @@
+# Dependencies
+node_modules
+
+# Next.js
+.next
+out
+tsconfig.tsbuildinfo
+
 # Logs
 logs
 *.log
@@ -5,18 +13,17 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Env — keep example, never commit actual
+.env
+.env.local
+.env.*.local
+!.env.example
 
-# Editor directories and files
+# Editor
 .vscode/*
 !.vscode/extensions.json
 .idea
-.puku
 .DS_Store
 *.suo
 *.ntvs*
@@ -24,15 +31,11 @@ dist-ssr
 *.sln
 *.sw?
 
-# Env — keep example, never commit actual
-.env
-!.env.example
-
-# Firebase CLI cache (auto-generated, not source)
+# Firebase CLI cache
 .firebase/
 
-# Keep public/robots.txt in source
-!public/robots.txt
-
-# Random notes file
+# Misc
+dist
+dist-ssr
+*.local
 public/imageSrc.txt

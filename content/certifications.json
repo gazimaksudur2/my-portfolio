@@ -1,0 +1,157 @@
+{
+  "section": {
+    "badge": "Certifications & Learning",
+    "title": "Growth &",
+    "titleAccent": "Credentials",
+    "description": "Ongoing learning in cloud architecture, DevOps, and modern development — starting with AWS as a differentiator."
+  },
+  "items": [
+    {
+      "id": "itee-fundamental-engineering-fe-level-2-2026",
+      "title": "ITEE Fundamental Engineering (FE) - Level 2",
+      "issuer": "Innovation Platform Agency, Japan (IPA)",
+      "platform": "ITPEC",
+      "date": "2026-06",
+      "credentialId": "FE2026APRO0032",
+      "certificateUrl": "https://drive.google.com/file/d/1P0ShwoeWG28t_5UgEnBe0CUYZp3hPZy5/view?usp=sharing",
+      "type": "pdf",
+      "description": "Fundamental Engineering Level 2 certification covering business management and core information technology concepts.",
+      "verificationUrl": "https://itpec.org/statsandresults/all-passers-information/Bangladesh/2026S_FE.pdf",
+      "tags": [
+        "Business Management",
+        "Information Technology",
+        "Computer Programming",
+        "Operating Systems",
+        "Computer Networking"
+      ]
+    },
+    {
+      "id": "aws-solutions-architect-associate-saa-c03",
+      "title": "AWS Certified Solutions Architect - Associate (SAA-C03)",
+      "issuer": "Amazon Web Services (AWS)",
+      "platform": "AWS Certification",
+      "date": "2026-06",
+      "description": "Demonstrated expertise in designing distributed systems, selecting AWS services, and architecting secure, resilient, and high-performing applications on AWS.",
+      "certificateUrl": "https://drive.google.com/file/d/1eHPsqfsuTX84xrRWnJjJYP1wcwDwk5Ux/view?usp=sharing",
+      "type": "pdf",
+      "verificationUrl": "https://www.credly.com/badges/8b5b00df-d757-4c1f-9a77-f72e7e020167",
+      "tags": [
+        "AWS",
+        "Solutions Architect",
+        "Associate"
+      ]
+    },
+    {
+      "id": "aws-cloud-practitioner-clf-c02",
+      "title": "AWS Certified Cloud Practitioner (CLF-C02)",
+      "issuer": "Amazon Web Services (AWS)",
+      "platform": "AWS Certification",
+      "date": "2026-06",
+      "description": "Foundational understanding of AWS Cloud concepts, services, security, architecture, pricing, and support.",
+      "certificateUrl": "https://drive.google.com/file/d/1y0c9wnorYXy5_vpcCZtcP6WTUm9uP3NQ/view?usp=sharing",
+      "type": "pdf",
+      "verificationUrl": "https://www.credly.com/badges/a4d25557-db46-4ff4-9365-471232c699b6",
+      "tags": [
+        "AWS",
+        "Cloud Practitioner",
+        "Foundational"
+      ]
+    },
+    {
+      "id": "ericssonedge-academia-program-2026",
+      "title": "EricssonEdge Academia Program 2026",
+      "issuer": "Ericsson",
+      "platform": "EricssonEdge Academia",
+      "date": "2026-04",
+      "description": "Successfully participated in the EricssonEdge Academia Program 2026, accredited by Ericsson.",
+      "certificateUrl": "https://drive.google.com/file/d/1qC-B_7FaU1_hJpnbaDGV13hzyYAxDE34/view?usp=sharing",
+      "type": "pdf",
+      "verificationUrl": "https://ericsson.com",
+      "tags": [
+        "Ericsson",
+        "EricssonEdge",
+        "Academia"
+      ]
+    },
+    {
+      "id": "jenkins-project-building-ci-cd-pipeline-for-scalable-web-applications",
+      "title": "Jenkins Project: Building CI/CD Pipeline for Scalable Web Applications",
+      "issuer": "KodeKloud",
+      "platform": "KodeKloud",
+      "date": "2026-02",
+      "description": "Learn to build a CI/CD pipeline for scalable web applications using Jenkins.",
+      "certificateUrl": "https://drive.google.com/file/d/1dVWiKdQ4T5LffmNRmBBZJ5-S9XUM4oud/view?usp=sharing",
+      "type": "pdf",
+      "verificationUrl": "https://learn.kodekloud.com/certificate/03edc704-4198-42d7-b161-21bcbfa7e425",
+      "tags": [
+        "Jenkins",
+        "CI/CD",
+        "KodeKloud"
+      ]
+    },
+    {
+      "id": "aws-cloud-developing",
+      "title": "AWS Academy Graduate - Cloud Developing - Training Badge",
+      "issuer": "Amazon Web Services (AWS)",
+      "platform": "AWS Academy",
+      "date": "2026-02",
+      "description": "Learn to develop and deploy cloud-native applications on AWS.",
+      "certificateUrl": "https://drive.google.com/file/d/1hkkDX8fz1vYfiXWQF2kj_Ir9dfcGzjpX/view?usp=sharing",
+      "type": "pdf",
+      "verificationUrl": "https://www.credly.com/badges/02e1e6cd-3423-4036-bc43-5188a7350020/",
+      "tags": [
+        "Cloud",
+        "AWS",
+        "Development"
+      ]
+    },
+    {
+      "id": "docker-training-course-for-the-absolute-beginner",
+      "title": "Docker Training Course for the Absolute Beginner",
+      "issuer": "KodeKloud",
+      "platform": "KodeKloud",
+      "date": "2026-01",
+      "description": "Learn the basics of Docker and containerization.",
+      "certificateUrl": "https://drive.google.com/file/d/1zuoPss4qizI01nisTdmf9oW9KFcn58sH/view?usp=sharing",
+      "type": "pdf",
+      "verificationUrl": "https://learn.kodekloud.com/certificate/82c6c61a-dd0a-4a93-b88a-362f5b1c2ee5",
+      "tags": [
+        "Docker",
+        "Containerization",
+        "KodeKloud"
+      ]
+    },
+    {
+      "id": "aws-cloud-foundation",
+      "title": "AWS Academy Graduate - Cloud Foundations - Training Certification",
+      "issuer": "Amazon Web Services (AWS)",
+      "platform": "AWS Academy",
+      "date": "2026-01",
+      "description": "Learn the fundamentals of AWS cloud computing and cloud services.",
+      "certificateUrl": "https://drive.google.com/file/d/1-2OSsOWmHe1vCfvNivj8nlwk8aRe49Yo/view?usp=sharing",
+      "type": "pdf",
+      "verificationUrl": "https://www.credly.com/badges/e217f892-8d4a-44ca-b47a-c7e548ec3691/linked_in_profile",
+      "tags": [
+        "Cloud",
+        "AWS",
+        "Foundations"
+      ]
+    },
+    {
+      "id": "full-stack-web-developer",
+      "title": "Programming Hero certified Full-Stack Web Developer",
+      "issuer": "Programming Hero",
+      "platform": "Programming Hero",
+      "date": "2024-05",
+      "description": "Learn to build and deploy full-stack web applications using modern technologies.",
+      "certificateUrl": "https://drive.google.com/file/d/1Ko-VRjuX1gdkcMnONXTrU6tMGhpmCIGB/view?usp=sharing",
+      "type": "pdf",
+      "verificationUrl": "https://drive.google.com/file/d/1Ko-VRjuX1gdkcMnONXTrU6tMGhpmCIGB/view?usp=sharing",
+      "tags": [
+        "Full-Stack",
+        "Web Development",
+        "Programming Hero"
+      ]
+    }
+  ]
+}

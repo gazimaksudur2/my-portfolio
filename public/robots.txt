@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
 
-Sitemap: https://gazimaksudur.me/sitemap.xml
+Sitemap: https://gazimaksudur.dev/sitemap.xml
