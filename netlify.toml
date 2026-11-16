@@ -1,0 +1,24 @@
+
+[[redirects]]
+  from = "http://gazimaksudur.me/*"
+  to = "https://gazimaksudur.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://gazimaksudur.me/*"
+  to = "https://gazimaksudur.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.gazimaksudur.me/*"
+  to = "https://gazimaksudur.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.gazimaksudur.me/*"
+  to = "https://gazimaksudur.dev/:splat"
+  status = 301
+  force = true
