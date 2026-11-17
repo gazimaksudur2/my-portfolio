@@ -337,7 +337,7 @@ See [`.env.example`](.env.example). All of these are `NEXT_PUBLIC_*` and therefo
 | `NEXT_PUBLIC_GITHUB_REPO` | Admin API repo (default `my-portfolio`) |
 | `NEXT_PUBLIC_GITHUB_BRANCH` | Commit branch (default `main`) |
 | `NEXT_PUBLIC_SITE_URL` | Canonical site URL for metadata / Actions |
-| `NEXT_PUBLIC_ADMIN_PIN` | Optional UI gate only (default `admin`) |
+| `NEXT_PUBLIC_ADMIN_PIN` | Optional UI gate only (default `admin`). Set as a **github-pages environment variable** (Variables tab), not only as a secret — the deploy workflow passes `vars.NEXT_PUBLIC_ADMIN_PIN` into `next build` |
 
 ### Where to put production EmailJS secrets
 
@@ -355,6 +355,16 @@ Because this repo’s deploy uses the GitHub-created **`github-pages` environmen
 Repository-level **Settings → Secrets and variables → Actions → Secrets** also work, but environment secrets under `github-pages` are only visible to jobs that declare `environment: github-pages`. The build job does that so your form does not silently fall back to `mailto:`.
 
 If any of the three are missing at build time, the workflow fails the verify step instead of shipping a mailto-only form by mistake.
+
+### Admin PIN (`NEXT_PUBLIC_ADMIN_PIN`)
+
+Same rule: it must be present **during `next build`**, or the live `/admin` gate keeps the code default (`admin`).
+
+1. **Settings → Environments → `github-pages` → Environment variables** (Variables — not Secrets)
+2. Name: `NEXT_PUBLIC_ADMIN_PIN` · Value: your chosen PIN
+3. Re-run **Deploy to GitHub Pages** on `main`
+
+A secret named the same also works (workflow falls back to `secrets.NEXT_PUBLIC_ADMIN_PIN`), but a variable is enough — this PIN is only a soft UI gate and is always visible in the client JS bundle anyway.
 
 ---
 
