@@ -333,11 +333,11 @@ See [`.env.example`](.env.example). All of these are `NEXT_PUBLIC_*` and therefo
 | `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | Contact form service |
 | `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | Contact form template |
 | `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | EmailJS public key |
-| `NEXT_PUBLIC_GITHUB_OWNER` | Admin API owner (default `gazimaksudur2`) |
-| `NEXT_PUBLIC_GITHUB_REPO` | Admin API repo (default `my-portfolio`) |
-| `NEXT_PUBLIC_GITHUB_BRANCH` | Commit branch (default `main`) |
-| `NEXT_PUBLIC_SITE_URL` | Canonical site URL for metadata / Actions |
-| `NEXT_PUBLIC_ADMIN_PIN` | Optional UI gate only (default `admin`). Set as a **github-pages environment variable** (Variables tab), not only as a secret — the deploy workflow passes `vars.NEXT_PUBLIC_ADMIN_PIN` into `next build` |
+| `NEXT_PUBLIC_GITHUB_OWNER` | Admin API owner (fallback `gazimaksudur2`) |
+| `NEXT_PUBLIC_GITHUB_REPO` | Admin API repo (fallback `gazimaksudur`) |
+| `NEXT_PUBLIC_GITHUB_BRANCH` | Commit branch (fallback `main`) |
+| `NEXT_PUBLIC_SITE_URL` | Canonical site URL (fallback `https://gazimaksudur.dev`) |
+| `NEXT_PUBLIC_ADMIN_PIN` | Optional UI gate only (fallback `admin` in app code) |
 
 ### Where to put production EmailJS secrets
 
@@ -356,22 +356,28 @@ Repository-level **Settings → Secrets and variables → Actions → Secrets** 
 
 If any of the three are missing at build time, the workflow fails the verify step instead of shipping a mailto-only form by mistake.
 
-### Admin PIN (`NEXT_PUBLIC_ADMIN_PIN`)
+### Optional config variables (github-pages Environment variables)
 
-Same rule: it must be present **during `next build`**, or the live `/admin` gate keeps the code default (`admin`).
+Same rule as EmailJS: values must be present **during `next build`**. Set these under **Settings → Environments → `github-pages` → Environment variables** if you want to override defaults; otherwise leave them unset and the workflow uses the fallbacks below.
 
-1. **Settings → Environments → `github-pages` → Environment variables** (Variables — not Secrets)
-2. Name: `NEXT_PUBLIC_ADMIN_PIN` · Value: your chosen PIN
-3. Re-run **Deploy to GitHub Pages** on `main`
+| Variable | Fallback if unset |
+|----------|-------------------|
+| `NEXT_PUBLIC_ADMIN_PIN` | app default `admin` (empty env → code fallback) |
+| `NEXT_PUBLIC_GITHUB_OWNER` | `gazimaksudur2` |
+| `NEXT_PUBLIC_GITHUB_REPO` | `gazimaksudur` |
+| `NEXT_PUBLIC_GITHUB_BRANCH` | `main` |
+| `NEXT_PUBLIC_SITE_URL` | `https://gazimaksudur.dev` |
 
-A secret named the same also works (workflow falls back to `secrets.NEXT_PUBLIC_ADMIN_PIN`), but a variable is enough — this PIN is only a soft UI gate and is always visible in the client JS bundle anyway.
+Resolution order in the deploy workflow: **environment/repo `vars` → same-named `secrets` → fallback**.
+
+After changing any of these, re-run **Deploy to GitHub Pages** on `main`. The build log prints the resolved owner/repo/branch/site URL (PIN value stays hidden).
 
 ---
 
 ## Create a GitHub PAT for `/admin`
 
 1. GitHub → **Settings → Developer settings → Personal access tokens → Fine-grained tokens**.
-2. Resource owner: you · Repository access: **Only** `my-portfolio`.
+2. Resource owner: you · Repository access: **Only** `gazimaksudur` (this repo).
 3. Permissions: **Contents → Read and write** (nothing else required).
 4. Generate, copy once, paste into `/admin` login.
 5. Token stays in `sessionStorage` until the tab closes or you log out — it is never committed.
