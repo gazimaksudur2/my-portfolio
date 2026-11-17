@@ -191,7 +191,7 @@ After a successful deploy:
 3. At your DNS provider, point the domain at GitHub Pages:
    - **Apex** `gazimaksudur.dev`: GitHub’s A/AAAA records (see [GitHub Pages custom domain docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)), **or**
    - **www** CNAME → `gazimaksudur2.github.io`
-4. Prefer Cloudflare for `gazimaksudur.me` redirects (see above). [`netlify.toml`](netlify.toml) redirects are optional/legacy only.
+4. Use Cloudflare for `gazimaksudur.me` redirects (see above).
 5. Firebase Hosting configs are leftover reference only — primary host is GitHub Pages.
 
 ### Step E — Optional production secrets
