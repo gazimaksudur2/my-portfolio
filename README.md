@@ -1,14 +1,14 @@
 # Gazi Maksudur Rahman — Portfolio
 
-Next.js App Router portfolio with a private Git-backed admin CMS. The public site is a **static export** deployed with **GitHub Actions → GitHub Pages** (free tier).
+A static Next.js portfolio with a private, Git-backed admin CMS. Visitors get a fully static site on **GitHub Pages**; you edit JSON content through `/admin` (or by hand in `content/`), and GitHub Actions rebuilds the public HTML on every push to `main`.
 
 | | |
 |---|---|
+| **Live site** | [https://gazimaksudur.dev](https://gazimaksudur.dev) |
+| **Alias** | [https://gazimaksudur.me](https://gazimaksudur.me) → 301 to `.dev` (Cloudflare) |
 | **Repo** | [gazimaksudur2/my-portfolio](https://github.com/gazimaksudur2/my-portfolio) |
-| **Intended live URL** | [https://gazimaksudur.dev](https://gazimaksudur.dev) (custom domain) |
-| **Fallback Pages URL** | [https://gazimaksudur2.github.io/my-portfolio/](https://gazimaksudur2.github.io/my-portfolio/) (after Pages is enabled) |
-| **Admin** | `/admin/` (not linked in public navigation) |
-| **Stack** | Next.js 15 · TypeScript · Tailwind · Framer Motion · Zod · Octokit · EmailJS |
+| **Admin** | [`/admin/`](https://gazimaksudur.dev/admin/) (not linked in public nav; `noindex`) |
+| **Stack** | Next.js 15 · React 19 · TypeScript · Tailwind · Framer Motion · Zod · Octokit · EmailJS |
 
 ---
 
@@ -16,303 +16,363 @@ Next.js App Router portfolio with a private Git-backed admin CMS. The public sit
 
 | Item | Status |
 |------|--------|
-| Next.js site on GitHub Pages | Live at [https://gazimaksudur.dev](https://gazimaksudur.dev) |
-| Custom domain `.dev` + HTTPS cert | Working (Let’s Encrypt via GitHub Pages) |
-| `gazimaksudur.me` → `.dev` redirect | Use **Cloudflare** (free) — see [Redirect gazimaksudur.me](#redirect-gazimaksudurme-via-cloudflare-free) |
-| Contact form (EmailJS) | Optional Actions secrets `NEXT_PUBLIC_EMAILJS_*` |
+| Public site on GitHub Pages | Live at [gazimaksudur.dev](https://gazimaksudur.dev) |
+| Custom domain + HTTPS | Working (GitHub Pages + Let’s Encrypt; Cloudflare proxy optional) |
+| `gazimaksudur.me` → `.dev` | Cloudflare free Redirect Rule (301, path + query preserved) |
+| Admin CMS (`/admin`) | PIN gate + fine-grained GitHub PAT → Contents API commits |
+| Contact form | EmailJS when `NEXT_PUBLIC_EMAILJS_*` secrets are set; otherwise `mailto:` fallback |
+| Bot / scanner mitigation | Cloudflare (Bot Fight Mode, WAF path blocks) in front of the edge |
 
 ---
 
-## Big picture
+## Architecture overview
+
+This is intentionally a **static-export** architecture: there is no Node server in production. Content is data files in Git; the build turns them into HTML/CSS/JS; Pages serves the `out/` folder.
 
 ```text
-┌─────────────────────┐     static HTML      ┌──────────────────────┐
-│  Visitor / recruiter │ ──────────────────▶ │  GitHub Pages        │
-│  gazimaksudur.dev    │                     │  (out/ from Actions) │
-└─────────────────────┘                     └──────────▲───────────┘
-                                                       │
-                                              push / workflow
-                                                       │
-┌─────────────────────┐   Contents API       ┌─────────┴───────────┐
-│  You at /admin       │ ──────────────────▶ │  GitHub repo        │
-│  PIN + fine-grained  │   commit content/*.json│  content/*.json   │
-│  PAT (session only)  │                     │  Actions rebuild    │
-└─────────────────────┘                     └─────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────┐
+│                         CONTENT SOURCE OF TRUTH                          │
+│                     content/*.json  (in this repo)                       │
+└───────────────────────────────┬──────────────────────────────────────────┘
+                                │
+        ┌───────────────────────┼───────────────────────┐
+        │                       │                       │
+        ▼                       ▼                       ▼
+┌───────────────┐     ┌─────────────────┐     ┌─────────────────────┐
+│ npm run build │     │ /admin UI       │     │ Manual git edit     │
+│ Zod-validate  │     │ Octokit commit  │     │ push to main        │
+│ → out/        │     │ content/*.json  │     │                     │
+└───────┬───────┘     └────────┬────────┘     └──────────┬──────────┘
+        │                      │                         │
+        │                      └──────────┬──────────────┘
+        │                                 │
+        │                                 ▼
+        │                      GitHub Actions (deploy.yml)
+        │                      checkout → npm ci → build → upload out/
+        │                                 │
+        ▼                                 ▼
+┌──────────────────────────────────────────────────────────────────────────┐
+│  GitHub Pages  ←── public/CNAME = gazimaksudur.dev                       │
+│  Static files only (HTML / CSS / JS / assets)                            │
+└────────────────────────────────┬───────────────────────────────────────┘
+                                 │
+                    Cloudflare (DNS / proxy / redirects / bot rules)
+                                 │
+                 ┌───────────────┴────────────────┐
+                 ▼                                ▼
+        gazimaksudur.dev                   gazimaksudur.me
+        (portfolio origin)                 (301 → .dev + path)
 ```
 
-- **Public site:** fully static. No Node server on Pages. Content is baked in at build time from `content/*.json`.
-- **Admin:** client-only UI. Writes go to GitHub via the API; the next Actions run regenerates the public HTML (~1–3 minutes).
-- **Auth:** a local PIN only hides the UI. Real authorization is a **GitHub fine-grained PAT** with Contents write on this repo (stored in `sessionStorage`, never committed).
+### Design principles
+
+1. **Git is the CMS database.** Editable portfolio data lives only in `content/*.json`. No external CMS, no database, no serverless write API on the host.
+2. **Build-time data binding.** `src/lib/content.ts` imports those JSON files and parses them with Zod. The public home page is a Server Component that reads content at build time and passes it into client section components.
+3. **Static export.** `next.config.mjs` sets `output: "export"`, `images.unoptimized: true`, and `trailingSlash: true` so the site works on GitHub Pages without a Node runtime.
+4. **Admin is a client-only writer.** `/admin` never talks to a custom backend. It uses the visitor’s fine-grained PAT in the browser to call the GitHub Contents API, then relies on Actions to republish.
+5. **Authorization is GitHub’s, not the PIN.** The local PIN only unlocks the UI shell. Real write access is the PAT’s repository Contents permission.
 
 ---
 
-## User flows
+## How the public site works
 
-### 1. Visitor (public portfolio)
+### Request path
 
-1. Opens `https://gazimaksudur.dev/` (or the `github.io` URL).
-2. Sees Banner → Projects → Experience → Skills → About → Education → Achievements → Certifications → Contact.
-3. Uses navbar / section dots / `Ctrl+K` command palette to jump sections.
-4. Downloads resume or sends a message via EmailJS (if keys are configured).
-5. Never sees `/admin` in navigation; `robots.txt` disallows `/admin/`.
+1. Browser hits `https://gazimaksudur.dev/` (or is redirected there from `.me`).
+2. Cloudflare may proxy/filter the request (bot rules, WAF).
+3. GitHub Pages serves the prebuilt file from the latest Actions deploy (`out/index.html`, assets, etc.).
+4. The single-page portfolio hydrates: navbar, section dots, command palette (`Ctrl+K`), Framer Motion sections, contact form.
 
-### 2. You — edit content via admin (recommended)
+### Page composition
+
+`src/app/page.tsx` loads all content once at build time via `getAllContent()`, then renders `PortfolioHome`:
+
+| Section | Component | Content source |
+|---------|-----------|----------------|
+| Hero | `Banner` | `site.banner`, `site.personalInfo` |
+| Projects | `Projects` / `ProjectCard` | `projects.json` |
+| Experience | `Experience` | `experience.json` |
+| Skills | `Skills` | `skills.json` |
+| About | `About` | `site.about`, `quickFacts`, `highlights` |
+| Education | `Education` | `education.json` |
+| Achievements | `Achievements` | `achievements.json` |
+| Certifications | `Certifications` | `certifications.json` |
+| Contact | `Connect` | `site.personalInfo` + EmailJS env |
+
+Chrome around the page: `Navbar`, `Footer`, `ProgressBar`, `SectionDots`, `CommandPalette`, skip-to-content link, back-to-top.
+
+### Routing model
+
+- The portfolio is a **single route** `/` with in-page hash sections (`/#projects`, `/#contact`, …).
+- `trailingSlash: true` means exported paths look like `/admin/`, `/admin/projects/`.
+- Legacy SPA-style paths such as `/projects/` are handled in `src/app/not-found.tsx`: the client soft-redirects known section names to `/#section`. Unknown paths show a real 404.
+- `public/robots.txt` allows `/` and disallows `/admin/`. Admin layout also sets `robots: { index: false, follow: false }`.
+
+### Contact form
+
+`Connect` uses `@emailjs/browser` when all three `NEXT_PUBLIC_EMAILJS_*` values are present at build time (injected in Actions from repository secrets). If any are missing, submit falls back to a `mailto:` link with the subject/body filled in. A honeypot field helps ignore trivial bots.
+
+### SEO
+
+Root layout builds metadata (title, description, Open Graph, Twitter card, canonical) and JSON-LD (`Person` + `WebSite`) from `site.json` SEO fields. Sitemap and robots live under `public/`.
+
+---
+
+## How the admin CMS works
+
+### Auth layers
+
+```text
+Browser /admin
+   │
+   ├─ 1. Local PIN  (NEXT_PUBLIC_ADMIN_PIN, default "admin")
+   │     → sessionStorage flag only — hides UI, not a security boundary
+   │
+   └─ 2. Fine-grained GitHub PAT
+         → verified with Octokit (getAuthenticated + repos.get)
+         → stored in sessionStorage for the tab session
+         → used for Contents read/write on this repo only
+```
+
+Logout clears both the PIN flag and the PAT from `sessionStorage`.
+
+### Edit → live pipeline
 
 1. Open `https://gazimaksudur.dev/admin/` (or `http://localhost:3000/admin` locally).
-2. Enter the UI PIN (default `admin`, or `NEXT_PUBLIC_ADMIN_PIN`).
-3. Paste a **fine-grained GitHub PAT** (this repo only, **Contents: Read and write**).
-4. Pick a section (Site, Projects, Experience, …).
-5. Edit with the form or JSON mode → **Validate** (Zod) → **Commit to GitHub** (or **Download JSON** offline).
-6. Wait for [Actions](https://github.com/gazimaksudur2/my-portfolio/actions) → Deploy to GitHub Pages to finish.
-7. Hard-refresh the live site to see updates.
+2. Unlock with PIN, paste PAT (Contents: Read and write on `my-portfolio` only).
+3. Choose a section (Site, Projects, Experience, …).
+4. Edit via structured forms or raw JSON mode.
+5. **Validate** against the matching Zod schema in `src/lib/schemas.ts`.
+6. **Commit to GitHub** → `commitContentFile()` base64-encodes JSON and calls `repos.createOrUpdateFileContents` on `main` (with the existing file SHA for updates).
+7. Push to `main` triggers [Deploy to GitHub Pages](.github/workflows/deploy.yml).
+8. After the workflow is green (~1–3 minutes), hard-refresh the live site.
 
-### 3. You — edit content by hand (no admin)
+Offline / mock path: **Download JSON** saves a file locally without committing (useful when you do not want to use a PAT).
 
-1. Edit files under [`content/`](content/).
-2. Commit and push to `main`.
-3. Actions builds and deploys automatically.
+### Admin routes
 
-### 4. Deploy / cutover (one-time)
+| Path | Edits |
+|------|--------|
+| `/admin/` | Dashboard overview |
+| `/admin/site/` | Profile, nav, banner, about, SEO |
+| `/admin/projects/` | Featured + grid projects |
+| `/admin/experience/` | Roles / internships |
+| `/admin/education/` | Academic timeline |
+| `/admin/skills/` | Categories + tech logo marquee |
+| `/admin/certifications/` | Credentials |
+| `/admin/achievements/` | Highlight wins |
 
-1. Enable Pages (Actions source) — see below.
-2. Re-run **Deploy to GitHub Pages** (or push any commit to `main`).
-3. Confirm the Pages URL works.
-4. Point DNS for `gazimaksudur.dev` at GitHub Pages.
-5. Point `gazimaksudur.me` at Cloudflare and add a Redirect Rule → `.dev` (below).
+Implementation: `AdminShell` (gate + nav) + `ContentEditor` / `ItemForm` + `src/lib/github.ts` + `src/lib/auth.ts`.
 
 ---
 
-## Redirect gazimaksudur.me via Cloudflare (free)
+## How deploy works
 
-Namecheap URL Forward does **not** support reliable HTTPS on `.me` (browser hangs / cert errors). Cloudflare free Redirect Rules terminate HTTPS at the edge and 301 to `.dev`.
+Workflow: [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)
 
-### 1. Add the domain to Cloudflare
+| Trigger | `push` to `main`, or manual **workflow_dispatch** |
+|---------|-----------------------------------------------------|
+| Build | Node 22 · `npm ci` · `npm run build` → `out/` |
+| Env baked into the static bundle | EmailJS secrets (optional), GitHub owner/repo/branch, `NEXT_PUBLIC_SITE_URL` |
+| Artifact | `actions/upload-pages-artifact` on `out/` |
+| Deploy | `actions/deploy-pages` into the `github-pages` environment |
+| Concurrency | One Pages deploy at a time; newer runs cancel in-progress ones |
 
-1. Log in at [dash.cloudflare.com](https://dash.cloudflare.com)
-2. **Add a domain** → enter `gazimaksudur.me` → Free plan
-3. Cloudflare shows two nameservers (e.g. `ada.ns.cloudflare.com`, `bob.ns.cloudflare.com`) — copy them
+`public/CNAME` ships `gazimaksudur.dev` with the export so Pages keeps the custom domain on each deploy.
 
-### 2. Point Namecheap nameservers at Cloudflare
+> `firebase.json` is leftover from an older hosting setup. **Primary host is GitHub Pages.** Do not treat Firebase as the production path.
 
-1. Namecheap → Domain List → `gazimaksudur.me` → **Domain** tab → **Nameservers**
-2. Choose **Custom DNS**
-3. Paste the two Cloudflare nameservers → Save  
-   (Propagation: often minutes, up to 24–48h)
+---
 
-### 3. Clean Advanced DNS leftovers on Namecheap
+## Hosting, DNS, and Cloudflare
 
-After NS switch, Namecheap host records no longer apply. Still remove any **URL Redirect** records there so you don’t get confused later.
+### gazimaksudur.dev (origin)
 
-### 4. Cloudflare DNS records (proxied)
+1. GitHub → **Settings → Pages** → Source = **GitHub Actions**.
+2. Custom domain = `gazimaksudur.dev`, **Enforce HTTPS** after DNS is ready.
+3. DNS at your registrar / Cloudflare: apex A/AAAA (or appropriately proxied records) per [GitHub Pages custom domains](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
+4. Prefer the custom domain so asset paths stay at `/` (no `/my-portfolio` `basePath`).
 
-In Cloudflare → `gazimaksudur.me` → **DNS** → **Records**:
+### gazimaksudur.me → .dev (Cloudflare free)
+
+Namecheap-style URL forward does not give reliable HTTPS on `.me`. Cloudflare Redirect Rules terminate TLS at the edge and 301 to `.dev`.
+
+**DNS (proxied):**
 
 | Type | Name | Content | Proxy |
 |------|------|---------|-------|
-| A | `@` | `192.0.2.1` | **Proxied** (orange cloud) |
-| CNAME | `www` | `gazimaksudur.me` | **Proxied** (orange cloud) |
+| A | `@` | `192.0.2.1` (documentation IP; redirect runs at edge) | Proxied |
+| CNAME | `www` | `gazimaksudur.me` | Proxied |
 
-`192.0.2.1` is a documentation IP. Traffic never needs a real origin because the Redirect Rule runs at Cloudflare’s edge.
-
-### 5. Cloudflare Redirect Rule
-
-1. **Rules** → **Redirect Rules** → **Create rule**
-2. Rule name: `me-to-dev`
-3. **If incoming requests match…** → Custom filter expression:
+**Redirect Rule** (custom expression):
 
 ```text
 (http.host eq "gazimaksudur.me") or (http.host eq "www.gazimaksudur.me")
 ```
 
-4. **Then…** → **Dynamic** redirect:
+Dynamic target:
 
 ```text
 concat("https://gazimaksudur.dev", http.request.uri.path)
 ```
 
-5. Status code: **301**
-6. Enable **Preserve query string**
-7. Deploy the rule
+Status **301**, preserve query string. SSL/TLS mode **Full** (or Flexible for redirect-only).
 
-### 6. SSL/TLS
-
-1. **SSL/TLS** → Overview → mode **Full** (or **Flexible** is also fine for redirect-only)
-2. Wait for **Universal SSL** to show Active for `gazimaksudur.me` (can take up to 24h first time; often sooner)
-
-### 7. Verify
+**Verify:**
 
 ```bash
-curl -sI https://gazimaksudur.me/
-# 301 Location: https://gazimaksudur.dev/
+curl -sI https://gazimaksudur.me/ | rg -i '^(HTTP/|location:)'
+# → 301 Location: https://gazimaksudur.dev/
 
-curl -sI https://gazimaksudur.me/projects/
-# 301 Location: https://gazimaksudur.dev/projects/
+curl -sI https://gazimaksudur.me/projects/ | rg -i '^(HTTP/|location:)'
+# → 301 Location: https://gazimaksudur.dev/projects/
 ```
 
-After the section-404 fix is on `main`, `/projects/` on `.dev` soft-redirects to `/#projects`.
+### Recommended Cloudflare hardening (free)
+
+On the proxied zone(s):
+
+- **Bot Fight Mode** on; block AI scrapers if desired
+- Security Level Medium/High; Browser Integrity Check on
+- SSL/TLS **Full** when origin is GitHub Pages HTTPS
+- Optional WAF custom rule to block common probes, e.g. paths containing `wp-admin`, `wp-login`, `xmlrpc`, `.env`, or ending in `.php`
+
+**Smoke check:**
+
+```bash
+echo "DEV:";  curl -sI https://gazimaksudur.dev/ | rg -i '^(HTTP/|server:|cf-ray:|cf-mitigated:|location:)'; \
+echo "ME:";   curl -sI https://gazimaksudur.me/ | rg -i '^(HTTP/|server:|location:|cf-ray:)'; \
+echo "BOT:";  curl -sI -A 'python-requests/2.31.0' https://gazimaksudur.dev/ | rg -i '^(HTTP/|server:|cf-mitigated:|cf-ray:)'; \
+echo "SCAN:"; curl -sI https://gazimaksudur.dev/wp-admin/ | rg -i '^(HTTP/|server:|cf-mitigated:|cf-ray:)'
+```
+
+Datacenter/VPS curls often get `403` + `cf-mitigated: challenge` when Bot Fight Mode is working — that is expected.
 
 ---
 
-## Get the deployed page link
+## Content model
 
-The build already works. Deploy failed with:
+All editable data is under [`content/`](content/), validated by [`src/lib/schemas.ts`](src/lib/schemas.ts).
 
-> `Ensure GitHub Pages has been enabled`
+| File | Responsibility |
+|------|----------------|
+| `site.json` | Personal info, nav links, banner/hero, about, quick facts, highlights, SEO |
+| `projects.json` | Featured projects + grid items |
+| `experience.json` | Work / internship timeline |
+| `education.json` | Academic timeline |
+| `skills.json` | Skill categories + tech logo marquee URLs |
+| `certifications.json` | Credentials + verification links |
+| `achievements.json` | Highlight wins |
 
-### Step A — Enable GitHub Pages (required)
-
-1. Open **[Settings → Pages](https://github.com/gazimaksudur2/my-portfolio/settings/pages)**.
-2. Under **Build and deployment → Source**, choose **GitHub Actions** (not “Deploy from a branch”).
-3. Save. GitHub may create a `github-pages` environment the first time the workflow runs.
-
-### Step B — Run the deploy workflow
-
-1. Open **[Actions → Deploy to GitHub Pages](https://github.com/gazimaksudur2/my-portfolio/actions/workflows/deploy.yml)**.
-2. Click **Run workflow** → branch `main` → **Run workflow**.  
-   Or push any commit to `main`.
-3. Wait until both **build** and **deploy** jobs are green.
-
-### Step C — Copy your live URLs
-
-After a successful deploy:
-
-| URL | When to use |
-|-----|-------------|
-| **https://gazimaksudur2.github.io/my-portfolio/** | Works immediately for a *project* site (this repo name). |
-| **https://gazimaksudur.dev** | After DNS points to GitHub Pages (see Step D). |
-| **Actions run → deploy job → environment URL** | Exact Pages URL GitHub reports for that deployment. |
-
-> **Note on base path:** this project is configured with `basePath`-free URLs and `public/CNAME` for the custom domain (`/`). If you use only `github.io/my-portfolio` *without* a custom domain, asset paths may need a `basePath` of `/my-portfolio`. Prefer enabling the custom domain (Step D) so `/` keeps working.
-
-### Step D — Custom domain (gazimaksudur.dev)
-
-1. Repo already has [`public/CNAME`](public/CNAME) = `gazimaksudur.dev`.
-2. In Pages settings, confirm **Custom domain** = `gazimaksudur.dev` and enable **Enforce HTTPS** after DNS propagates.
-3. At your DNS provider, point the domain at GitHub Pages:
-   - **Apex** `gazimaksudur.dev`: GitHub’s A/AAAA records (see [GitHub Pages custom domain docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)), **or**
-   - **www** CNAME → `gazimaksudur2.github.io`
-4. Use Cloudflare for `gazimaksudur.me` redirects (see above).
-5. Firebase Hosting configs are leftover reference only — primary host is GitHub Pages.
-
-### Step E — Optional production secrets
-
-In **Settings → Secrets and variables → Actions**, add:
-
-- `NEXT_PUBLIC_EMAILJS_SERVICE_ID`
-- `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`
-- `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`
-
-Without these, the site still deploys; the contact form falls back to mailto behavior.
-
----
-
-## Create a GitHub PAT for `/admin`
-
-1. GitHub → **Settings → Developer settings → Personal access tokens → Fine-grained tokens**.
-2. Resource owner: you · Repository access: **Only select repositories** → `my-portfolio`.
-3. Permissions: **Contents → Read and write** (nothing else required).
-4. Generate, copy once, paste into `/admin` login. Token stays in `sessionStorage` until the tab closes.
-
----
-
-## Local development
-
-```bash
-cp .env.example .env.local   # EmailJS + optional NEXT_PUBLIC_ADMIN_PIN
-npm install
-npm run dev
-```
-
-| URL | Purpose |
-|-----|---------|
-| http://localhost:3000 | Public portfolio |
-| http://localhost:3000/admin | Content admin |
-
-```bash
-npm run build       # static export → out/
-npm run typecheck
-npm run lint
-```
-
-Preview the export locally: `npx serve out`
+Build-time loaders: [`src/lib/content.ts`](src/lib/content.ts). Path map used by admin commits: `contentFilePaths`.
 
 ---
 
 ## Project structure
 
 ```text
-content/                 # Source of truth for editable portfolio data
-  site.json              # Profile, nav, banner, about, SEO
-  projects.json
-  experience.json
-  education.json
-  skills.json
-  certifications.json
-  achievements.json
+content/                      # Source of truth for portfolio data
 src/
-  app/                   # App Router (page.tsx = public home, admin/*)
+  app/
+    page.tsx                  # Public home (build-time content → PortfolioHome)
+    layout.tsx                # Global metadata + JSON-LD
+    not-found.tsx             # Section-path soft redirects + 404
+    admin/                    # Static admin routes (layout is noindex)
   components/
-    sections/            # Banner, Projects, Experience, …
-    layout/              # Navbar, Footer, CommandPalette, …
-    admin/               # AdminShell, ContentEditor, LoginForm
+    sections/                 # Banner, Projects, Experience, Skills, …
+    layout/                   # Navbar, Footer, CommandPalette, ProgressBar, SectionDots
+    admin/                    # AdminShell, LoginForm, ContentEditor, ItemForm
+    ui/                       # Shared UI bits
   lib/
-    schemas.ts           # Zod schemas
-    content.ts           # Build-time loaders
-    github.ts            # Octokit Contents helpers
-    auth.ts              # PIN + PAT session helpers
-public/                  # robots, sitemap, CNAME, favicon, manifest
-.github/workflows/
-  deploy.yml             # build → upload Pages artifact → deploy
+    schemas.ts                # Zod schemas + ContentFileKey
+    content.ts                # Import + parse JSON at build time
+    github.ts                 # Octokit verify / get / commit helpers
+    auth.ts                   # PIN + PAT sessionStorage helpers
+  hooks/                      # useCountUp, useScrollNav, …
+  utils/                      # Motion helpers
+public/
+  CNAME                       # gazimaksudur.dev
+  robots.txt / sitemap.xml
+  favicon.svg / site.webmanifest
+.github/workflows/deploy.yml  # Build + GitHub Pages deploy
+next.config.mjs               # output: "export", trailingSlash, unoptimized images
 ```
 
 ---
 
-## Content model (what `/admin` can edit)
+## Local development
 
-| File | Manages |
-|------|---------|
-| `site.json` | Name, contact, socials, nav, banner, about, SEO |
-| `projects.json` | Featured + grid projects |
-| `experience.json` | Jobs / internships |
-| `education.json` | Academic timeline |
-| `skills.json` | Categories + tech logo marquee |
-| `certifications.json` | Credentials + verification links |
-| `achievements.json` | Highlight wins |
+```bash
+cp .env.example .env.local   # EmailJS + optional admin PIN + GitHub targets
+npm install
+npm run dev
+```
 
-Schemas: [`src/lib/schemas.ts`](src/lib/schemas.ts).
+| URL | Purpose |
+|-----|---------|
+| http://localhost:3000/ | Public portfolio |
+| http://localhost:3000/admin/ | Content admin |
+
+```bash
+npm run build       # static export → out/
+npm run typecheck
+npm run lint
+npx serve out       # preview the exact Pages artifact locally
+```
+
+Admin against the real repo from localhost still uses your browser PAT and commits to the configured owner/repo/branch (`NEXT_PUBLIC_GITHUB_*`).
 
 ---
 
 ## Environment variables
 
-See [`.env.example`](.env.example).
+See [`.env.example`](.env.example). All of these are `NEXT_PUBLIC_*` and therefore visible in the client bundle — never put secret write credentials here except the user-pasted PAT at runtime (which is not an env var).
 
 | Variable | Role |
 |----------|------|
-| `NEXT_PUBLIC_EMAILJS_*` | Contact form |
-| `NEXT_PUBLIC_GITHUB_OWNER` / `REPO` / `BRANCH` | Admin commit target (defaults to this repo / `main`) |
-| `NEXT_PUBLIC_SITE_URL` | Canonical site URL for metadata |
+| `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | Contact form service |
+| `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID` | Contact form template |
+| `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | EmailJS public key |
+| `NEXT_PUBLIC_GITHUB_OWNER` | Admin API owner (default `gazimaksudur2`) |
+| `NEXT_PUBLIC_GITHUB_REPO` | Admin API repo (default `my-portfolio`) |
+| `NEXT_PUBLIC_GITHUB_BRANCH` | Commit branch (default `main`) |
+| `NEXT_PUBLIC_SITE_URL` | Canonical site URL for metadata / Actions |
 | `NEXT_PUBLIC_ADMIN_PIN` | Optional UI gate only (default `admin`) |
+
+For production builds, set the EmailJS trio as **Actions secrets** (same names). The workflow already passes them into `npm run build`.
+
+---
+
+## Create a GitHub PAT for `/admin`
+
+1. GitHub → **Settings → Developer settings → Personal access tokens → Fine-grained tokens**.
+2. Resource owner: you · Repository access: **Only** `my-portfolio`.
+3. Permissions: **Contents → Read and write** (nothing else required).
+4. Generate, copy once, paste into `/admin` login.
+5. Token stays in `sessionStorage` until the tab closes or you log out — it is never committed.
 
 ---
 
 ## Security notes
 
-- Do **not** rely on the admin PIN alone — it is client-side.
-- Do **not** commit PATs or put them in Actions secrets for the static site; enter the PAT in the browser when using admin.
-- Prefer a fine-grained PAT limited to this repository and Contents write.
-- `/admin` is `noindex` and omitted from public nav.
+- The admin PIN is **client-side only**. Anyone who can open DevTools can bypass it; treat it as a soft gate.
+- Real protection is the **scoped PAT** and GitHub permissions. Prefer fine-grained, repo-limited, Contents-only tokens; rotate if leaked.
+- Do **not** commit PATs or bake them into Actions secrets for the static site.
+- `/admin` is omitted from public nav, disallowed in `robots.txt`, and marked `noindex`.
+- Contact form includes a honeypot; Cloudflare bot/WAF rules add edge filtering.
+- Static hosting means there is no server-side session or privileged API on Pages itself.
 
 ---
 
-## Checklist after enabling Pages
+## End-to-end checklist
 
-- [ ] Settings → Pages → Source = **GitHub Actions**
-- [ ] Actions → Deploy to GitHub Pages → green **build** + **deploy**
-- [ ] Open the Pages URL and confirm the Next.js site (Achievements section present, `/admin` loads PIN gate)
-- [ ] Custom domain + HTTPS for `gazimaksudur.dev`
-- [ ] EmailJS Actions secrets (optional but recommended)
-- [ ] Fine-grained PAT created; smoke-test one admin save → Actions rebuild
+- [ ] Pages source = **GitHub Actions**; latest Deploy workflow green
+- [ ] `https://gazimaksudur.dev/` serves the Next.js portfolio
+- [ ] `https://gazimaksudur.me/` 301s to `.dev` with path preserved
+- [ ] `/admin/` shows PIN / PAT gate; public nav has no Admin link
+- [ ] One admin save → commit on `main` → Actions rebuild → live content updates
+- [ ] EmailJS secrets present (or confirm mailto fallback)
+- [ ] Cloudflare bot / WAF settings as desired
 
 ---
 
