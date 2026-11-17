@@ -1,3 +1,9 @@
+# Netlify is used only for gazimaksudur.me → gazimaksudur.dev redirects (+ optional preview).
+# Primary hosting is GitHub Pages at https://gazimaksudur.dev
+
+[build]
+  command = "npm run build"
+  publish = "out"
 
 [[redirects]]
   from = "http://gazimaksudur.me/*"
