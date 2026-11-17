@@ -339,7 +339,22 @@ See [`.env.example`](.env.example). All of these are `NEXT_PUBLIC_*` and therefo
 | `NEXT_PUBLIC_SITE_URL` | Canonical site URL for metadata / Actions |
 | `NEXT_PUBLIC_ADMIN_PIN` | Optional UI gate only (default `admin`) |
 
-For production builds, set the EmailJS trio as **Actions secrets** (same names). The workflow already passes them into `npm run build`.
+### Where to put production EmailJS secrets
+
+`NEXT_PUBLIC_*` values are **inlined at `next build` time**. The deploy job never injects them into the already-built HTML/JS.
+
+Because this repo’s deploy uses the GitHub-created **`github-pages` environment**, put the three EmailJS keys there:
+
+1. Repo → **Settings → Environments → `github-pages`**
+2. **Environment secrets** → add (exact names):
+   - `NEXT_PUBLIC_EMAILJS_SERVICE_ID`
+   - `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`
+   - `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY`
+3. Re-run **Actions → Deploy to GitHub Pages** on `main` (or push a commit).
+
+Repository-level **Settings → Secrets and variables → Actions → Secrets** also work, but environment secrets under `github-pages` are only visible to jobs that declare `environment: github-pages`. The build job does that so your form does not silently fall back to `mailto:`.
+
+If any of the three are missing at build time, the workflow fails the verify step instead of shipping a mailto-only form by mistake.
 
 ---
 
@@ -371,7 +386,7 @@ For production builds, set the EmailJS trio as **Actions secrets** (same names).
 - [ ] `https://gazimaksudur.me/` 301s to `.dev` with path preserved
 - [ ] `/admin/` shows PIN / PAT gate; public nav has no Admin link
 - [ ] One admin save → commit on `main` → Actions rebuild → live content updates
-- [ ] EmailJS secrets present (or confirm mailto fallback)
+- [ ] EmailJS secrets on **Environments → github-pages** (or repo Actions secrets); Deploy workflow verify step green; form does not open mailto
 - [ ] Cloudflare bot / WAF settings as desired
 
 ---
