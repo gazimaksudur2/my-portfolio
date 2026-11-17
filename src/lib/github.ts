@@ -5,7 +5,7 @@ import { contentFilePaths } from "./content";
 function repoConfig() {
   return {
     owner: process.env.NEXT_PUBLIC_GITHUB_OWNER || "gazimaksudur2",
-    repo: process.env.NEXT_PUBLIC_GITHUB_REPO || "my-portfolio",
+    repo: process.env.NEXT_PUBLIC_GITHUB_REPO || "gazimaksudur",
     branch: process.env.NEXT_PUBLIC_GITHUB_BRANCH || "main",
   };
 }
