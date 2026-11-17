@@ -6,7 +6,7 @@ A static Next.js portfolio with a private, Git-backed admin CMS. Visitors get a 
 |---|---|
 | **Live site** | [https://gazimaksudur.dev](https://gazimaksudur.dev) |
 | **Alias** | [https://gazimaksudur.me](https://gazimaksudur.me) → 301 to `.dev` (Cloudflare) |
-| **Repo** | [gazimaksudur2/my-portfolio](https://github.com/gazimaksudur2/my-portfolio) |
+| **Repo** | [gazimaksudur2/gazimaksudur](https://github.com/gazimaksudur2/gazimaksudur) |
 | **Admin** | [`/admin/`](https://gazimaksudur.dev/admin/) (not linked in public nav; `noindex`) |
 | **Stack** | Next.js 15 · React 19 · TypeScript · Tailwind · Framer Motion · Zod · Octokit · EmailJS |
 
@@ -139,7 +139,7 @@ Logout clears both the PIN flag and the PAT from `sessionStorage`.
 ### Edit → live pipeline
 
 1. Open `https://gazimaksudur.dev/admin/` (or `http://localhost:3000/admin` locally).
-2. Unlock with PIN, paste PAT (Contents: Read and write on `my-portfolio` only).
+2. Unlock with PIN, paste PAT (Contents: Read and write on this repo only).
 3. Choose a section (Site, Projects, Experience, …).
 4. Edit via structured forms or raw JSON mode.
 5. **Validate** against the matching Zod schema in `src/lib/schemas.ts`.
