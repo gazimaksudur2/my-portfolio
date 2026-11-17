@@ -16,15 +16,17 @@ const parseStat = (value: string) => {
 };
 
 export const useCountUp = (value: string, { duration = 1400 } = {}) => {
-  const parsed = parseStat(value);
   const ref = useRef<HTMLElement | null>(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -80px 0px" });
-  const [display, setDisplay] = useState(
-    parsed.numeric ? `${parsed.prefix}0${parsed.suffix}` : parsed.raw
-  );
+  const [display, setDisplay] = useState(() => {
+    const parsed = parseStat(value);
+    return parsed.numeric ? `${parsed.prefix}0${parsed.suffix}` : parsed.raw;
+  });
   const frameRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
+    const parsed = parseStat(value);
+
     if (!parsed.numeric) {
       setDisplay(parsed.raw);
       return;
@@ -33,6 +35,7 @@ export const useCountUp = (value: string, { duration = 1400 } = {}) => {
 
     let start: number | undefined;
     const isFloat = !Number.isInteger(parsed.target);
+    let rafId: number | undefined;
 
     const tick = (timestamp: number) => {
       if (start === undefined) start = timestamp;
@@ -41,14 +44,20 @@ export const useCountUp = (value: string, { duration = 1400 } = {}) => {
       const current = parsed.target * eased;
       const shown = isFloat ? current.toFixed(1) : Math.round(current);
       setDisplay(`${parsed.prefix}${shown}${parsed.suffix}`);
-      if (progress < 1) frameRef.current = requestAnimationFrame(tick);
+      if (progress < 1) {
+        rafId = requestAnimationFrame(tick);
+        frameRef.current = rafId;
+      }
     };
 
-    frameRef.current = requestAnimationFrame(tick);
+    rafId = requestAnimationFrame(tick);
+    frameRef.current = rafId;
+
     return () => {
-      if (frameRef.current) cancelAnimationFrame(frameRef.current);
+      if (rafId !== undefined) cancelAnimationFrame(rafId);
+      if (frameRef.current !== undefined) cancelAnimationFrame(frameRef.current);
     };
-  }, [inView, duration, parsed]);
+  }, [inView, duration, value]);
 
   return { ref, display };
 };

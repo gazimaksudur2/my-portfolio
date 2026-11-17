@@ -37,7 +37,7 @@ const StatCard = ({
       transition={{ duration: 0.5, delay: index * 0.08 }}
       className="text-center rounded-2xl glass-card p-5"
     >
-      <div className="text-3xl lg:text-4xl font-bold font-syne text-gradient mb-1">
+      <div className="text-3xl lg:text-4xl font-bold font-syne text-gradient mb-1 tabular-nums">
         {display}
       </div>
       <div className="text-content-muted text-sm font-medium">{label}</div>
@@ -247,15 +247,15 @@ const Banner = ({ banner, personalInfo }: BannerProps) => {
 
       <button
         onClick={() => scrollToSection("#projects")}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan"
         aria-label={banner.cta.scrollAria}
       >
-        <div
-          className="w-6 h-10 border-2 border-accent-cyan/40 rounded-full flex justify-center"
-          aria-hidden="true"
-        >
-          <div className="w-1 h-3 bg-accent-cyan rounded-full mt-2 animate-pulse" />
-        </div>
+        {/* Bounce on an inner wrapper so it does not override -translate-x-1/2 */}
+        <span className="block animate-bounce" aria-hidden="true">
+          <span className="flex h-10 w-6 items-start justify-center rounded-full border-2 border-accent-cyan/40 pt-2">
+            <span className="h-3 w-1 shrink-0 rounded-full bg-accent-cyan animate-pulse" />
+          </span>
+        </span>
       </button>
     </section>
   );
