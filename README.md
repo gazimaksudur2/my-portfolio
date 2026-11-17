@@ -12,20 +12,14 @@ Next.js App Router portfolio with a private Git-backed admin CMS. The public sit
 
 ---
 
-## Current status (as of merge of the Next.js rebuild)
+## Current status
 
 | Item | Status |
 |------|--------|
-| Next.js rebuild on `main` | Done (PR [#1](https://github.com/gazimaksudur2/my-portfolio/pull/1) merged) |
-| Local / CI **build** (`npm run build` → `out/`) | Passing |
-| GitHub Actions **deploy** job | Failed once — Pages not enabled yet |
-| GitHub Pages (`Settings → Pages`) | **Not enabled** (`has_pages: false`) — this is the blocker |
-| Custom domain `gazimaksudur.dev` | Configured in repo via [`public/CNAME`](public/CNAME); DNS may still point at the previous host (Firebase / Netlify) until you cut over |
-| Contact form (EmailJS) | Needs `NEXT_PUBLIC_EMAILJS_*` in `.env.local` locally and as Actions secrets for production builds |
-
-**What you need to do next (human-only, ~5 minutes):** enable GitHub Pages and re-run the deploy workflow. Step-by-step is in [Get the deployed page link](#get-the-deployed-page-link).
-
-Until Pages is enabled, visitors may still see the **previous** Firebase/Netlify site at `gazimaksudur.dev` / `gazimaksudur.me`, not this Next.js build.
+| Next.js site on GitHub Pages | Live at [https://gazimaksudur.dev](https://gazimaksudur.dev) |
+| Custom domain `.dev` + HTTPS cert | Working (Let’s Encrypt via GitHub Pages) |
+| `gazimaksudur.me` → `.dev` redirect | Use **Cloudflare** (free) — see [Redirect gazimaksudur.me](#redirect-gazimaksudurme-via-cloudflare-free) |
+| Contact form (EmailJS) | Optional Actions secrets `NEXT_PUBLIC_EMAILJS_*` |
 
 ---
 
@@ -84,7 +78,78 @@ Until Pages is enabled, visitors may still see the **previous** Firebase/Netlify
 2. Re-run **Deploy to GitHub Pages** (or push any commit to `main`).
 3. Confirm the Pages URL works.
 4. Point DNS for `gazimaksudur.dev` at GitHub Pages.
-5. Optionally keep Netlify redirects from `gazimaksudur.me` → `gazimaksudur.dev`.
+5. Point `gazimaksudur.me` at Cloudflare and add a Redirect Rule → `.dev` (below).
+
+---
+
+## Redirect gazimaksudur.me via Cloudflare (free)
+
+Namecheap URL Forward does **not** support reliable HTTPS on `.me` (browser hangs / cert errors). Cloudflare free Redirect Rules terminate HTTPS at the edge and 301 to `.dev`.
+
+### 1. Add the domain to Cloudflare
+
+1. Log in at [dash.cloudflare.com](https://dash.cloudflare.com)
+2. **Add a domain** → enter `gazimaksudur.me` → Free plan
+3. Cloudflare shows two nameservers (e.g. `ada.ns.cloudflare.com`, `bob.ns.cloudflare.com`) — copy them
+
+### 2. Point Namecheap nameservers at Cloudflare
+
+1. Namecheap → Domain List → `gazimaksudur.me` → **Domain** tab → **Nameservers**
+2. Choose **Custom DNS**
+3. Paste the two Cloudflare nameservers → Save  
+   (Propagation: often minutes, up to 24–48h)
+
+### 3. Clean Advanced DNS leftovers on Namecheap
+
+After NS switch, Namecheap host records no longer apply. Still remove any **URL Redirect** records there so you don’t get confused later.
+
+### 4. Cloudflare DNS records (proxied)
+
+In Cloudflare → `gazimaksudur.me` → **DNS** → **Records**:
+
+| Type | Name | Content | Proxy |
+|------|------|---------|-------|
+| A | `@` | `192.0.2.1` | **Proxied** (orange cloud) |
+| CNAME | `www` | `gazimaksudur.me` | **Proxied** (orange cloud) |
+
+`192.0.2.1` is a documentation IP. Traffic never needs a real origin because the Redirect Rule runs at Cloudflare’s edge.
+
+### 5. Cloudflare Redirect Rule
+
+1. **Rules** → **Redirect Rules** → **Create rule**
+2. Rule name: `me-to-dev`
+3. **If incoming requests match…** → Custom filter expression:
+
+```text
+(http.host eq "gazimaksudur.me") or (http.host eq "www.gazimaksudur.me")
+```
+
+4. **Then…** → **Dynamic** redirect:
+
+```text
+concat("https://gazimaksudur.dev", http.request.uri.path)
+```
+
+5. Status code: **301**
+6. Enable **Preserve query string**
+7. Deploy the rule
+
+### 6. SSL/TLS
+
+1. **SSL/TLS** → Overview → mode **Full** (or **Flexible** is also fine for redirect-only)
+2. Wait for **Universal SSL** to show Active for `gazimaksudur.me` (can take up to 24h first time; often sooner)
+
+### 7. Verify
+
+```bash
+curl -sI https://gazimaksudur.me/
+# 301 Location: https://gazimaksudur.dev/
+
+curl -sI https://gazimaksudur.me/projects/
+# 301 Location: https://gazimaksudur.dev/projects/
+```
+
+After the section-404 fix is on `main`, `/projects/` on `.dev` soft-redirects to `/#projects`.
 
 ---
 
@@ -126,8 +191,8 @@ After a successful deploy:
 3. At your DNS provider, point the domain at GitHub Pages:
    - **Apex** `gazimaksudur.dev`: GitHub’s A/AAAA records (see [GitHub Pages custom domain docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)), **or**
    - **www** CNAME → `gazimaksudur2.github.io`
-4. Keep [`netlify.toml`](netlify.toml) redirects if you still want `gazimaksudur.me` → `gazimaksudur.dev`.
-5. After cutover, you can stop using Firebase Hosting as the primary host (configs left in-repo for reference only).
+4. Prefer Cloudflare for `gazimaksudur.me` redirects (see above). [`netlify.toml`](netlify.toml) redirects are optional/legacy only.
+5. Firebase Hosting configs are leftover reference only — primary host is GitHub Pages.
 
 ### Step E — Optional production secrets
 
