@@ -1,5 +1,8 @@
-# Netlify is used only for gazimaksudur.me → gazimaksudur.dev redirects (+ optional preview).
-# Primary hosting is GitHub Pages at https://gazimaksudur.dev
+# Legacy / optional. Prefer Cloudflare Redirect Rules for gazimaksudur.me → gazimaksudur.dev
+# (see README). Primary hosting is GitHub Pages at https://gazimaksudur.dev
+#
+# If you still deploy this site on Netlify for previews only, these host-based
+# redirects apply when the request Host is *.gazimaksudur.me.
 
 [build]
   command = "npm run build"
