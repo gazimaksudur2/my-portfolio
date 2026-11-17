@@ -8,7 +8,7 @@
   "items": [
     {
       "id": "aws-certification-practice-hub",
-      "featured": true,
+      "featured": false,
       "projectType": "AWS Certification Preparation",
       "projectTitle": "AWS Certification Practice Hub",
       "projectDescription": "A browser-based study app for AWS certification exams. Take timed practice quizzes that mirror exam pressure, use untimed guided practice with instant feedback, browse the full question bank, and review AWS services.",
