@@ -115,6 +115,32 @@
         "Real-time room availability tracking and booking state management.",
         "JWT-based session management for secure data access."
       ]
+    },
+    {
+      "id": "sylotea",
+      "featured": true,
+      "projectType": "A production grade COD E-commerce Platform",
+      "projectTitle": "SyloTea — COD E-commerce Platform",
+      "projectDescription": "Independently built a mobile-first e-commerce platform for a digital e-commerce business, with a customer storefront and role-based admin dashboard. Designed a modular Next.js architecture and implemented secure server-side pricing, inventory-aware COD checkout, order tracking, and automated email and invoice workflows.",
+      "skills": [
+        "Next.js",
+        "TypeScript",
+        "React",
+        "Tailwind CSS",
+        "MySQL",
+        "Drizzle ORM",
+        "Zustand"
+      ],
+      "liveSiteLink": "https://sylotea.com",
+      "githubClientRepoLink": null,
+      "githubServerRepoLink": null,
+      "bannerImgUrl": "https://res.cloudinary.com/dsawnilz3/image/upload/v1794933480/Screenshot_2026-11-17_223730_ijt0bf.png",
+      "features": [
+        "Created a mobile-first storefront with product browsing, variants, cart, checkout, and delivery-zone pricing.",
+        "Implemented server-side price validation, stock checks, and transactional order creation for reliable COD checkout.",
+        "Developed a role-based admin panel for orders, offline sales, catalog updates, inventory, and staff management.",
+        "Generated order emails and COD invoice PDFs, plus customer tracking using order-reference and phone verification."
+      ]
     }
   ]
 }
